@@ -34,6 +34,7 @@ foreign key (user_id) references `user` (user_id) on delete set null,
 status_id int,
 foreign key(status_id) references order_status (status_id) on delete set null
 );
+
 create table detail_order (
 detail_order_id int primary key,
 quality int,
