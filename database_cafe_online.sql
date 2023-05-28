@@ -7,7 +7,7 @@ name_type varchar(20) not null
 create table `user`(
 user_id int primary key,
 user_name varchar(50) not null unique,
-user_password varchar(100) not null,
+user_password varchar(100) not null[]
 user_email varchar(50) not null unique,
 user_phone_number varchar(20) unique,
 id_type_user int,
