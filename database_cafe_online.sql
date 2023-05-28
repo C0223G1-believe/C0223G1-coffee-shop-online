@@ -1,47 +1,47 @@
 CREATE DATABASE shop_cafe_online;
 USE shop_cafe_online;
-create table type_user (
-id_type_user int primary key,
-name_type varchar(20) not null
+CREATE TABLE type_user (
+id_type_user INT PRIMARY KEY,
+name_type VARCHAR(20) NOT NULL
 );
-create table `user`(
-user_id int primary key,
-user_name varchar(50) not null unique,
-user_password varchar(100) not null[]
-user_email varchar(50) not null unique,
-user_phone_number varchar(20) unique,
-id_type_user int,
-foreign key ( id_type_user ) references type_user (id_type_user) on delete set null
+CREATE TABLE `user`(
+user_id INT PRIMARY KEY,
+user_name VARCHAR(50) NOT NULL UNIQUE,
+user_password VARCHAR(100) NOT NULL,
+user_email VARCHAR(50) NOT NULL UNIQUE,
+user_phone_number VARCHAR(20) UNIQUE,
+id_type_user INT DEFAULT'2',
+FOREIGN KEY ( id_type_user ) REFERENCES type_user (id_type_user) ON DELETE SET NULL
 );
-create table product (
-product_id int primary key auto_increment,
-product_name varchar(50) not null,
-product_price double not null,
-product_description varchar(200),
-product_image varchar(500)
+CREATE TABLE product (
+product_id INT PRIMARY KEY AUTO_INCREMENT,
+product_name VARCHAR(50) NOT NULL,
+product_price DOUBLE NOT NULL,
+product_description VARCHAR(200),
+product_image VARCHAR(500)
 );
-create table order_status (
-status_id int primary key,
-`status` varchar(50) not null
+CREATE TABLE order_status (
+status_id INT PRIMARY KEY,
+`status` VARCHAR(50) NOT NULL
 );
-create table `order` (
-order_id int primary key auto_increment,
-order_date datetime not null,
-`comment` varchar(100),
-address varchar(50) not null,
-user_id int,
-foreign key (user_id) references `user` (user_id) on delete set null,
-status_id int,
-foreign key(status_id) references order_status (status_id) on delete set null
+CREATE TABLE `order` (
+order_id INT PRIMARY KEY AUTO_INCREMENT,
+order_date DATETIME NOT NULL,
+`comment` VARCHAR(100),
+address VARCHAR(50) NOT NULL,
+user_id INT,
+FOREIGN KEY (user_id) REFERENCES `user` (user_id) ON DELETE SET NULL,
+status_id INT,
+FOREIGN KEY(status_id) REFERENCES order_status (status_id) ON DELETE SET NULL
 );
 
-create table detail_order (
-detail_order_id int primary key,
-quality int,
-order_id int,
-foreign key (order_id) references `order`(order_id),
-product_id int,
-foreign key (product_id) references product (product_id)
+CREATE TABLE detail_order (
+detail_order_id INT PRIMARY KEY,
+quality INT,
+order_id INT,
+FOREIGN KEY (order_id) REFERENCES `order`(order_id),
+product_id INT,
+FOREIGN KEY (product_id) REFERENCES product (product_id)
 );
 
 
