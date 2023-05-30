@@ -1,0 +1,43 @@
+Index: database_cafe_online.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>CREATE DATABASE shop_cafe_online;\r\nUSE shop_cafe_online;\r\nCREATE TABLE users (\r\n    user_id INT AUTO_INCREMENT PRIMARY KEY,\r\n    user_name VARCHAR(50) NOT NULL,\r\n    pass_word VARCHAR(50) NOT NULL UNIQUE,\r\n    email VARCHAR(50) NOT NULL UNIQUE,\r\n    phone VARCHAR(10)NOT NULL \r\n);
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/database_cafe_online.sql b/database_cafe_online.sql
+--- a/database_cafe_online.sql	(revision e83b1a891a584d16ea1cd23eba036b046c17acb8)
++++ b/database_cafe_online.sql	(date 1685170069222)
+@@ -4,6 +4,29 @@
+     user_id INT AUTO_INCREMENT PRIMARY KEY,
+     user_name VARCHAR(50) NOT NULL,
+     pass_word VARCHAR(50) NOT NULL UNIQUE,
++	full_name VARCHAR(50) NOT NULL,
++    birth_date VARCHAR(50) NOT NULL,
+     email VARCHAR(50) NOT NULL UNIQUE,
+-    phone VARCHAR(10)NOT NULL 
+-);
+\ No newline at end of file
++    phone VARCHAR(10)NOT NULL, 
++    user_type VARCHAR(50) NOT NULL
++);
++CREATE TABLE product (
++    product_id VARCHAR(45) PRIMARY KEY,
++    product_name VARCHAR(45) NOT NULL UNIQUE,
++    `description` VARCHAR(250) NULL,
++    price DOUBLE NOT NULL
++); 
++CREATE TABLE orders (
++    order_id INT UNIQUE UNIQUE,
++    user_id INT, FOREIGN KEY (user_id) REFERENCES users (user_id),
++    order_date VARCHAR(45),
++	address VARCHAR(50) NOT NULL
++);
++CREATE TABLE order_item (
++    order_item_id INT PRIMARY KEY,
++    order_id INT NOT NULL, FOREIGN KEY (order_id) REFERENCES orders(order_id),
++    product_id VARCHAR(45) NOT NULL, FOREIGN KEY (product_id) REFERENCES product (product_id),
++    quantity INT NOT NULL
++);
++CREATE VIEW bill AS
++SELECT * FROM orders
