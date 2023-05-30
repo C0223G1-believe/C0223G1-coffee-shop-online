@@ -25,41 +25,61 @@ INSERT INTO `user`(name_user,user_name,user_password,user_email,user_phone_numbe
 ('Ngọc Sang','ngocsang','123456','ngocsang@gmail.com','0220193749'),
 ('Hải Thành','haithanh','123456','haithanh@gmail.com','0232903819'),
 ('Chánh','chanh','123456','chanh@gmail.com','0228018230');
-CREATE TABLE product (
-product_id INT PRIMARY KEY AUTO_INCREMENT,
-product_name VARCHAR(50) NOT NULL,
-product_price DOUBLE NOT NULL,
-product_description VARCHAR(200),
-product_image VARCHAR(500)
+CREATE TABLE product_type (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    product_type_name VARCHAR(50) NOT NULL
 );
-INSERT INTO product(product_name,product_price,product_description,product_image) VALUES
-('Cà phê sữa pha máy',17000,'Cà phê được pha chế tại quán',''),
-('Cà phê sữa pha phin',17000,'Cà phê được pha chế tại quán',''),
-('Cà phê đen sài gòn',17000,'Cà phê được pha chế tại quán',''),
-('Cà phê sữa sài gòn',17000,'Cà phê được pha chế tại quán',''),
-('Cà phê muối',17000,'Cà phê được pha chế tại quán',''),
-('Cà phê trứng',17000,'Cà phê được pha chế tại quán',''),
-('Cà phê dừa',17000,'Cà phê được pha chế tại quán',''),
-('Bạc xỉu',17000,'Bạc xỉu được pha chế tại quán',''),
-('Capuchino',17000,'Capuchino được pha chế tại quán',''),
-('Ép ổi',20000,'Nước Ép ổi được làm tại quần pha chế',''),
-('Ép cốc',20000,'Nước Ép Cốc được làm tại quần pha chế',''),
-('Ép táo',20000,'Nước Ép Táo được làm tại quần pha chế',''),
-('Ép dâu',20000,'Nước Ép dâu được làm tại quần pha chế',''),
-('Ép thơm',20000,'Nước Ép Thơm được làm tại quần pha chế',''),
-('Ép cà rốt',20000,'Nước Ép Cà rốt được làm tại quần pha chế',''),
-('Ép dưa lưới',20000,'Nước Ép Dưa lưới được làm tại quần pha chế',''),
-('Dâu',20000,'Trà Dâu được làm tại quần pha chế',''),
-('Đào',20000,'Trà Đào được làm tại quần pha chế',''),
-('Chanh',20000,'Trà Chanh được làm tại quần pha chế',''),
-('Tắc',20000,'Trà Tắc được làm tại quần pha chế',''),
-('Matcha Trà Xanh',20000,'Trà Matcha Trà Xanh được làm tại quần pha chế',''),
-('Trà sữa',20000,'Trà Sữa được làm tại quần pha chế',''),
-('Trà thảo mộc',20000,'Trà Thảo Mộc được làm tại quần pha chế',''),
-('Việt Quất',20000,'Soda Việt Quất được làm tại quần pha chế',''),
-('Kiwi',20000,'soda Kiwi được làm tại quần pha chế',''),
-('Chanh',20000,'Soda Chanh được làm tại quần pha chế',''),
-('Chanh leo',20000,'Soda Chanh Leo được làm tại quần pha chế','');
+INSERT INTO product_type(product_type_name) VALUES
+('Coffee'),
+('Nước Ép'),
+('Trà'),
+('Soda'),
+('Kem');
+CREATE TABLE product (
+    product_id INT PRIMARY KEY AUTO_INCREMENT,
+    product_name VARCHAR(50) NOT NULL,
+    product_price DOUBLE NOT NULL,
+    product_description VARCHAR(200),
+    product_image TEXT,
+    product_type_id INT ,
+    FOREIGN KEY (product_type_id)
+        REFERENCES product_type (id)
+        ON DELETE SET NULL
+);
+
+INSERT INTO product(product_name,product_price,product_description,product_image,product_type_id) VALUES
+('Cà phê sữa pha máy',17000,'Cà phê được pha chế tại quán','images/coffee/images.jpeg',1),
+('Cà phê sữa pha phin',17000,'Cà phê được pha chế tại quán','webapp/images/coffee/images (1).jpeg',1),
+('Cà phê đen sài gòn',17000,'Cà phê được pha chế tại quán','webapp/images/coffee/images (2).jpeg',1),
+('Cà phê sữa sài gòn',17000,'Cà phê được pha chế tại quán','webapp/images/coffee/images (3).jpeg',1),
+('Cà phê muối',17000,'Cà phê được pha chế tại quán','webapp/images/coffee/moi-la-voi-cong-thuc-lam-ca-phe-matcha-thom-ngon-khong-tuong-202206060951298564.jpeg',1),
+('Cà phê trứng',17000,'Cà phê được pha chế tại quán','webapp/images/coffee/tải xuống.jpeg',1),
+('Cà phê dừa',17000,'Cà phê được pha chế tại quán','webapp/images/coffee/tải xuống (2).jpeg',1),
+('Bạc xỉu',17000,'Bạc xỉu được pha chế tại quán','webapp/images/coffee/tải xuống (1).jpeg',1),
+('Capuchino',17000,'Capuchino được pha chế tại quán','webapp/images/coffee/tải xuống (1).jpeg',1),
+('Ép ổi',20000,'Nước Ép ổi được làm tại quần pha chế','webapp/images/nuoc_ep/tải xuống.jpeg',2),
+('Ép cốc',20000,'Nước Ép Cốc được làm tại quần pha chế','webapp/images/nuoc_ep/images (1).jpeg',2),
+('Ép táo',20000,'Nước Ép Táo được làm tại quần pha chế','webapp/images/nuoc_ep/images (3).jpeg',2),
+('Ép dâu',20000,'Nước Ép dâu được làm tại quần pha chế','webapp/images/nuoc_ep/nuoc-ep-dau-tay-1.jpg',2),
+('Ép thơm',20000,'Nước Ép Thơm được làm tại quần pha chế','webapp/images/nuoc_ep/images (2).jpeg',2),
+('Ép cà rốt',20000,'Nước Ép Cà rốt được làm tại quần pha chế','webapp/images/nuoc_ep/images.jpeg',2),
+('Ép dưa lưới',20000,'Nước Ép Dưa lưới được làm tại quần pha chế','webapp/images/nuoc_ep/images (5).jpeg',2),
+('Dâu',20000,'Trà Dâu được làm tại quần pha chế','webapp/images/trà/cach-lam-tra-dau-ngam-ngon-nhu-tra-dau-dong-du-04.jpg',3),
+('Đào',20000,'Trà Đào được làm tại quần pha chế','webapp/images/trà/tra-dao.jpg',3),
+('Chanh',20000,'Trà Chanh được làm tại quần pha chế','webapp/images/trà/tải xuống (3).jpeg',3),
+('Tắc',20000,'Trà Tắc được làm tại quần pha chế','webapp/images/trà/images (1).jpeg',3),
+('Matcha Trà Xanh',20000,'Trà Matcha Trà Xanh được làm tại quần pha chế','webapp/images/trà/tra-sua-thai-xanh.jpeg',3),
+('Trà sữa',20000,'Trà Sữa được làm tại quần pha chế','webapp/images/trà/tải xuống (2).jpeg',3),
+('Trà thảo mộc',20000,'Trà Thảo Mộc được làm tại quần pha chế','webapp/images/trà/images.jpeg',3),
+('Việt Quất',20000,'Soda Việt Quất được làm tại quần pha chế','webapp/images/soda/2202140912-soda-viet-quat.webp',4),
+('Kiwi',20000,'soda Kiwi được làm tại quần pha chế','webapp/images/soda/nuoc-soda-la-gi-cach-pha-che-soda-don-gian-giai-nhiet-mua-he-21.jpeg',4),
+('Chanh',20000,'Soda Chanh được làm tại quần pha chế','webapp/images/soda/soda-chanh-tắc-recipe-main-photo.jpeg',4),
+('Chanh leo',20000,'Soda Chanh Leo được làm tại quần pha chế','webapp/images/soda/soda-chanh-day_goc-ca-phe_5fa7c1246ff94f97a1b29c585a3baa2c_master.webp',4),
+('Vani',20000,'Kem Vani được làm tại quần pha chế','webapp/images/ice_cream/bot-kem-tuoi2.jpeg',5),
+('Sầu Riêng',20000,'Kem Sầu Riêng được làm tại quần pha chế','webapp/images/ice_cream/1-1200x676-9.jpeg',5),
+('plan',20000,'Kem plan được làm tại quần pha chế','webapp/images/ice_cream/3.png',5),
+('Bơ',20000,'Kem Bơ được làm tại quần pha chế','webapp/images/ice_cream/kem-bo.jpeg',5),
+('Chocolate',20000,'Kem Chocolate được làm tại quần pha chế','webapp/images/ice_cream/cach-lam-5-mon-kem-trai-cay-giai-nhiet-ngay-he.jpeg',5);
 CREATE TABLE order_status (
 status_id INT PRIMARY KEY,
 `status` VARCHAR(50) NOT NULL
@@ -78,7 +98,7 @@ status_id INT,
 FOREIGN KEY(status_id) REFERENCES order_status (status_id) ON DELETE SET NULL
 );
 CREATE TABLE detail_order (
-detail_order_id INT PRIMARY KEY,
+detail_order_id INT PRIMARY KEY AUTO_INCREMENT,
 quality INT,
 order_id INT NULL,
 FOREIGN KEY (order_id) REFERENCES `order`(order_id)  ON DELETE SET NULL ,

@@ -1,55 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="64907e43-9f64-44ee-a23b-a6b9179d2f4c" name="Changes" comment="son up">
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-grid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-grid.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-grid.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-grid.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-grid.rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-grid.rtl.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-grid.rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-grid.rtl.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-reboot.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-reboot.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-reboot.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-reboot.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-reboot.rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-reboot.rtl.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-reboot.rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-reboot.rtl.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-utilities.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-utilities.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-utilities.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-utilities.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-utilities.rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-utilities.rtl.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-utilities.rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap-utilities.rtl.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap.rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap.rtl.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap.rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/css/bootstrap.rtl.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/js/bootstrap.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/js/bootstrap.bundle.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/js/bootstrap.esm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/js/bootstrap.esm.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/js/bootstrap.esm.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/js/bootstrap.esm.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/js/bootstrap.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/bootstrap-5.1.3-dist/js/bootstrap.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/son_css_user/trang_admin.html" afterDir="false" />
+    <list default="true" id="64907e43-9f64-44ee-a23b-a6b9179d2f4c" name="Changes" comment="son up CRUD lan 1">
+      <change afterPath="$PROJECT_DIR$/coffee_caravens_group/src/main/webapp/add_product.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database_cafe_online.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database_cafe_online.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/logo/Copy of Copy of MENU_COFFEE.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo/Copy of Copy of MENU_COFFEE.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sang_login_register/sign_up.html" beforeDir="false" afterPath="$PROJECT_DIR$/sang_login_register/sign_up.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/son_css_user/trang_admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/son_css_user/trang_admin.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,15 +41,20 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/codegym/dự_án_bán_coffee/coffee_caravens_group"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/codegym/team1/C0223G1-Repo-FE&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\codegym\team1\C0223G1-Repo-FE\son_css_user" />
@@ -114,6 +79,14 @@
       <workItem from="1685257302640" duration="1298000" />
       <workItem from="1685267380588" duration="1497000" />
       <workItem from="1685314706548" duration="50000" />
+      <workItem from="1685323245942" duration="595000" />
+      <workItem from="1685352255164" duration="271000" />
+      <workItem from="1685352602489" duration="99000" />
+      <workItem from="1685353021809" duration="1823000" />
+      <workItem from="1685361790873" duration="2381000" />
+      <workItem from="1685408234267" duration="1495000" />
+      <workItem from="1685410061664" duration="607000" />
+      <workItem from="1685438744838" duration="23000" />
     </task>
     <task id="LOCAL-00001" summary="son up">
       <created>1685156341560</created>
@@ -143,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685256723346</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="son up CRUD lan 1">
+      <created>1685323664192</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685323664192</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,6 +142,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="son up" />
-    <option name="LAST_COMMIT_MESSAGE" value="son up" />
+    <MESSAGE value="son up CRUD lan 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="son up CRUD lan 1" />
   </component>
 </project>
