@@ -1,140 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="b70d0c2c-1385-4c1a-9303-7f3867dc3ba4" name="Changes" comment="thành gửi giao diện order và thêm mới sản phẩm">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="69989a0e-2e46-4424-a782-94cd203815f0" name="Changes" comment="sang cm" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="HTML File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="PUSH_TAGS">
-      <GitPushTagMode>
-        <option name="argument" value="--follow-tags" />
-        <option name="title" value="Current Branch" />
-      </GitPushTagMode>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Sơn" />
+      </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectId" id="2QMAgIxima2PRxIEpBBGo8jPI6a" />
+  <component name="ProjectId" id="2QgC6bLIOrc3EWlWv2NL1fpRJR6" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
-    <option name="sortByType" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/coffee_shop" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\codegym\team1\C0223G1-Repo-FE\son_css_user" />
-    </key>
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b70d0c2c-1385-4c1a-9303-7f3867dc3ba4" name="Changes" comment="" />
-      <created>1685153186503</created>
+      <changelist id="69989a0e-2e46-4424-a782-94cd203815f0" name="Changes" comment="" />
+      <created>1685765665870</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1685153186503</updated>
-      <workItem from="1685153187717" duration="322000" />
-      <workItem from="1685156318358" duration="1309000" />
-      <workItem from="1685182123534" duration="864000" />
-      <workItem from="1685238518225" duration="12000" />
-      <workItem from="1685256496799" duration="108000" />
-      <workItem from="1685256710374" duration="35000" />
-      <workItem from="1685256754923" duration="37000" />
-      <workItem from="1685256842980" duration="65000" />
-      <workItem from="1685257302640" duration="1298000" />
-      <workItem from="1685267380588" duration="1497000" />
-      <workItem from="1685314706548" duration="50000" />
-      <workItem from="1685323245942" duration="595000" />
-      <workItem from="1685352255164" duration="271000" />
-      <workItem from="1685352602489" duration="99000" />
-      <workItem from="1685353021809" duration="1823000" />
-      <workItem from="1685361790873" duration="2381000" />
-      <workItem from="1685408234267" duration="1495000" />
-      <workItem from="1685410061664" duration="2227000" />
-      <workItem from="1685494644535" duration="731000" />
-      <workItem from="1685587159026" duration="857000" />
-      <workItem from="1685755012193" duration="1230000" />
-      <workItem from="1685765972825" duration="51000" />
+      <updated>1685765665870</updated>
+      <workItem from="1685765667853" duration="77000" />
     </task>
-    <task id="LOCAL-00001" summary="son up">
-      <created>1685156341560</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1685156341560</updated>
-    </task>
-    <task id="LOCAL-00002" summary="son up">
-      <created>1685158235187</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1685158235187</updated>
-    </task>
-    <task id="LOCAL-00003" summary="son up">
-      <created>1685158299102</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1685158299102</updated>
-    </task>
-    <task id="LOCAL-00004" summary="son up">
-      <created>1685256723346</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1685256723346</updated>
-    </task>
-    <task id="LOCAL-00005" summary="son up CRUD lan 1">
-      <created>1685323664192</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1685323664192</updated>
-    </task>
-    <task id="LOCAL-00006" summary="son up CRUD lan 2">
-      <created>1685494777293</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1685494777293</updated>
-    </task>
-    <task id="LOCAL-00007" summary="thành gửi giao diện order và thêm mới sản phẩm">
-      <created>1685765802787</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1685765802787</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,10 +55,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="son up" />
-    <MESSAGE value="son up CRUD lan 1" />
-    <MESSAGE value="son up CRUD lan 2" />
-    <MESSAGE value="thành gửi giao diện order và thêm mới sản phẩm" />
-    <option name="LAST_COMMIT_MESSAGE" value="thành gửi giao diện order và thêm mới sản phẩm" />
+    <MESSAGE value="sang cm" />
+    <option name="LAST_COMMIT_MESSAGE" value="sang cm" />
   </component>
 </project>
