@@ -247,10 +247,23 @@
       <change beforePath="$PROJECT_DIR$/coffee-master/scss/theme/_variables.scss" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/index.jsp" afterDir="false" />
     </list>
+    <list default="true" id="69989a0e-2e46-4424-a782-94cd203815f0" name="Changes" comment="son">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/repository/repoUser/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/repository/repoUser/IUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/repository/repoUser/UserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/repository/repoUser/UserRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/service/type_user_service/ITypeUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/service/type_user_service/ITypeUserService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -291,6 +304,8 @@
       <workItem from="1685767604801" duration="643000" />
       <workItem from="1685777292509" duration="664000" />
       <workItem from="1685779958884" duration="235000" />
+      <workItem from="1685777292509" duration="1420000" />
+      <workItem from="1685780864847" duration="49000" />
     </task>
     <task id="LOCAL-00001" summary="son">
       <created>1685777365360</created>
@@ -313,7 +328,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685777899593</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="son">
+      <created>1685778010996</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685778010996</updated>
+    </task>
+    <task id="LOCAL-00005" summary="son">
+      <created>1685778041637</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685778041637</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
