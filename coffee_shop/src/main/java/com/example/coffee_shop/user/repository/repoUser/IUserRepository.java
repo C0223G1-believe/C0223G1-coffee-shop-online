@@ -16,4 +16,5 @@ public interface IUserRepository {
     User findById(int id);
     // Search
     List<User> searchUser(String name);
+    User checkUserName(String userName);
 }
