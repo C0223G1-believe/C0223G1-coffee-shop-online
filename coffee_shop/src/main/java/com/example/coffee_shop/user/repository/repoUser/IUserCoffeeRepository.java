@@ -2,10 +2,9 @@ package com.example.coffee_shop.user.repository.repoUser;
 
 import com.example.coffee_shop.user.model.User;
 
-import javax.jws.soap.SOAPBinding;
 import java.util.List;
 
-public interface IUserRepository {
+public interface IUserCoffeeRepository {
     // display
     List<User> displayUser();
     // add

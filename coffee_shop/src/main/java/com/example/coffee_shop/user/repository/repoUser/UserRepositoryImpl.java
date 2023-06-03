@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserRepositoryImpl implements IUserRepository {
+public class UserRepositoryImpl implements IUserCoffeeRepository{
     BaseRepository baseRepository = new BaseRepository();
     private static final String INSERT_INTO_USER =
             "INSERT INTO user(name_user,user_name,user_password,user_email,user_phone_number) " +
