@@ -9,6 +9,8 @@
 <html>
 <head>
     <title>Admin</title>
+    <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 <div class="col-12 col-md-12 col-lg-12">
@@ -51,4 +53,6 @@
     </nav>
 </div>
 </body>
+<script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.js"></script>
+<script src="bootstrap-5.1.3-dist/js/bootstrap.js"></script>
 </html>

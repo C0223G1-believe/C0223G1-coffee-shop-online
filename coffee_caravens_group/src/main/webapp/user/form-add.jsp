@@ -2,15 +2,71 @@
   Created by IntelliJ IDEA.
   User: TechCare
   Date: 5/29/2023
-  Time: 6:28 AM
+  Time: 6:24 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Đăng kí</title>
+    <link rel="stylesheet" href="../bootstrap-5.1.3-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 </head>
 <body>
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img src="../images/logo/logo.jpg" height="80" width="160"/>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="fw-bold nav-link active" aria-current="page" href="#" style="font-size: 30px;
+                     margin-left: 50px">Home</a>
+                </li>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="fw-bold   nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false"
+                       style="font-size: 30px;margin-left: 35px; margin-right: 50px">
+                        Menu
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="fw-bold dropdown-item" href="#">Coffee</a></li>
+                        <li><a class="fw-bold dropdown-item" href="#">Tea</a></li>
+                        <li><a class="fw-bold dropdown-item" href="#">Juice</a></li>
+                        <li><a class="fw-bold dropdown-item" href="#">Soda</a></li>
+                        <li><a class="fw-bold dropdown-item" href="#">Ice Cream</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="fw-bold dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <form class="d-flex" style="position: relative;">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                           style="width: 40%">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </ul>
+
+            <ul class="navbar-nav">
+                <div style="position: absolute; margin-left: 80%">
+                    <a class="fw-bold dropdown-item" href="#">
+                        <i class="fa-solid fa-user"></i> Account</a>
+                </div>
+            </ul>
+        </div>
+
+    </nav>
+</div>
+<div style="position: absolute; margin-left: 74%">
+    <a class="fw-bold dropdown-item" href="#"><i class="fa-solid fa-cart-shopping"></i></i> Cart</a>
+</div>
 <section class="vh-150" style="background-color: gray">
     <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-80">
@@ -89,4 +145,5 @@
     </div>
 </section>
 </body>
+<script src="../bootstrap-5.1.3-dist/js/bootstrap.js"></script>
 </html>
