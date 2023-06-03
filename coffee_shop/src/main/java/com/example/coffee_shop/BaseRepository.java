@@ -9,7 +9,7 @@ public class BaseRepository {
     private String jdbcUsername = "root";
     private String jdbcPassword = "thanhson09112002****";
 
-    protected Connection getConnection() {
+    public Connection getConnection() {
         Connection connection = null;
 
         try {
