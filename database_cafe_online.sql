@@ -79,23 +79,14 @@ INSERT INTO product(product_name,product_price,product_description,product_image
 ('Sầu Riêng',20000,'Kem Sầu Riêng được làm tại quần pha chế','webapp/images/ice_cream/1-1200x676-9.jpeg',5),
 ('plan',20000,'Kem plan được làm tại quần pha chế','webapp/images/ice_cream/3.png',5),
 ('Bơ',20000,'Kem Bơ được làm tại quần pha chế','webapp/images/ice_cream/kem-bo.jpeg',5),
-('Chocolate',20000,'Kem Chocolate được làm tại quần pha chế','webapp/images/ice_cream/cach-lam-5-mon-kem-trai-cay-giai-nhiet-ngay-he.jpeg',5);
-CREATE TABLE order_status (
-status_id INT PRIMARY KEY,
-`status` VARCHAR(50) NOT NULL
-);
-INSERT INTO order_status VALUES
-(1,'chưa đặt'),	
-(2,'đã đặt');	
+('Chocolate',20000,'Kem Chocolate được làm tại quần pha chế','webapp/images/ice_cream/cach-lam-5-mon-kem-trai-cay-giai-nhiet-ngay-he.jpeg',5);	
 CREATE TABLE `order` (
 order_id INT PRIMARY KEY AUTO_INCREMENT,
 order_date DATETIME NOT NULL,
 `comment` VARCHAR(100),
 address VARCHAR(50) NOT NULL,
 user_id INT,
-FOREIGN KEY (user_id) REFERENCES `user` (user_id) ON DELETE SET NULL,
-status_id INT,
-FOREIGN KEY(status_id) REFERENCES order_status (status_id) ON DELETE SET NULL
+FOREIGN KEY (user_id) REFERENCES `user` (user_id) ON DELETE SET NULL
 );
 CREATE TABLE detail_order (
 detail_order_id INT PRIMARY KEY AUTO_INCREMENT,

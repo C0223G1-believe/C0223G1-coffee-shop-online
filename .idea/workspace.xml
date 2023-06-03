@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64907e43-9f64-44ee-a23b-a6b9179d2f4c" name="Changes" comment="son up CRUD lan 1">
-      <change afterPath="$PROJECT_DIR$/coffee_caravens_group/src/main/webapp/add_product.jsp" afterDir="false" />
+    <list default="true" id="64907e43-9f64-44ee-a23b-a6b9179d2f4c" name="Changes" comment="son up CRUD lan 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_cafe_online.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database_cafe_online.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sang_login_register/sign_up.html" beforeDir="false" afterPath="$PROJECT_DIR$/sang_login_register/sign_up.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/son_css_user/trang_admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/son_css_user/trang_admin.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,20 +38,20 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/codegym/team1/C0223G1-Repo-FE&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/codegym/C0123G1_Tran_Thanh_Son/module_3_lan_hai/ss11",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\codegym\team1\C0223G1-Repo-FE\son_css_user" />
@@ -86,6 +83,9 @@
       <workItem from="1685361790873" duration="2381000" />
       <workItem from="1685408234267" duration="1495000" />
       <workItem from="1685410061664" duration="2227000" />
+      <workItem from="1685494644535" duration="731000" />
+      <workItem from="1685587159026" duration="857000" />
+      <workItem from="1685755012193" duration="1230000" />
     </task>
     <task id="LOCAL-00001" summary="son up">
       <created>1685156341560</created>
@@ -122,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685323664192</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="son up CRUD lan 2">
+      <created>1685494777293</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1685494777293</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,6 +149,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="son up" />
     <MESSAGE value="son up CRUD lan 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="son up CRUD lan 1" />
+    <MESSAGE value="son up CRUD lan 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="son up CRUD lan 2" />
   </component>
 </project>
