@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="69989a0e-2e46-4424-a782-94cd203815f0" name="Changes" comment="sang cm" />
+    <list default="true" id="69989a0e-2e46-4424-a782-94cd203815f0" name="Changes" comment="sang cm">
+      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/controler/UserServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/model/TypeUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/build/libs/coffee_shop-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/build/libs/coffee_shop-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/BaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/BaseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/AAA.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,12 +39,14 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/case_study/C0223G1-Repo-FE"
+  }
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -36,6 +56,8 @@
       <option name="presentableId" value="Default" />
       <updated>1685765665870</updated>
       <workItem from="1685765667853" duration="77000" />
+      <workItem from="1685767563305" duration="32000" />
+      <workItem from="1685767604801" duration="643000" />
     </task>
     <servers />
   </component>
@@ -52,7 +74,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="sang cm" />
