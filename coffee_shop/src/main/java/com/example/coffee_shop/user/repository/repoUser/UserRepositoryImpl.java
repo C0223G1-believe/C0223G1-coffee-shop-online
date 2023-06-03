@@ -3,7 +3,6 @@ package com.example.coffee_shop.user.repository.repoUser;
 import com.example.coffee_shop.BaseRepository;
 import com.example.coffee_shop.user.model.TypeUser;
 import com.example.coffee_shop.user.model.User;
-import com.mysql.cj.xdevapi.PreparableStatement;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -136,6 +135,30 @@ public class UserRepositoryImpl implements IUserRepository {
 
     @Override
     public List<User> searchUser(String name) {
+        Connection connection = baseRepository.getConnection();
+        List<User> userList = null;
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * from\n" +
+                    " user join type_user ON type_user.id_type_user = user.id_type_user\n" +
+                    "  WHERE user.name_user like '%"+name+"%'");
+
+            while(resultSet.next()){
+                int id = resultSet.getInt("user_id");
+                String userName = resultSet.getString("user_name");
+                String password = resultSet.getString("user_password");
+                String email = resultSet.getString("user_email");
+                String phoneNumber = resultSet.getString("user_phone_number");
+                int idTypeUser = resultSet.getInt("id_type_user");
+                String nameTypeUser = resultSet.getString("name_type");
+                TypeUser typeUser = new TypeUser(idTypeUser,nameTypeUser);
+                userList.add(new User(id,name,userName,password,email,phoneNumber,typeUser));
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 

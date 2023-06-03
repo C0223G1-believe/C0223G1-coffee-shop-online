@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="69989a0e-2e46-4424-a782-94cd203815f0" name="Changes" comment="son up data">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/repository/repoUser/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/repository/repoUser/IUserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/repository/repoUser/UserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/repository/repoUser/UserRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/service/user_service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/service/user_service/IUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/service/user_service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/service/user_service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_cafe_online.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database_cafe_online.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +39,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/case_study/C0223G1-Repo-FE"
+    "last_opened_file_path": "D:/case_study/C0223G1-Repo-FE/coffee_shop"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -66,6 +61,7 @@
       <workItem from="1685777292509" duration="1420000" />
       <workItem from="1685780864847" duration="49000" />
       <workItem from="1685780925817" duration="1372000" />
+      <workItem from="1685794599855" duration="1026000" />
     </task>
     <task id="LOCAL-00001" summary="son">
       <created>1685777365360</created>
@@ -109,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685781094924</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="son up data">
+      <created>1685794807598</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685794807598</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
