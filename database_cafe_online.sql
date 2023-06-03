@@ -25,10 +25,6 @@ INSERT INTO `user`(name_user,user_name,user_password,user_email,user_phone_numbe
 ('Ngọc Sang','ngocsang','123456','ngocsang@gmail.com','0220193749'),
 ('Hải Thành','haithanh','123456','haithanh@gmail.com','0232903819'),
 ('Chánh','chanh','123456','chanh@gmail.com','0228018230');
-CREATE TABLE product_type (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    product_type_name VARCHAR(50) NOT NULL
-);
 
 CREATE TABLE product (
     product_id INT PRIMARY KEY AUTO_INCREMENT,

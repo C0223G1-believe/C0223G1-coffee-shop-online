@@ -139,8 +139,8 @@ public class UserRepositoryImpl implements IUserRepository {
         List<User> userList = null;
         try {
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * from\n" +
-                    " user join type_user ON type_user.id_type_user = user.id_type_user\n" +
+            ResultSet resultSet = statement.executeQuery("SELECT * from " +
+                    " user join type_user ON type_user.id_type_user = user.id_type_user " +
                     "  WHERE user.name_user like '%"+name+"%'");
 
             while(resultSet.next()){
@@ -163,7 +163,35 @@ public class UserRepositoryImpl implements IUserRepository {
     }
 
     @Override
-    public User checkUserName(String userName) {
-        return null ;
+    public boolean checkUserName(String userName) {
+        Connection connection = baseRepository.getConnection();
+        int id;
+        String password;
+        String email;
+        String phoneNumber;
+        String userNam = null;
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * from user");
+            while(resultSet.next()){
+                 id = resultSet.getInt("user_id");
+                 userNam =resultSet.getString("user_name");
+                 password = resultSet.getString("user_password");
+                 email = resultSet.getString("user_email");
+                 phoneNumber = resultSet.getString("user_phone_number");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (userName==userNam){
+            return true;
+        }
+        return false ;
     }
 }
