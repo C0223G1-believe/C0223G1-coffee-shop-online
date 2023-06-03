@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="69989a0e-2e46-4424-a782-94cd203815f0" name="Changes" comment="sang cm">
-      <change afterPath="$PROJECT_DIR$/coffee_shop/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-    </list>
+    <list default="true" id="69989a0e-2e46-4424-a782-94cd203815f0" name="Changes" comment="son" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +14,9 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2QgC6bLIOrc3EWlWv2NL1fpRJR6" />
   <component name="ProjectViewState">
@@ -43,7 +43,23 @@
       <workItem from="1685765667853" duration="77000" />
       <workItem from="1685767563305" duration="32000" />
       <workItem from="1685767604801" duration="643000" />
+      <workItem from="1685777292509" duration="304000" />
     </task>
+    <task id="LOCAL-00001" summary="son">
+      <created>1685777365360</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685777365360</updated>
+    </task>
+    <task id="LOCAL-00002" summary="son">
+      <created>1685777574987</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685777574987</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -62,6 +78,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="sang cm" />
-    <option name="LAST_COMMIT_MESSAGE" value="sang cm" />
+    <MESSAGE value="son" />
+    <option name="LAST_COMMIT_MESSAGE" value="son" />
   </component>
 </project>
