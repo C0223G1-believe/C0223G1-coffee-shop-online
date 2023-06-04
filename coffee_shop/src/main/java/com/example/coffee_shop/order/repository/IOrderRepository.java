@@ -1,2 +1,5 @@
-package com.example.coffee_shop.order.repository;public interface IOrderRepositroy {
+package com.example.coffee_shop.order.repository;
+
+public interface IOrderRepository{
+
 }

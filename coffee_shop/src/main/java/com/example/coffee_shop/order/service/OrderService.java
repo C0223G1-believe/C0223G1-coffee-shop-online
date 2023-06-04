@@ -1,2 +1,4 @@
-package com.example.coffee_shop.order.service;public class OrderService {
+package com.example.coffee_shop.order.service;
+
+public class OrderService {
 }

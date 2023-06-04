@@ -1,2 +1,4 @@
-package com.example.coffee_shop.order.repository;public class OrderRepostiory {
+package com.example.coffee_shop.order.repository;
+
+public class OrderRepostiory {
 }
