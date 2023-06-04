@@ -36,7 +36,7 @@ public class ProductServlet extends HttpServlet {
     public void showListProduct (HttpServletRequest request, HttpServletResponse response){
         List<Product> productList = productService.productList();
         request.setAttribute("productList" , productList);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/test/list-product.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/index.jsp");
         try {
             requestDispatcher.forward(request,response);
         } catch (ServletException e) {

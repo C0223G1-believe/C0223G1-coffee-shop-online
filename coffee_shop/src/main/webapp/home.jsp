@@ -1,10 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: TechCare
-  Date: 6/4/2023
-  Time: 7:09 AM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -65,7 +61,7 @@
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="#home">Home</a></li>
+                    <li class="menu-active"><a href="/index.jsp">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#coffee">Coffee</a></li>
                     <li><a href="#review">Review</a></li>
@@ -93,7 +89,7 @@
                     Start your day with <br>
                     a black Coffee
                 </h1>
-                <a href="#" class="primary-btn text-uppercase">Buy Now</a>
+                <a href="/view/login-signUp/login.jsp" class="primary-btn text-uppercase">Buy Now</a>
             </div>
         </div>
     </div>
@@ -134,125 +130,58 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
-            <div class="col-lg-4">
-                <div class="single-menu">
-                    <div class="title-div justify-content-between d-flex">
-                        <h4>Cappuccino</h4>
-                        <p class="price float-right">
-                            $49
+            <%--            cuchino--%>
+            <c:forEach items="${productList}" var="product" step="1">
+                <div class="col-lg-4 ">
+                        <%--                <a href="/view/login-signUp/login.jsp">--%>
+                    <div class="single-menu">
+<%--                        <div><img width="100%" height="45%" src="${product.productImage}"></div>--%>
+                        <div class="title-div justify-content-between d-flex">
+                            <h4>${product.productName}</h4>
+                            <p class="price float-right">
+                                    ${product.productPrice}
+                            </p>
+                        </div>
+                        <p>
+                                ${product.productDescription}
                         </p>
                     </div>
-                    <p>
-                        Usage of the Internet is becoming more common due to rapid advance.
-                    </p>
+                        <%--                </a>--%>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="single-menu">
-                    <div class="title-div justify-content-between d-flex">
-                        <h4>Americano</h4>
-                        <p class="price float-right">
-                            $49
-                        </p>
-                    </div>
-                    <p>
-                        Usage of the Internet is becoming more common due to rapid advance.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="single-menu">
-                    <div class="title-div justify-content-between d-flex">
-                        <h4>Espresso</h4>
-                        <p class="price float-right">
-                            $49
-                        </p>
-                    </div>
-                    <p>
-                        Usage of the Internet is becoming more common due to rapid advance.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="single-menu">
-                    <div class="title-div justify-content-between d-flex">
-                        <h4>Macchiato</h4>
-                        <p class="price float-right">
-                            $49
-                        </p>
-                    </div>
-                    <p>
-                        Usage of the Internet is becoming more common due to rapid advance.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="single-menu">
-                    <div class="title-div justify-content-between d-flex">
-                        <h4>Mocha</h4>
-                        <p class="price float-right">
-                            $49
-                        </p>
-                    </div>
-                    <p>
-                        Usage of the Internet is becoming more common due to rapid advance.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="single-menu">
-                    <div class="title-div justify-content-between d-flex">
-                        <h4>Coffee Latte</h4>
-                        <p class="price float-right">
-                            $49
-                        </p>
-                    </div>
-                    <p>
-                        Usage of the Internet is becoming more common due to rapid advance.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="single-menu">
-                    <div class="title-div justify-content-between d-flex">
-                        <h4>Piccolo Latte</h4>
-                        <p class="price float-right">
-                            $49
-                        </p>
-                    </div>
-                    <p>
-                        Usage of the Internet is becoming more common due to rapid advance.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="single-menu">
-                    <div class="title-div justify-content-between d-flex">
-                        <h4>Ristretto</h4>
-                        <p class="price float-right">
-                            $49
-                        </p>
-                    </div>
-                    <p>
-                        Usage of the Internet is becoming more common due to rapid advance.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="single-menu">
-                    <div class="title-div justify-content-between d-flex">
-                        <h4>Affogato</h4>
-                        <p class="price float-right">
-                            $49
-                        </p>
-                    </div>
-                    <p>
-                        Usage of the Internet is becoming more common due to rapid advance.
-                    </p>
-                </div>
-            </div>
+            </c:forEach>
+            <%--            americano--%>
+            <%--            <div class="col-lg-4">--%>
+            <%--                <div class="single-menu">--%>
+            <%--                    <div class="title-div justify-content-between d-flex">--%>
+            <%--                        <h4>Americano</h4>--%>
+            <%--                        <p class="price float-right">--%>
+            <%--                            $49--%>
+            <%--                        </p>--%>
+            <%--                    </div>--%>
+            <%--                    <p>--%>
+            <%--                        Usage of the Internet is becoming more common due to rapid advance.--%>
+            <%--                    </p>--%>
+            <%--                </div>--%>
+            <%--            </div>--%>
+            <%--&lt;%&ndash;            Espreso&ndash;%&gt;--%>
+            <%--            <div class="col-lg-4">--%>
+            <%--                <div class="single-menu">--%>
+            <%--                    <div class="title-div justify-content-between d-flex">--%>
+            <%--                        <h4>Espresso</h4>--%>
+            <%--                        <p class="price float-right">--%>
+            <%--                            $49--%>
+            <%--                        </p>--%>
+            <%--                    </div>--%>
+            <%--                    <p>--%>
+            <%--                        Usage of the Internet is becoming more common due to rapid advance.--%>
+            <%--                    </p>--%>
+            <%--                </div>--%>
+            <%--            </div>--%>
         </div>
+
+
     </div>
 </section>
 <!-- End menu Area -->
