@@ -8,16 +8,15 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserRepositoryImpl implements IUserRepository {
+public class UserRepositoryImpl implements IUserCoffeeRepository{
     BaseRepository baseRepository = new BaseRepository();
     private static final String INSERT_INTO_USER =
-            "INSERT INTO user(name_user,user_name,user_password,user_email,user_phone_number) " +
-                    " VALUES(?,?,?,?,?);";
+            "INSERT INTO user(user_name,user_password,user_email,user_phone_number) " +
+                    " VALUES(?,?,?,?);";
     private static final String SELECT_USER = " SELECT * from user " +
             " JOIN type_user as tus on tus.id_type_user = user.id_type_user;";
     private static final String UPDATE_USER = "UPDATE user " +
-            " SET name_user = ?," +
-            " user_name = ?," +
+            " SET user_name = ?," +
             " user_password = ?," +
             " user_email = ?," +
             " user_phone_number = ?" +
@@ -28,11 +27,10 @@ public class UserRepositoryImpl implements IUserRepository {
         Connection connection = baseRepository.getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_INTO_USER);
-            preparedStatement.setString(1, user.getYourName());
-            preparedStatement.setString(2, user.getUserName());
-            preparedStatement.setString(3, user.getUserPassword());
-            preparedStatement.setString(4, user.getUserEmail());
-            preparedStatement.setString(5, user.getUserPhoneNumber());
+            preparedStatement.setString(1, user.getUserName());
+            preparedStatement.setString(2, user.getUserPassword());
+            preparedStatement.setString(3, user.getUserEmail());
+            preparedStatement.setString(4, user.getUserPhoneNumber());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -51,13 +49,11 @@ public class UserRepositoryImpl implements IUserRepository {
     public List<User> displayUser() {
         Connection connection = baseRepository.getConnection();
         List<User> userList =new ArrayList<>();
-
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(SELECT_USER);
             while (resultSet.next()) {
                 int id = resultSet.getInt("user_id");
-                String yourName = resultSet.getString("name_user");
                 String userName = resultSet.getString("user_name");
                 String password = resultSet.getString("user_password");
                 String email = resultSet.getString("user_email");
@@ -65,7 +61,7 @@ public class UserRepositoryImpl implements IUserRepository {
                 int idTypeUser = resultSet.getInt("id_type_user");
                 String nameTypeUser = resultSet.getString("name_type");
                 TypeUser typeUser = new TypeUser(idTypeUser, nameTypeUser);
-                userList.add(new User(id,yourName,userName,password,email,phoneNumber,typeUser));
+                userList.add(new User(id,userName,password,email,phoneNumber,typeUser));
             }
 
         } catch (SQLException e) {
@@ -86,12 +82,11 @@ public class UserRepositoryImpl implements IUserRepository {
         Connection connection =baseRepository.getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USER);
-            preparedStatement.setString(1,user.getYourName());
-            preparedStatement.setString(2,user.getUserName());
-            preparedStatement.setString(3,user.getUserPassword());
-            preparedStatement.setString(4,user.getUserEmail());
-            preparedStatement.setString(5,user.getUserPhoneNumber());
-            preparedStatement.setInt(6,user.getId());
+            preparedStatement.setString(1,user.getUserName());
+            preparedStatement.setString(2,user.getUserPassword());
+            preparedStatement.setString(3,user.getUserEmail());
+            preparedStatement.setString(4,user.getUserPhoneNumber());
+            preparedStatement.setInt(5,user.getId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -116,7 +111,6 @@ public class UserRepositoryImpl implements IUserRepository {
                     " JOIN type_user on type_user.id_type_user = user.id_type_user " +
                     " where user.user_id =" +id);
             while(resultSet.next()){
-                String yourName = resultSet.getString("name_user");
                 String userName = resultSet.getString("user_name");
                 String password = resultSet.getString("user_password");
                 String email = resultSet.getString("user_email");
@@ -124,7 +118,7 @@ public class UserRepositoryImpl implements IUserRepository {
                 int idTypeUser = resultSet.getInt("id_type_user");
                 String nameTypeUser = resultSet.getString("name_type");
                 TypeUser typeUser = new TypeUser(idTypeUser,nameTypeUser);
-                 user = new User(id,yourName,userName,password,email,phoneNumber,typeUser);
+                 user = new User(id,userName,password,email,phoneNumber,typeUser);
              }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -134,25 +128,23 @@ public class UserRepositoryImpl implements IUserRepository {
     }
 
     @Override
-    public List<User> searchUser(String name) {
+    public List<User> searchUser(String userName) {
         Connection connection = baseRepository.getConnection();
         List<User> userList = null;
         try {
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * from\n" +
-                    " user join type_user ON type_user.id_type_user = user.id_type_user\n" +
-                    "  WHERE user.name_user like '%"+name+"%'");
-
+            ResultSet resultSet = statement.executeQuery("SELECT * from " +
+                    " user join type_user ON type_user.id_type_user = user.id_type_user " +
+                    "  WHERE user.user_name like '%"+userName+"%'");
             while(resultSet.next()){
                 int id = resultSet.getInt("user_id");
-                String userName = resultSet.getString("user_name");
                 String password = resultSet.getString("user_password");
                 String email = resultSet.getString("user_email");
                 String phoneNumber = resultSet.getString("user_phone_number");
                 int idTypeUser = resultSet.getInt("id_type_user");
                 String nameTypeUser = resultSet.getString("name_type");
                 TypeUser typeUser = new TypeUser(idTypeUser,nameTypeUser);
-                userList.add(new User(id,name,userName,password,email,phoneNumber,typeUser));
+                userList.add(new User(id,userName,password,email,phoneNumber,typeUser));
 
             }
         } catch (SQLException e) {
@@ -163,7 +155,35 @@ public class UserRepositoryImpl implements IUserRepository {
     }
 
     @Override
-    public User checkUserName(String userName) {
-        return null ;
+    public boolean checkUserName(String userName) {
+        Connection connection = baseRepository.getConnection();
+        int id;
+        String password;
+        String email;
+        String phoneNumber;
+        String userNam = null;
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * from user");
+            while(resultSet.next()){
+                 id = resultSet.getInt("user_id");
+                 userNam =resultSet.getString("user_name");
+                 password = resultSet.getString("user_password");
+                 email = resultSet.getString("user_email");
+                 phoneNumber = resultSet.getString("user_phone_number");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (userName==userNam){
+            return true;
+        }
+        return false ;
     }
 }

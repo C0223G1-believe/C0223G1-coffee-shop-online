@@ -14,6 +14,6 @@ public interface IUserService {
     // find
     User findById(int id);
     // Search
-    List<User> searchUser(String name);
+    List<User> searchUser(String userName);
     boolean checkUserName(String userName);
 }

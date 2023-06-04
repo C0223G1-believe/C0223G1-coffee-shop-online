@@ -2,25 +2,22 @@ package com.example.coffee_shop.user.model;
 
 public class User {
     private int id;
-    private String yourName;
     private String userName;
     private String userPassword;
     private String userEmail;
     private String userPhoneNumber;
     private TypeUser typeUser;
 
-    public User(int id, String yourName, String userName, String userPassword, String userEmail, String userPhoneNumber) {
+    public User(int id, String userName, String userPassword, String userEmail, String userPhoneNumber) {
         this.id = id;
-        this.yourName = yourName;
         this.userName = userName;
         this.userPassword = userPassword;
         this.userEmail = userEmail;
         this.userPhoneNumber = userPhoneNumber;
     }
 
-    public User(int id, String nameUser, String userName, String userPassword, String userEmail, String userPhoneNumber, TypeUser typeUser) {
+    public User(int id, String userName, String userPassword, String userEmail, String userPhoneNumber, TypeUser typeUser) {
         this.id = id;
-        this.yourName = nameUser;
         this.userName = userName;
         this.userPassword = userPassword;
         this.userEmail = userEmail;
@@ -34,14 +31,6 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getYourName() {
-        return yourName;
-    }
-
-    public void setYourName(String yourName) {
-        this.yourName = yourName;
     }
 
     public String getUserName() {

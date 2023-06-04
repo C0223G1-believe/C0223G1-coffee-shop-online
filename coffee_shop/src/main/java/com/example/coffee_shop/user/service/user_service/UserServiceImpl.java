@@ -1,13 +1,12 @@
 package com.example.coffee_shop.user.service.user_service;
 
 import com.example.coffee_shop.user.model.User;
-import com.example.coffee_shop.user.repository.repoUser.IUserRepository;
+import com.example.coffee_shop.user.repository.repoUser.IUserCoffeeRepository;
 import com.example.coffee_shop.user.repository.repoUser.UserRepositoryImpl;
-
 import java.util.List;
 
-public class UserServiceImpl implements IUserService{
-    IUserRepository userRepository = new UserRepositoryImpl();
+public class UserServiceImpl implements IUserService {
+    IUserCoffeeRepository userRepository = new UserRepositoryImpl();
     @Override
     public List<User> displayUser() {
         return userRepository.displayUser();
@@ -29,8 +28,8 @@ public class UserServiceImpl implements IUserService{
     }
 
     @Override
-    public List<User> searchUser(String name) {
-        return userRepository.searchUser(name);
+    public List<User> searchUser(String userName) {
+        return userRepository.searchUser(userName);
     }
 
     @Override
