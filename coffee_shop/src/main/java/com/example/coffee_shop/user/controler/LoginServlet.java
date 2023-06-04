@@ -1,5 +1,8 @@
 package com.example.coffee_shop.user.controler;
 
+import com.example.coffee_shop.product.model.Product;
+import com.example.coffee_shop.product.service.IProductService;
+import com.example.coffee_shop.product.service.ProductService;
 import com.example.coffee_shop.user.model.User;
 import com.example.coffee_shop.user.service.user_service.IUserService;
 import com.example.coffee_shop.user.service.user_service.UserServiceImpl;
@@ -8,10 +11,13 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "loginServlet", value = "/loginServlet")
 public class LoginServlet extends HttpServlet {
     private IUserService userService = new UserServiceImpl();
+    private IProductService productService = new ProductService();
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,17 +33,22 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
             if (user.getTypeUser().getId() == 1) {
-                response.sendRedirect("/Sang-test-dang-nhap/trang-admin.jsp");
+                List<User> listUser = userService.displayUser();
+                request.setAttribute("listUser", listUser);
+                request.getRequestDispatcher("/view/user/display.jsp").forward(request, response);
             } else {
                 //cus
-                response.sendRedirect("/Sang-test-dang-nhap/trang-chu.jsp");
+                List<Product> productList = productService.productList();
+                request.setAttribute("productList" , productList);
+                request.getRequestDispatcher("/home.jsp").forward(request,response);
+
             }
 
         } else {
 //khong co
             request.setAttribute("baoLoi","Ten dang nhap hoac mk khong dung");
             RequestDispatcher requestDispatcher;
-            requestDispatcher = request.getRequestDispatcher("/index.jsp");
+            requestDispatcher = request.getRequestDispatcher("/view/login-signUp/login.jsp");
             requestDispatcher.forward(request,response);
         }
 

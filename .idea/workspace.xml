@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="69989a0e-2e46-4424-a782-94cd203815f0" name="Changes" comment="son up crud lan2">
-      <change afterPath="$PROJECT_DIR$/coffee_shop/.idea/webContexts.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coffee_shop/src/coffee_shop.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/navbar-admin.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/user/display.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/user/form-edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_shop/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/user/controler/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/user/controler/UserServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/user/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/user/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/user/repository/repoUser/UserRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/user/repository/repoUser/UserRepositoryImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/user/service/user_service/IUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/user/service/user_service/IUserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/user/service/user_service/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/user/service/user_service/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_shop/build/libs/coffee_shop-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/build/libs/coffee_shop-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_shop/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/controler/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/controler/UserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/service/user_service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/service/user_service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/user/AAA.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/home.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="69989a0e-2e46-4424-a782-94cd203815f0" name="Changes" comment="son up crud lan2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,14 +31,10 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/case_study/C0223G1-Repo-FE/coffee_shop&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -81,6 +54,7 @@
       <workItem from="1685807478527" duration="40000" />
       <workItem from="1685836223440" duration="1402000" />
       <workItem from="1685842592455" duration="25000" />
+      <workItem from="1685864257042" duration="56000" />
     </task>
     <task id="LOCAL-00001" summary="son">
       <created>1685777365360</created>
@@ -140,6 +114,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="sang cm" />
