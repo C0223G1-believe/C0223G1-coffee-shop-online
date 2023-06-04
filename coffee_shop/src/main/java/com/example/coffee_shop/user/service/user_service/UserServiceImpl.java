@@ -3,6 +3,7 @@ package com.example.coffee_shop.user.service.user_service;
 import com.example.coffee_shop.user.model.User;
 import com.example.coffee_shop.user.repository.repoUser.IUserCoffeeRepository;
 import com.example.coffee_shop.user.repository.repoUser.UserRepositoryImpl;
+
 import java.util.List;
 
 public class UserServiceImpl implements IUserService {
@@ -20,6 +21,11 @@ public class UserServiceImpl implements IUserService {
     @Override
     public boolean editUser(User user) {
         return userRepository.editUser(user);
+    }
+
+    @Override
+    public void deleteUser(int id) {
+        userRepository.deleteUser(id);
     }
 
     @Override
