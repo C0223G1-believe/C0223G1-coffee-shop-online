@@ -35,14 +35,14 @@ CREATE TABLE product (
 
 INSERT INTO product(product_name,product_price,product_description,product_image) VALUES
 ('Cà phê sữa pha máy',17000,'Cà phê được pha chế tại quán','images/coffee/images.jpeg'),
-('Cà phê sữa pha phin',17000,'Cà phê được pha chế tại quán','webapp/images/coffee/images (1).jpeg'),
-('Cà phê đen sài gòn',17000,'Cà phê được pha chế tại quán','webapp/images/coffee/images (2).jpeg'),
-('Cà phê sữa sài gòn',17000,'Cà phê được pha chế tại quán','webapp/images/coffee/images (3).jpeg'),
-('Cà phê muối',17000,'Cà phê được pha chế tại quán','webapp/images/coffee/moi-la-voi-cong-thuc-lam-ca-phe-matcha-thom-ngon-khong-tuong-202206060951298564.jpeg'),
-('Cà phê trứng',17000,'Cà phê được pha chế tại quán','webapp/images/coffee/tải xuống.jpeg'),
-('Cà phê dừa',17000,'Cà phê được pha chế tại quán','webapp/images/coffee/tải xuống (2).jpeg'),
-('Bạc xỉu',17000,'Bạc xỉu được pha chế tại quán','webapp/images/coffee/tải xuống (1).jpeg'),
-('Capuchino',17000,'Capuchino được pha chế tại quán','webapp/images/coffee/tải xuống (1).jpeg');
+('Cà phê sữa pha phin',17000,'Cà phê được pha chế tại quán','images/coffee/images (1).jpeg'),
+('Cà phê đen sài gòn',17000,'Cà phê được pha chế tại quán','images/coffee/images (2).jpeg'),
+('Cà phê sữa sài gòn',17000,'Cà phê được pha chế tại quán','images/coffee/images (3).jpeg'),
+('Cà phê muối',17000,'Cà phê được pha chế tại quán','images/coffee/moi-la-voi-cong-thuc-lam-ca-phe-matcha-thom-ngon-khong-tuong-202206060951298564.jpeg'),
+('Cà phê trứng',17000,'Cà phê được pha chế tại quán','images/coffee/tải xuống.jpeg'),
+('Cà phê dừa',17000,'Cà phê được pha chế tại quán','images/coffee/tải xuống (2).jpeg'),
+('Bạc xỉu',17000,'Bạc xỉu được pha chế tại quán','images/coffee/tải xuống (1).jpeg'),
+('Capuchino',17000,'Capuchino được pha chế tại quán','images/coffee/tải xuống (1).jpeg');
 
 CREATE TABLE `order` (
 order_id INT PRIMARY KEY AUTO_INCREMENT,

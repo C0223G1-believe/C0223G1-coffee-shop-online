@@ -1,5 +1,6 @@
 package com.example.coffee_shop.product.repository;
 
+import com.example.coffee_shop.BaseRepository;
 import com.example.coffee_shop.product.model.Product;
 
 import java.sql.*;
@@ -7,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductRepository implements IProductRepository{
+    BaseRepository baseRepository = new BaseRepository();
     private  String url = "jdbc:mysql://localhost:3306/test1";
     private String userName = "root";
     private String passWord = "codegym";
@@ -18,21 +20,10 @@ public class ProductRepository implements IProductRepository{
     private static final String DELETE_BY_ID = "delete from product where product_id = ?;";
     private static final String UPDATE_PRODUCT = "UPDATE product SET product_name = ?, product_price =?, product_description = ?, product_image = ? WHERE product_id = ?;";
     private static final String SELECT_PRODUCT_BY_ID = "select * from product where product_id = ?;";
-    protected Connection getConnection(){
-        Connection connection = null;
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(url,userName,passWord);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return connection;
-    }
+
     @Override
     public List<Product> productList() {
-        Connection connection = getConnection();
+        Connection connection = baseRepository.getConnection();
         List<Product> productList = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();
@@ -59,7 +50,7 @@ public class ProductRepository implements IProductRepository{
 
     @Override
     public void createProduct(Product product) {
-       Connection connection = getConnection();
+        Connection connection = baseRepository.getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PRODUCT);
             preparedStatement.setString(1,product.getProductName());
@@ -79,7 +70,7 @@ public class ProductRepository implements IProductRepository{
     }
     @Override
     public void updateProduct(int id, Product product) {
-        Connection connection = getConnection();
+        Connection connection = baseRepository.getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_PRODUCT);
             preparedStatement.setString(1,product.getProductName());
@@ -101,7 +92,7 @@ public class ProductRepository implements IProductRepository{
 
     @Override
     public void deleteProduct(int id) {
-        Connection connection = getConnection();
+        Connection connection = baseRepository.getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_BY_ID);
             preparedStatement.setInt(1,id);
@@ -119,7 +110,7 @@ public class ProductRepository implements IProductRepository{
 
     @Override
     public Product searchProduct(int id) {
-        Connection connection = getConnection();
+        Connection connection = baseRepository.getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_PRODUCT_BY_ID);
             preparedStatement.setInt(1,id);
