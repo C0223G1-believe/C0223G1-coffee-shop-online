@@ -2,10 +2,9 @@ package com.example.coffee_shop.user.repository.repoUser;
 
 import com.example.coffee_shop.user.model.User;
 
-import javax.jws.soap.SOAPBinding;
 import java.util.List;
 
-public interface IUserRepository {
+public interface IUserCoffeeRepository {
     // display
     List<User> displayUser();
     // add
@@ -15,5 +14,6 @@ public interface IUserRepository {
     // find
     User findById(int id);
     // Search
-    List<User> searchUser(String name);
+    List<User> searchUser(String userName);
+    boolean checkUserName(String userName);
 }
