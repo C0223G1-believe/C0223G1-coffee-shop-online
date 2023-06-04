@@ -17,5 +17,8 @@ public interface IUserCoffeeRepository {
     User findById(int id);
     // Search
     List<User> searchUser(String userName);
+
     boolean checkUserName(String userName);
+
+    User getUserByPhoneAndPass(String phone, String pass);
 }

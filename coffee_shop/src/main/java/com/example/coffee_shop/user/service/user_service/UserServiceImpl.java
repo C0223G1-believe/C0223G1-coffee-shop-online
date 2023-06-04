@@ -43,4 +43,9 @@ public class UserServiceImpl implements IUserService {
 
         return false;
     }
+
+    @Override
+    public User getUserByPhoneAndPass(String phone, String pass) {
+        return userRepository.getUserByPhoneAndPass(phone, pass);
+    }
 }
