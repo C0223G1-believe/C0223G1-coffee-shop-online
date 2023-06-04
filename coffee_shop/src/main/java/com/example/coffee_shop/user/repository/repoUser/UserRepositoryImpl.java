@@ -22,6 +22,8 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
             " user_phone_number = ?" +
             " WHERE id = ?;";
     private static final String DELETE_USER ="DELETE from user where user.id = ? ;";
+    private static final String SELECT_USER_BY_PHONE_AND_PASS ="SELECT * FROM user JOIN type_user ON type_user.id_type_user = user.id_type_user WHERE  user_phone_number =? && user_password =?;";
+
 
     @Override
     public boolean addUser(User user) {
@@ -204,5 +206,32 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
             return true;
         }
         return false ;
+    }
+
+    @Override
+    public User getUserByPhoneAndPass(String phone, String pass) {
+        Connection connection = baseRepository.getConnection();
+        User user = null;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_BY_PHONE_AND_PASS);
+            preparedStatement.setString(1,phone);
+            preparedStatement.setString(2,pass);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                int id = resultSet.getInt("user_id");
+                String userName = resultSet.getString("user_name");
+                String password = resultSet.getString("user_password");
+                String email = resultSet.getString("user_email");
+                String phoneNumber = resultSet.getString("user_phone_number");
+                int idTypeUser = resultSet.getInt("id_type_user");
+                String nameTypeUser = resultSet.getString("name_type");
+                TypeUser typeUser = new TypeUser(idTypeUser, nameTypeUser);
+                user = new User(id,userName,password,email,phoneNumber,typeUser);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 }
