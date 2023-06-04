@@ -11,6 +11,8 @@ public interface IUserService {
     boolean addUser(User user);
     // edit
     boolean editUser(User user);
+    //delete
+    void deleteUser(int id);
     // find
     User findById(int id);
     // Search
