@@ -16,12 +16,12 @@
 <body>
     <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
-    <form action="/User" method="post">
+    <form style="color: white; margin-top:9em" action="/User" method="post">
        <input type="email" name="email"  placeholder="Enter Email">
        <input type="text" name="phhone" placeholder="Enter Phone">
-        <button type="submit">Search</button>
+        <button class="rounded-3 bg-primary" type="submit">Search</button>
     </form>
-    <table style="color: white; margin-top: 10em" class="table table-striped col-lg-11">
+    <table style="color: white" class="table table-striped col-lg-11">
         <tr>
             <th>STT</th>
             <th>user name</th>
@@ -40,10 +40,16 @@
                 <td><c:out value="${user.userEmail}"/></td>
                 <td><c:out value="${user.userPhoneNumber}"/></td>
                 <td><c:out value="${user.typeUser.name}"/></td>
-                <td><a class="text-decoration-none " href="/User?action=edit&id=${user.id}"><button class="btn-outline-warning text-white bg-warning rounded-3">Edit</button></a></td>
+                <td>
+                    <a class="text-decoration-none"  href="/User?action=edit&id=${user.id}">
+                    <button type="button" class=" btn btn-warning text-white bg-warning rounded-3">
+                        Edit
+                    </button>
+                    </a>
+                </td>
                 <td>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="remove(${user.id},'${user.userName}')">
+                    <button type="button" class="btn btn-danger rounded-3" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="remove(${user.id},'${user.userName}')">
                         Delete
                     </button>
                 </td>

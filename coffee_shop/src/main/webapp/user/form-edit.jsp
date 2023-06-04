@@ -15,52 +15,42 @@
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
     <form style="color: white; margin-top: 10em" action="/User?action=edit" method="post">
-        <table>
+        <table style="color: white;">
             <tr>
-
-
                 <td> <label>id: </label></td>
-                <td> <input name="id" value="${user.id}" readonly></td>
+                <td> <input style="border-radius: 10px" name="id" value="${user.id}" readonly></td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td> <label>User name: </label></td>
+                <td><input style="border-radius: 10px" name="userName" value="${user.userName}"/></td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td><label>Password: </label></td>
+                <td><input style="border-radius: 10px" name="password" value="${user.userPassword}"/></td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td><label>Email: </label></td>
+                <td><input style="border-radius: 10px" name="email" value="${user.userEmail}"/></td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
+                <td><label>Phone number: </label></td>
+                <td><input style="border-radius: 10px" name="phoneNumber" value="${user.userPhoneNumber}"/></td>
             </tr>
+            <tr>
+                <td><label>Type User: </label></td>
+                <td>
+                    <select style="border-radius: 10px" name="typeUser">
+                        <c:forEach var="typeUser" items="${listTypeUser}" varStatus="loop">
+                            <option  value="${typeUser.id}"> ${typeUser.name}</option>
+                        </c:forEach>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><button style="border-radius: 15px" class="btn btn-primary w-100" type="submit">Edit</button></td>
+            </tr>
+
         </table>
-
-
-        <label>User name: </label>
-        <input name="userName" value="${user.userName}"/>
-        <br>
-        <label>Password: </label>
-        <input name="password" value="${user.userPassword}"/>
-        <br>
-        <label>Email: </label>
-        <input name="email" value="${user.userEmail}"/>
-        <br>
-        <label>Phone number: </label>
-        <input name="phoneNumber" value="${user.userPhoneNumber}"/>
-        <br>
-        <label>Type User: </label>
-        <select name="typeUser">
-            <c:forEach var="typeUser" items="${listTypeUser}" varStatus="loop">
-                <option  value="${typeUser.id}"> ${typeUser.name}</option>
-            </c:forEach>
-        </select>
-        <br>
-          <button type="submit">Edit</button>
     </form>
 </div>
 </body>
