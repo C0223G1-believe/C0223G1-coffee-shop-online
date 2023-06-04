@@ -21,6 +21,7 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
             " user_email = ?," +
             " user_phone_number = ?" +
             " WHERE id = ?;";
+    private static final String DELETE_USER ="DELETE from user where user.id = ? ;";
 
     @Override
     public boolean addUser(User user) {
@@ -99,6 +100,24 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
         }
 
         return false;
+    }
+
+    @Override
+    public void deleteUser(int id) {
+        Connection connection = baseRepository.getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(DELETE_USER);
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
