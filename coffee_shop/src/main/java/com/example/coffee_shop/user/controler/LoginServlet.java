@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
 
         } else {
 //khong co
-            request.setAttribute("baoLoi","Ten dang nhap hoac mk khong dung");
+            request.setAttribute("error","The Username or Password is Incorrect");
             RequestDispatcher requestDispatcher;
             requestDispatcher = request.getRequestDispatcher("/view/login-signUp/login.jsp");
             requestDispatcher.forward(request,response);
