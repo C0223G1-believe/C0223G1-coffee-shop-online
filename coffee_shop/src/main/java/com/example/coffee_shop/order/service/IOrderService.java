@@ -1,2 +1,4 @@
-package com.example.coffee_shop.order.service;public interface IOrderService {
+package com.example.coffee_shop.order.service;
+
+public interface IOrderService {
 }
