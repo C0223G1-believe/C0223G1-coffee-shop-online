@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69989a0e-2e46-4424-a782-94cd203815f0" name="Changes" comment="son up crud lan2">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_shop/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_shop/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/repository/repoUser/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/repository/repoUser/IUserCoffeeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/repository/repoUser/IUserCoffeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/repository/repoUser/IUserCoffeeRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/repository/repoUser/UserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/repository/repoUser/UserRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/service/user_service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/service/user_service/IUserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/service/user_service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/service/user_service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_cafe_online.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database_cafe_online.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +63,8 @@
       <workItem from="1685805587612" duration="158000" />
       <workItem from="1685805755152" duration="128000" />
       <workItem from="1685805893911" duration="345000" />
+      <workItem from="1685807478527" duration="40000" />
+      <workItem from="1685836223440" duration="767000" />
     </task>
     <task id="LOCAL-00001" summary="son">
       <created>1685777365360</created>

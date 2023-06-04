@@ -9,7 +9,6 @@ INSERT INTO type_user VALUES
 (2,'custormer');
 CREATE TABLE `user`(
 user_id INT PRIMARY KEY AUTO_INCREMENT,
-name_user VARCHAR(50) NOT NULL,
 user_name VARCHAR(50) NOT NULL UNIQUE,
 user_password VARCHAR(100) NOT NULL,
 user_email VARCHAR(50) NOT NULL UNIQUE,
@@ -17,14 +16,14 @@ user_phone_number VARCHAR(20) NOT NULL UNIQUE,
 id_type_user INT DEFAULT'2',
 FOREIGN KEY ( id_type_user ) REFERENCES type_user (id_type_user) ON DELETE SET NULL
 );
-INSERT INTO `user`(name_user,user_name,user_password,user_email,user_phone_number,id_type_user) VALUES
-('admin','admin','123abc','thanhson@gmail.com','0987247581',1);
-INSERT INTO `user`(name_user,user_name,user_password,user_email,user_phone_number) VALUES
-('Thanh Son','thanhson','123456','son@gmail.com','0238495786'),
-('Viết Cao','vietcao','123456','vietcao@gmail.com','0233701720'),
-('Ngọc Sang','ngocsang','123456','ngocsang@gmail.com','0220193749'),
-('Hải Thành','haithanh','123456','haithanh@gmail.com','0232903819'),
-('Chánh','chanh','123456','chanh@gmail.com','0228018230');
+INSERT INTO `user`(user_name,user_password,user_email,user_phone_number,id_type_user) VALUES
+('admin','123abc','thanhson@gmail.com','0987247581',1);
+INSERT INTO `user`(user_name,user_password,user_email,user_phone_number) VALUES
+('thanhson','123456','son@gmail.com','0238495786'),
+('vietcao','123456','vietcao@gmail.com','0233701720'),
+('ngocsang','123456','ngocsang@gmail.com','0220193749'),
+('haithanh','123456','haithanh@gmail.com','0232903819'),
+('chanh','123456','chanh@gmail.com','0228018230');
 
 CREATE TABLE product (
     product_id INT PRIMARY KEY AUTO_INCREMENT,
