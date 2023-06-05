@@ -50,7 +50,7 @@
                             </div>
 
                             <div>
-                                <p class="mb-0">Don't have an account? <a href="/view/login-signUp/sign-up.jsp"
+                                <p class="mb-0">Don't have an account? <a href="/User?action=add"
                                                                           class="text-white-50 fw-bold">Sign Up</a>
                                 </p>
                             </div>

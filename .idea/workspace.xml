@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="69989a0e-2e46-4424-a782-94cd203815f0" name="Changes" comment="son up crud lan2" />
+    <list default="true" id="69989a0e-2e46-4424-a782-94cd203815f0" name="Changes" comment="son up database">
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/controler/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/controler/UserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/view/login-signUp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/view/login-signUp/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/view/login-signUp/sign-up.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/view/login-signUp/sign-up.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,7 +40,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/case_study/C0223G1-Repo-FE/coffee_shop",
+    "last_opened_file_path": "D:/case_study/C0223G1-Repo-FE",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -61,6 +65,7 @@
       <workItem from="1685842592455" duration="25000" />
       <workItem from="1685869195866" duration="317000" />
       <workItem from="1685864257042" duration="56000" />
+      <workItem from="1685956740869" duration="175000" />
     </task>
     <task id="LOCAL-00001" summary="son">
       <created>1685777365360</created>
@@ -104,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685805016977</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="son up database">
+      <created>1685956789888</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685956789888</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,12 +132,12 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="sang cm" />
     <MESSAGE value="son" />
     <MESSAGE value="son up crud lan2" />
-    <option name="LAST_COMMIT_MESSAGE" value="son up crud lan2" />
+    <MESSAGE value="son up database" />
+    <option name="LAST_COMMIT_MESSAGE" value="son up database" />
   </component>
 </project>
