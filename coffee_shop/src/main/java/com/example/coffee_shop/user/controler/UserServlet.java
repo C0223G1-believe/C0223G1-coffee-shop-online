@@ -25,6 +25,7 @@ public class UserServlet extends HttpServlet {
         }
         switch (action) {
             case "add":
+                showFromAdd(request, "/view/login-signUp/sign-up.jsp", response);
                 break;
             case "edit":
                 showFormEdit(request, response);
@@ -34,6 +35,9 @@ public class UserServlet extends HttpServlet {
         }
     }
 
+    private static void showFromAdd(HttpServletRequest request, String path, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher(path).forward(request, response);
+    }
 
 
     private void showFormEdit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -42,13 +46,13 @@ public class UserServlet extends HttpServlet {
         List<Role> listTypeUser = typeUserService.displayTypeUser();
         request.setAttribute("user", user);
         request.setAttribute("listTypeUser",listTypeUser);
-        request.getRequestDispatcher("/view/user/form-edit.jsp").forward(request, response);
+        showFromAdd(request, "/view/user/form-edit.jsp", response);
     }
 
     private void displayUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<User> listUser = userService.displayUser();
         request.setAttribute("listUser", listUser);
-        request.getRequestDispatcher("/view/user/display.jsp").forward(request, response);
+        showFromAdd(request, "/view/user/display.jsp", response);
     }
 
     @Override
@@ -60,6 +64,7 @@ public class UserServlet extends HttpServlet {
         }
         switch (action){
             case "add":
+                addUser(request, response);
                 break;
             case "edit":
                 editUser(request, response);
@@ -68,6 +73,20 @@ public class UserServlet extends HttpServlet {
                 deleteUser(request, response);
 
         }
+    }
+
+    private void addUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String phoneNumber =  request.getParameter("phone");
+        String email = request.getParameter("email");
+        String userName = request.getParameter("userName");
+        String password1 = request.getParameter("password1");
+        String password2 = request.getParameter("password2");
+        if (password1==password2 && password1!=""||password2!=""){
+            userService.addUser(new User(userName,password1,email,phoneNumber));
+            request.getRequestDispatcher("/view/login-signUp/login.jsp").forward(request, response);
+        }
+            request.getRequestDispatcher("/view/login-signUp/sign-up.jsp").forward(request,response);
+
     }
 
     private  void editUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -8,6 +8,13 @@ public class User {
     private String userPhoneNumber;
     private Role role;
 
+    public User(String userName, String userPassword, String userEmail, String userPhoneNumber) {
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.userEmail = userEmail;
+        this.userPhoneNumber = userPhoneNumber;
+    }
+
     public User(int id, String userName, String userPassword, String userEmail, String userPhoneNumber) {
         this.id = id;
         this.userName = userName;
