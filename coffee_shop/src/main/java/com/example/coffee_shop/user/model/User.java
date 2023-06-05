@@ -6,7 +6,14 @@ public class User {
     private String userPassword;
     private String userEmail;
     private String userPhoneNumber;
-    private TypeUser typeUser;
+    private Role role;
+
+    public User(String userName, String userPassword, String userEmail, String userPhoneNumber) {
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.userEmail = userEmail;
+        this.userPhoneNumber = userPhoneNumber;
+    }
 
     public User(int id, String userName, String userPassword, String userEmail, String userPhoneNumber) {
         this.id = id;
@@ -16,13 +23,13 @@ public class User {
         this.userPhoneNumber = userPhoneNumber;
     }
 
-    public User(int id, String userName, String userPassword, String userEmail, String userPhoneNumber, TypeUser typeUser) {
+    public User(int id, String userName, String userPassword, String userEmail, String userPhoneNumber, Role role) {
         this.id = id;
         this.userName = userName;
         this.userPassword = userPassword;
         this.userEmail = userEmail;
         this.userPhoneNumber = userPhoneNumber;
-        this.typeUser = typeUser;
+        this.role = role;
     }
 
     public int getId() {
@@ -65,11 +72,11 @@ public class User {
         this.userPhoneNumber = userPhoneNumber;
     }
 
-    public TypeUser getTypeUser() {
-        return typeUser;
+    public Role getRole() {
+        return role;
     }
 
-    public void setTypeUser(TypeUser typeUser) {
-        this.typeUser = typeUser;
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

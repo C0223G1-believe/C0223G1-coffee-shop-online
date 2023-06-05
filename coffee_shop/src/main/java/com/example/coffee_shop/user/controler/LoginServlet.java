@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
         if (user != null) {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            if (user.getTypeUser().getId() == 1) {
+            if (user.getRole().getId() == 1) {
                 List<User> listUser = userService.displayUser();
                 request.setAttribute("listUser", listUser);
                 request.getRequestDispatcher("/view/user/display.jsp").forward(request, response);

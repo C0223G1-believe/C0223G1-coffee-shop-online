@@ -18,36 +18,33 @@
                         <div style="color: white">
                         <div class="card-body p-5" style="background:#1e1d1d">
                             <h2 class="text-uppercase text-center mb-2 mt-0 fw-bold">Create an account</h2>
-                                <form class="mt-0" style="height: 600px">
+                                <form class="mt-0" style="height: 600px" action="/User?action=add" method="post">
                                     <div class="form-outline mb-4">
-                                        <input type="text" id="form3Example1cr" class="form-control form-control-lg"/>
+                                        <input type="tel" id="form3Example1cr" name="phone" class="form-control form-control-lg"/>
                                         <label class="form-label" for="form3Example1cr">Phone Number</label>
                                     </div>
                                     <div class="form-outline mb-4">
-                                        <input type="text" id="form3Example1cg" class="form-control form-control-lg"/>
+                                        <input type="email" id="form3Example1cg" name="email" class="form-control form-control-lg"/>
                                         <label class="form-label" for="form3Example1cg">Your Email</label>
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <input type="email" id="form3Example3cg" class="form-control form-control-lg"/>
+                                        <input type="text" id="form3Example3cg" name="userName" pattern="^[a-zA-Z0-9_]+$" class="form-control form-control-lg"/>
                                         <label class="form-label" for="form3Example3cg">User Name</label>
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <input type="password" id="form3Example4cg"
-                                               class="form-control form-control-lg"/>
+                                        <input type="password" id="form3Example4cg" pattern="^[a-zA-Z0-9_]+$" name="password1" class="form-control form-control-lg"/>
                                         <label class="form-label" for="form3Example4cg">Password</label>
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <input type="password" id="form3Example4cdg"
-                                               class="form-control form-control-lg"/>
+                                        <input type="password" id="form3Example4cdg" name="password2" class="form-control form-control-lg"/>
                                         <label class="form-label" for="form3Example4cdg">Repeat your password</label>
                                     </div>
 
                                     <div class="d-flex justify-content-center">
-                                        <button type="button"
-                                                class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">
+                                        <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">
                                             Register
                                         </button>
                                     </div>

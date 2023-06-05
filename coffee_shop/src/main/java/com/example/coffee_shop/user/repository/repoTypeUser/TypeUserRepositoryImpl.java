@@ -1,7 +1,7 @@
 package com.example.coffee_shop.user.repository.repoTypeUser;
 
 import com.example.coffee_shop.BaseRepository;
-import com.example.coffee_shop.user.model.TypeUser;
+import com.example.coffee_shop.user.model.Role;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -14,16 +14,16 @@ public class TypeUserRepositoryImpl implements ITypeUserRepository{
     BaseRepository baseRepository =new BaseRepository();
     private static final String SELECT_TYPE_USER = " SELECT * from type_user ";
     @Override
-    public List<TypeUser> displayTypeUser() {
+    public List<Role> displayTypeUser() {
         Connection connection = baseRepository.getConnection();
-        List<TypeUser> typeUserList = new ArrayList<>();
+        List<Role> typeUserList = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(SELECT_TYPE_USER);
             while (resultSet.next()) {
                 int idTypeUser = resultSet.getInt("id_type_user");
                 String nameTypeUser = resultSet.getString("name_type");
-               typeUserList.add(new TypeUser(idTypeUser,nameTypeUser));
+               typeUserList.add(new Role(idTypeUser,nameTypeUser));
             }
 
         } catch (SQLException e) {

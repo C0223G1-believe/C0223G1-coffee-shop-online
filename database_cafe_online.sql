@@ -19,7 +19,7 @@ FOREIGN KEY ( id_role ) REFERENCES role (id_role) ON DELETE SET NULL
 INSERT INTO `user`(user_name,user_password,user_email,user_phone_number,id_role) VALUES
 ('admin','123','thanhson@gmail.com','1',1);
 INSERT INTO `user`(user_name,user_password,user_email,user_phone_number) VALUES
-('thanhson','123','son@gmail.com','2'),	
+('thanhson','123','son@gmail.com','2'),
 ('vietcao','123456','vietcao@gmail.com','0233701720'),
 ('ngocsang','123456','ngocsang@gmail.com','0220193749'),
 ('haithanh','123456','haithanh@gmail.com','0232903819'),
@@ -28,9 +28,9 @@ INSERT INTO `user`(user_name,user_password,user_email,user_phone_number) VALUES
 CREATE TABLE product_type (
     product_type_id INT PRIMARY KEY AUTO_INCREMENT,
     product_type_name VARCHAR(50) NOT NULL
-    
+
 );
-INSERT INTO product_type (product_type_name) VALUES 
+INSERT INTO product_type (product_type_name) VALUES
 ('Traditional Coffee'),
 ('Machine Coffee'),
 ('Tea'),
@@ -58,20 +58,32 @@ INSERT INTO product(product_name,product_price,product_description,product_image
 ('Machine Coffee',17000,'Use machine coffee to make','img/b1.jpg',4),
 ('Machine Coffee',17000,'Use machine coffee to make','img/b1.jpg',4),
 ('Machine Coffee',17000,'Use machine coffee to make','img/b1.jpg',4);
-
-CREATE TABLE `order` (
-order_id INT PRIMARY KEY AUTO_INCREMENT,
-order_date DATETIME NOT NULL,
-`comment` VARCHAR(100),
-address VARCHAR(50) NOT NULL,
-user_id INT,
-FOREIGN KEY (user_id) REFERENCES `user` (user_id) ON DELETE SET NULL
+CREATE TABLE `status` (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name_status VARCHAR(50)
 );
+INSERT INTO status (name_status) VALUES 
+('Đã đặt hàng'),
+('Đã xuất hàng'),
+('Đã giao hàng');
+CREATE TABLE `order` (
+    order_id INT PRIMARY KEY AUTO_INCREMENT,
+    order_date DATETIME NOT NULL,
+    `comment` VARCHAR(100),
+    address VARCHAR(50) NOT NULL,
+    user_id INT NULL,
+    FOREIGN KEY (user_id)
+        REFERENCES `user` (user_id)
+        ON DELETE SET NULL,
+    id_status INT NULL,
+    FOREIGN KEY(id_status) REFERENCES `status`(id) ON DELETE SET NULL
+);
+
 CREATE TABLE detail_order (
 detail_order_id INT PRIMARY KEY AUTO_INCREMENT,
 quality INT,
 order_id INT NULL,
-FOREIGN KEY (order_id) REFERENCES `order`(order_id)  ON DELETE SET NULL ,
+FOREIGN KEY(order_id) REFERENCES `order`(order_id)  ON DELETE SET NULL ,
 product_id INT NULL,
-FOREIGN KEY (product_id) REFERENCES product (product_id) ON DELETE SET NULL 
+FOREIGN KEY(product_id) REFERENCES product(product_id) ON DELETE SET NULL 
 );
