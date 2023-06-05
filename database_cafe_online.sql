@@ -19,7 +19,7 @@ FOREIGN KEY ( id_role ) REFERENCES role (id_role) ON DELETE SET NULL
 INSERT INTO `user`(user_name,user_password,user_email,user_phone_number,id_role) VALUES
 ('admin','123','thanhson@gmail.com','1',1);
 INSERT INTO `user`(user_name,user_password,user_email,user_phone_number) VALUES
-('thanhson','123','son@gmail.com','2'),	
+('thanhson','123','son@gmail.com','2'),
 ('vietcao','123456','vietcao@gmail.com','0233701720'),
 ('ngocsang','123456','ngocsang@gmail.com','0220193749'),
 ('haithanh','123456','haithanh@gmail.com','0232903819'),
@@ -28,9 +28,9 @@ INSERT INTO `user`(user_name,user_password,user_email,user_phone_number) VALUES
 CREATE TABLE product_type (
     product_type_id INT PRIMARY KEY AUTO_INCREMENT,
     product_type_name VARCHAR(50) NOT NULL
-    
+
 );
-INSERT INTO product_type (product_type_name) VALUES 
+INSERT INTO product_type (product_type_name) VALUES
 ('Traditional Coffee'),
 ('Machine Coffee'),
 ('Tea'),
