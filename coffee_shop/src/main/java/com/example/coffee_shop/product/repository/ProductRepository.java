@@ -2,6 +2,7 @@ package com.example.coffee_shop.product.repository;
 
 import com.example.coffee_shop.BaseRepository;
 import com.example.coffee_shop.product.model.Product;
+import com.example.coffee_shop.type_product.model.TypeProduct;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -9,11 +10,8 @@ import java.util.List;
 
 public class ProductRepository implements IProductRepository{
     BaseRepository baseRepository = new BaseRepository();
-    private  String url = "jdbc:mysql://localhost:3306/test1";
-    private String userName = "root";
-    private String passWord = "codegym";
-
-    private static final String SELECT_ALL_PRODUCT =  "select * from product";
+    private static final String SELECT_ALL_PRODUCT =  " select * from product " +
+            "join product_type on product_type.product_type_id = product.product_type_id; ";
     private static final String INSERT_PRODUCT = "insert into product(product_name,product_price,product_description,product_image) " +
                                                    "values (?,?,?,?);";
 
@@ -34,7 +32,10 @@ public class ProductRepository implements IProductRepository{
                 double price = resultSet.getDouble("product_price");
                 String description = resultSet.getString("product_description");
                 String image = resultSet.getString("product_image");
-                productList.add(new Product(id,name,price,description,image));
+                int idTypeProduct = resultSet.getInt("product.product_type_id");
+                String nameTypeProduct = resultSet.getString("product_type_name");
+                TypeProduct typeProduct = new TypeProduct(idTypeProduct,nameTypeProduct);
+                productList.add(new Product(id,name,price,description,image,typeProduct));
             }
         } catch (SQLException e) {
             e.printStackTrace();

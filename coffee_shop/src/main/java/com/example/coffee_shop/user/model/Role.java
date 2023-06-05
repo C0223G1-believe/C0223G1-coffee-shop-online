@@ -1,13 +1,13 @@
 package com.example.coffee_shop.user.model;
 
-public class TypeUser {
+public class Role {
     private int id;
     private String name;
 
-    public TypeUser(int id) {
+    public Role(int id) {
         this.id = id;
     }
-    public TypeUser(int id, String name) {
+    public Role(int id, String name) {
         this.id = id;
         this.name = name;
     }
