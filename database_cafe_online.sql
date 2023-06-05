@@ -58,20 +58,32 @@ INSERT INTO product(product_name,product_price,product_description,product_image
 ('Machine Coffee',17000,'Use machine coffee to make','img/b1.jpg',4),
 ('Machine Coffee',17000,'Use machine coffee to make','img/b1.jpg',4),
 ('Machine Coffee',17000,'Use machine coffee to make','img/b1.jpg',4);
-
-CREATE TABLE `order` (
-order_id INT PRIMARY KEY AUTO_INCREMENT,
-order_date DATETIME NOT NULL,
-`comment` VARCHAR(100),
-address VARCHAR(50) NOT NULL,
-user_id INT,
-FOREIGN KEY (user_id) REFERENCES `user` (user_id) ON DELETE SET NULL
+CREATE TABLE `status` (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name_status VARCHAR(50)
 );
+INSERT INTO status (name_status) VALUES 
+('Đã đặt hàng'),
+('Đã xuất hàng'),
+('Đã giao hàng');
+CREATE TABLE `order` (
+    order_id INT PRIMARY KEY AUTO_INCREMENT,
+    order_date DATETIME NOT NULL,
+    `comment` VARCHAR(100),
+    address VARCHAR(50) NOT NULL,
+    user_id INT NULL,
+    FOREIGN KEY (user_id)
+        REFERENCES `user` (user_id)
+        ON DELETE SET NULL,
+    id_status INT NULL,
+    FOREIGN KEY(id_status) REFERENCES `status`(id) ON DELETE SET NULL
+);
+
 CREATE TABLE detail_order (
 detail_order_id INT PRIMARY KEY AUTO_INCREMENT,
 quality INT,
 order_id INT NULL,
-FOREIGN KEY (order_id) REFERENCES `order`(order_id)  ON DELETE SET NULL ,
+FOREIGN KEY(order_id) REFERENCES `order`(order_id)  ON DELETE SET NULL ,
 product_id INT NULL,
-FOREIGN KEY (product_id) REFERENCES product (product_id) ON DELETE SET NULL 
+FOREIGN KEY(product_id) REFERENCES product(product_id) ON DELETE SET NULL 
 );
