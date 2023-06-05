@@ -19,9 +19,10 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
             " SET user_name = ?," +
             " user_password = ?," +
             " user_email = ?," +
-            " user_phone_number = ?" +
-            " WHERE id = ?;";
-    private static final String DELETE_USER ="DELETE from user where user.id = ? ;";
+            " user_phone_number = ?," +
+            " id_type_user = ? " +
+            " WHERE user_id = ? and user_name <> ?;";
+    private static final String DELETE_USER =" DELETE from user where user.user_id = ? ";
     private static final String SELECT_USER_BY_PHONE_AND_PASS ="SELECT * FROM user JOIN type_user ON type_user.id_type_user = user.id_type_user WHERE  user_phone_number =? && user_password =?;";
 
 
@@ -89,8 +90,11 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
             preparedStatement.setString(2,user.getUserPassword());
             preparedStatement.setString(3,user.getUserEmail());
             preparedStatement.setString(4,user.getUserPhoneNumber());
-            preparedStatement.setInt(5,user.getId());
+            preparedStatement.setInt(5,user.getTypeUser().getId());
+            preparedStatement.setInt(6,user.getId());
+            preparedStatement.setString(7,user.getUserName());
             preparedStatement.executeUpdate();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
         }finally{
@@ -176,12 +180,12 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
     }
 
     @Override
-    public boolean checkUserName(String userName) {
+    public boolean checkUserName(String userName, String eimail,String phone) {
         Connection connection = baseRepository.getConnection();
         int id;
         String password;
-        String email;
-        String phoneNumber;
+        String email = null;
+        String phoneNumber = null;
         String userNam = null;
         try {
             Statement statement = connection.createStatement();
@@ -192,6 +196,9 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
                  password = resultSet.getString("user_password");
                  email = resultSet.getString("user_email");
                  phoneNumber = resultSet.getString("user_phone_number");
+                if (userNam.contains(userName)){
+                    return true;
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -202,9 +209,7 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
                 e.printStackTrace();
             }
         }
-        if (userName==userNam){
-            return true;
-        }
+
         return false ;
     }
 

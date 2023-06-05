@@ -30,7 +30,6 @@ public class UserServlet extends HttpServlet {
             case "edit":
                 showFormEdit(request, response);
                 break;
-
             default:
                 displayUser(request, response);
         }
@@ -44,13 +43,13 @@ public class UserServlet extends HttpServlet {
         List<TypeUser> listTypeUser = typeUserService.displayTypeUser();
         request.setAttribute("user", user);
         request.setAttribute("listTypeUser",listTypeUser);
-        request.getRequestDispatcher("/user/form-edit.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/user/form-edit.jsp").forward(request, response);
     }
 
     private void displayUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<User> listUser = userService.displayUser();
         request.setAttribute("listUser", listUser);
-        request.getRequestDispatcher("user/display.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/user/display.jsp").forward(request, response);
     }
 
     @Override
@@ -64,12 +63,33 @@ public class UserServlet extends HttpServlet {
             case "add":
                 break;
             case "edit":
+                editUser(request, response);
                 break;
             case "delete":
                 deleteUser(request, response);
 
         }
     }
+
+    private  void editUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String userName = request.getParameter("userName");
+        String password = request.getParameter("password");
+        String email = request.getParameter("email");
+        String phoneNumber = request.getParameter("phoneNumber");
+        int typeUserId = Integer.parseInt(request.getParameter("typeUser"));
+        TypeUser typeUser =new TypeUser(typeUserId);
+        User user = new User(id,userName,password,email,phoneNumber,typeUser);
+        if (userService.checkUserName(userName,email,phoneNumber)){
+            response.sendRedirect("/User");
+        }else {
+            if (userService.editUser(user)){
+                response.sendRedirect("/User");
+            }
+        }
+
+    }
+
     private void deleteUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("idDelete"));
         userService.deleteUser(id);
