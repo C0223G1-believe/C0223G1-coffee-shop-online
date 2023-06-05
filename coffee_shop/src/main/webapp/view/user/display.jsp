@@ -39,7 +39,7 @@
                 <td><c:out value="${user.userPassword}"/></td>
                 <td><c:out value="${user.userEmail}"/></td>
                 <td><c:out value="${user.userPhoneNumber}"/></td>
-                <td><c:out value="${user.typeUser.name}"/></td>
+                <td><c:out value="${user.role.name}"/></td>
                 <td>
                     <a class="text-decoration-none" href="/User?action=edit&id=${user.id}">
                         <button type="button" class=" btn btn-warning text-white bg-warning rounded-3">

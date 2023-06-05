@@ -12,11 +12,11 @@ public class ProductRepository implements IProductRepository{
     BaseRepository baseRepository = new BaseRepository();
     private static final String SELECT_ALL_PRODUCT =  " select * from product " +
             "join product_type on product_type.product_type_id = product.product_type_id; ";
-    private static final String INSERT_PRODUCT = "insert into product(product_name,product_price,product_description,product_image) " +
-                                                   "values (?,?,?,?);";
+    private static final String INSERT_PRODUCT = "insert into product(product_name,product_price,product_description,product_image,product_type_id) " +
+                                                   "values (?,?,?,?,?);";
 
     private static final String DELETE_BY_ID = "delete from product where product_id = ?;";
-    private static final String UPDATE_PRODUCT = "UPDATE product SET product_name = ?, product_price =?, product_description = ?, product_image = ? WHERE product_id = ?;";
+    private static final String UPDATE_PRODUCT = "UPDATE product SET product_name = ?, product_price =?, product_description = ?, product_image = ?,product_type_id=? WHERE product_id = ?;";
     private static final String SELECT_PRODUCT_BY_ID = "select * from product where product_id = ?;";
 
     @Override
@@ -58,6 +58,7 @@ public class ProductRepository implements IProductRepository{
             preparedStatement.setDouble(2,product.getProductPrice());
             preparedStatement.setString(3,product.getProductDescription());
             preparedStatement.setString(4,product.getProductImage());
+            preparedStatement.setObject(5,product.getTypeProduct());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -78,7 +79,8 @@ public class ProductRepository implements IProductRepository{
             preparedStatement.setDouble(2,product.getProductPrice());
             preparedStatement.setString(3,product.getProductDescription());
             preparedStatement.setString(4,product.getProductImage());
-            preparedStatement.setInt(5,id);
+            preparedStatement.setObject(5,product.getTypeProduct());
+            preparedStatement.setInt(6,id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

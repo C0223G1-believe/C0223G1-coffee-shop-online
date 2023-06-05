@@ -15,7 +15,7 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
             "INSERT INTO user(user_name,user_password,user_email,user_phone_number) " +
                     " VALUES(?,?,?,?);";
     private static final String SELECT_USER = " SELECT * from user " +
-            " JOIN type_user as tus on tus.id_type_user = user.id_type_user;";
+            " JOIN role as tus on tus.id_role= user.id_role;";
     private static final String UPDATE_USER = "UPDATE user " +
             " SET user_name = ?," +
             " user_password = ?," +
@@ -24,7 +24,7 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
             " id_type_user = ? " +
             " WHERE user_id = ? and user_name <> ?;";
     private static final String DELETE_USER =" DELETE from user where user.user_id = ? ";
-    private static final String SELECT_USER_BY_PHONE_AND_PASS ="SELECT * FROM user JOIN type_user ON type_user.id_type_user = user.id_type_user WHERE  user_phone_number =? && user_password =?;";
+    private static final String SELECT_USER_BY_PHONE_AND_PASS ="SELECT * FROM user JOIN role ON role.id_role = user.id_role WHERE  user_phone_number =? && user_password =?;";
 
 
     @Override

@@ -13,8 +13,8 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "loginServlet", value = "/loginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "SignInServlet", value = "/SignInServlet")
+public class SignInServlet extends HttpServlet {
     private IUserService userService = new UserServiceImpl();
     private IProductService productService = new ProductService();
 
