@@ -23,7 +23,7 @@ public interface IUserService {
     // Search
     List<User> searchUser(String userName);
 
-    boolean checkUserName(String userName);
+    boolean checkUserName(String userName, String eimail,String phone);
 
     User getUserByPhoneAndPass(String phone, String pass);
 }
