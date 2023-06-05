@@ -1,6 +1,5 @@
 package com.example.coffee_shop.user.controler;
-
-import com.example.coffee_shop.user.model.TypeUser;
+import com.example.coffee_shop.user.model.Role;
 import com.example.coffee_shop.user.model.User;
 import com.example.coffee_shop.user.service.type_user_service.ITypeUserService;
 import com.example.coffee_shop.user.service.type_user_service.TypeUserServiceImpl;
@@ -40,7 +39,7 @@ public class UserServlet extends HttpServlet {
     private void showFormEdit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         User user = userService.findById(id);
-        List<TypeUser> listTypeUser = typeUserService.displayTypeUser();
+        List<Role> listTypeUser = typeUserService.displayTypeUser();
         request.setAttribute("user", user);
         request.setAttribute("listTypeUser",listTypeUser);
         request.getRequestDispatcher("/view/user/form-edit.jsp").forward(request, response);
@@ -77,9 +76,9 @@ public class UserServlet extends HttpServlet {
         String password = request.getParameter("password");
         String email = request.getParameter("email");
         String phoneNumber = request.getParameter("phoneNumber");
-        int typeUserId = Integer.parseInt(request.getParameter("typeUser"));
-        TypeUser typeUser =new TypeUser(typeUserId);
-        User user = new User(id,userName,password,email,phoneNumber,typeUser);
+        int idRole = Integer.parseInt(request.getParameter("id_role"));
+        Role role =new Role(idRole);
+        User user = new User(id,userName,password,email,phoneNumber,role);
         if (userService.checkUserName(userName,email,phoneNumber)){
             response.sendRedirect("/User");
         }else {

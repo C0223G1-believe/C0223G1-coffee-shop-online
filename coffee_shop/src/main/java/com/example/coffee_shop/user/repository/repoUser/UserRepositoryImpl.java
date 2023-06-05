@@ -1,7 +1,8 @@
 package com.example.coffee_shop.user.repository.repoUser;
 
 import com.example.coffee_shop.BaseRepository;
-import com.example.coffee_shop.user.model.TypeUser;
+
+import com.example.coffee_shop.user.model.Role;
 import com.example.coffee_shop.user.model.User;
 
 import java.sql.*;
@@ -62,10 +63,10 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
                 String password = resultSet.getString("user_password");
                 String email = resultSet.getString("user_email");
                 String phoneNumber = resultSet.getString("user_phone_number");
-                int idTypeUser = resultSet.getInt("id_type_user");
-                String nameTypeUser = resultSet.getString("name_type");
-                TypeUser typeUser = new TypeUser(idTypeUser, nameTypeUser);
-                userList.add(new User(id,userName,password,email,phoneNumber,typeUser));
+                int idRole = resultSet.getInt("id_role");
+                String nameRole = resultSet.getString("name_role");
+                Role role = new Role(idRole, nameRole);
+                userList.add(new User(id,userName,password,email,phoneNumber,role));
             }
 
         } catch (SQLException e) {
@@ -90,7 +91,7 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
             preparedStatement.setString(2,user.getUserPassword());
             preparedStatement.setString(3,user.getUserEmail());
             preparedStatement.setString(4,user.getUserPhoneNumber());
-            preparedStatement.setInt(5,user.getTypeUser().getId());
+            preparedStatement.setInt(5,user.getRole().getId());
             preparedStatement.setInt(6,user.getId());
             preparedStatement.setString(7,user.getUserName());
             preparedStatement.executeUpdate();
@@ -140,9 +141,9 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
                 String password = resultSet.getString("user_password");
                 String email = resultSet.getString("user_email");
                 String phoneNumber = resultSet.getString("user_phone_number");
-                int idTypeUser = resultSet.getInt("id_type_user");
-                String nameTypeUser = resultSet.getString("name_type");
-                TypeUser typeUser = new TypeUser(idTypeUser,nameTypeUser);
+                int idRole = resultSet.getInt("id_role");
+                String nameRole = resultSet.getString("name_role");
+                Role typeUser = new Role(idRole,nameRole);
                  user = new User(id,userName,password,email,phoneNumber,typeUser);
              }
         } catch (SQLException e) {
@@ -166,10 +167,10 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
                 String password = resultSet.getString("user_password");
                 String email = resultSet.getString("user_email");
                 String phoneNumber = resultSet.getString("user_phone_number");
-                int idTypeUser = resultSet.getInt("id_type_user");
-                String nameTypeUser = resultSet.getString("name_type");
-                TypeUser typeUser = new TypeUser(idTypeUser,nameTypeUser);
-                userList.add(new User(id,userName,password,email,phoneNumber,typeUser));
+                int idRole = resultSet.getInt("id_role");
+                String nameRole = resultSet.getString("name_role");
+                Role role = new Role(idRole,nameRole);
+                userList.add(new User(id,userName,password,email,phoneNumber,role));
 
             }
         } catch (SQLException e) {
@@ -228,10 +229,10 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
                 String password = resultSet.getString("user_password");
                 String email = resultSet.getString("user_email");
                 String phoneNumber = resultSet.getString("user_phone_number");
-                int idTypeUser = resultSet.getInt("id_type_user");
-                String nameTypeUser = resultSet.getString("name_type");
-                TypeUser typeUser = new TypeUser(idTypeUser, nameTypeUser);
-                user = new User(id,userName,password,email,phoneNumber,typeUser);
+                int idRole = resultSet.getInt("id_role");
+                String nameRole = resultSet.getString("name_role");
+                Role role = new Role(idRole, nameRole);
+                user = new User(id,userName,password,email,phoneNumber,role);
             }
 
         } catch (SQLException e) {
