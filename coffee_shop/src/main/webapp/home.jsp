@@ -173,8 +173,6 @@
                 </div>
             </c:forEach>
         </div>
-
-
     </div>
 </section>
 <!-- End menu Area -->
