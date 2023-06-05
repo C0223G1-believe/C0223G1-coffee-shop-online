@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="library/css/owl.carousel.css">
     <link rel="stylesheet" href="library/css/main.css">
 <body class="bg-secondary">
-<header id="header" id="home">
+<header id="header" id="home" class="bg-dark">
     <div class="header-top">
         <div class="container">
             <div class="row justify-content-end">
@@ -64,7 +64,7 @@
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
                         <li class="menu-active"><a href="/User">User Manager</a></li>
-                        <li class="menu-active"><a href="#about">Product Manager</a></li>
+                        <li class="menu-active"><a href="/product">Product Manager</a></li>
                         <li class="menu-active"><a href="#coffee">Bill Manager</a></li>
                     </ul>
                 </nav>

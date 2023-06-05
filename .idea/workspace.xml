@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+    <list default="true" id="69989a0e-2e46-4424-a782-94cd203815f0" name="Changes" comment="thành commit sửa lại database">
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <list default="true" id="69989a0e-2e46-4424-a782-94cd203815f0" name="Changes" comment="son up database">
       <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/controler/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/user/controler/UserServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/view/login-signUp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/view/login-signUp/login.jsp" afterDir="false" />
@@ -132,12 +136,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="sang cm" />
     <MESSAGE value="son" />
     <MESSAGE value="son up crud lan2" />
-    <MESSAGE value="son up database" />
-    <option name="LAST_COMMIT_MESSAGE" value="son up database" />
+    <option name="LAST_COMMIT_MESSAGE" value="son up crud lan2" />
   </component>
 </project>
