@@ -26,44 +26,64 @@ INSERT INTO `user`(user_name,user_password,user_email,user_phone_number) VALUES
 ('chanh','123456','chanh@gmail.com','0228018230');
 
 CREATE TABLE product_type (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    product_type_id INT PRIMARY KEY AUTO_INCREMENT,
     product_type_name VARCHAR(50) NOT NULL
+
 );
-INSERT INTO product_type (product_type_name) VALUES 
-('coffee'),
-('coffee milk');
+INSERT INTO product_type (product_type_name) VALUES
+('Traditional Coffee'),
+('Machine Coffee'),
+('Tea'),
+('Juice');
 CREATE TABLE product (
     product_id INT PRIMARY KEY AUTO_INCREMENT,
     product_name VARCHAR(50) NOT NULL,
     product_price DOUBLE NOT NULL,
     product_description VARCHAR(200),
-    product_image TEXT
+    product_image TEXT,
+    product_type_id int,
+    foreign key (product_type_id) references product_type(product_type_id) ON DELETE SET NULL
 );
 
-INSERT INTO product(product_name,product_price,product_description,product_image) VALUES
-('Cà phê sữa pha máy',17000,'Cà phê được pha chế tại quán','images/coffee/images.jpeg'),
-('Cà phê sữa pha phin',17000,'Cà phê được pha chế tại quán','images/coffee/images (1).jpeg'),
-('Cà phê đen sài gòn',17000,'Cà phê được pha chế tại quán','images/coffee/images (2).jpeg'),
-('Cà phê sữa sài gòn',17000,'Cà phê được pha chế tại quán','images/coffee/images (3).jpeg'),
-('Cà phê muối',17000,'Cà phê được pha chế tại quán','images/coffee/moi-la-voi-cong-thuc-lam-ca-phe-matcha-thom-ngon-khong-tuong-202206060951298564.jpeg'),
-('Cà phê trứng',17000,'Cà phê được pha chế tại quán','images/coffee/tải xuống.jpeg'),
-('Cà phê dừa',17000,'Cà phê được pha chế tại quán','images/coffee/tải xuống (2).jpeg'),
-('Bạc xỉu',17000,'Bạc xỉu được pha chế tại quán','images/coffee/tải xuống (1).jpeg'),
-('Capuchino',17000,'Capuchino được pha chế tại quán','images/coffee/tải xuống (1).jpeg');
-
+INSERT INTO product(product_name,product_price,product_description,product_image,product_type_id) VALUES
+('Black Coffee ',17000,'Coffee and suger','img/1479133216-5745aa499882e46721b6545bb1c38bb0.jpg',1),
+('Milk Coffee ',17000,'Coffee and condensed milk','img/omd33.jpg',1),
+('SaiGon Black Coffee ',17000,'Coffee and suger then shake','img/ca-phe-sai-gon-saigon-coffee-gac-mang-re-cafe-kontum-kon-tum-gacmangre-2.jpg',1),
+('SaiGon Milk Coffee ',17000,'Coffee and condensed milk then shake','img/ca-phe-sai-gon-saigon-coffee-gac-mang-re-cafe-kontum-kon-tum-gacmangre-2.jpg',2),
+('Salt Coffee ',17000,'Coffee,condensed milk,rich,salt,base cream','images/coffee/11.-Ca-phe-muoi.png',2),
+('Egg Coffee',17000,'Coffee,condensed milk,rich,egg,base cream','images/coffee/11-cover5-10-40-10.jpg',2),
+('Coconut Coffee',17000,'Milk,condensed milk,ice,coconut then blended','images/coffee/cach-pha-cafe-cot-dua.jpeg',3),
+('White Coffee ',17000,'Coffee,condensed milk,milk','images/coffee/images (1).jpeg',3),
+('Machine Coffee',17000,'Use machine coffee to make','img/b1.jpg',3),
+('Machine Coffee',17000,'Use machine coffee to make','img/b1.jpg',4),
+('Machine Coffee',17000,'Use machine coffee to make','img/b1.jpg',4),
+('Machine Coffee',17000,'Use machine coffee to make','img/b1.jpg',4);
+CREATE TABLE `status` (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name_status VARCHAR(50)
+);
+INSERT INTO status (name_status) VALUES 
+('Đã đặt hàng'),
+('Đã xuất hàng'),
+('Đã giao hàng');
 CREATE TABLE `order` (
-order_id INT PRIMARY KEY AUTO_INCREMENT,
-order_date DATETIME NOT NULL,
-`comment` VARCHAR(100),
-address VARCHAR(50) NOT NULL,
-user_id INT,
-FOREIGN KEY (user_id) REFERENCES `user` (user_id) ON DELETE SET NULL
+    order_id INT PRIMARY KEY AUTO_INCREMENT,
+    order_date DATETIME NOT NULL,
+    `comment` VARCHAR(100),
+    address VARCHAR(50) NOT NULL,
+    user_id INT NULL,
+    FOREIGN KEY (user_id)
+        REFERENCES `user` (user_id)
+        ON DELETE SET NULL,
+    id_status INT NULL,
+    FOREIGN KEY(id_status) REFERENCES `status`(id) ON DELETE SET NULL
 );
+
 CREATE TABLE detail_order (
 detail_order_id INT PRIMARY KEY AUTO_INCREMENT,
 quality INT,
 order_id INT NULL,
-FOREIGN KEY (order_id) REFERENCES `order`(order_id)  ON DELETE SET NULL ,
+FOREIGN KEY(order_id) REFERENCES `order`(order_id)  ON DELETE SET NULL ,
 product_id INT NULL,
-FOREIGN KEY (product_id) REFERENCES product (product_id) ON DELETE SET NULL 
+FOREIGN KEY(product_id) REFERENCES product(product_id) ON DELETE SET NULL 
 );

@@ -1,12 +1,23 @@
 package com.example.coffee_shop.product.model;
 
+import com.example.coffee_shop.type_product.model.TypeProduct;
+
 public class Product {
     private int productID;
     private String productName;
     private double productPrice;
     private String productDescription;
     private String productImage;
+    private TypeProduct typeProduct;
 
+    public Product(int productID, String productName, double productPrice, String productDescription, String productImage, TypeProduct typeProduct) {
+        this.productID = productID;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productDescription = productDescription;
+        this.productImage = productImage;
+        this.typeProduct = typeProduct;
+    }
 
     public Product(int productID, String productName, double productPrice, String productDescription, String productImage) {
         this.productID = productID;
@@ -24,6 +35,14 @@ public class Product {
     }
     public Product (){
 
+    }
+
+    public TypeProduct getTypeProduct() {
+        return typeProduct;
+    }
+
+    public void setTypeProduct(TypeProduct typeProduct) {
+        this.typeProduct = typeProduct;
     }
 
     public int getProductID() {

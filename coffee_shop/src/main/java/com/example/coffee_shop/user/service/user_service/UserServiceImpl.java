@@ -39,9 +39,8 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public boolean checkUserName(String userName) {
-
-        return false;
+    public boolean checkUserName(String userName, String eimail,String phone) {
+        return userRepository.checkUserName(userName,eimail,phone);
     }
 
     @Override
