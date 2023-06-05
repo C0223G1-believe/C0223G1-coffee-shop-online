@@ -137,7 +137,7 @@
                 <div class="col-lg-4 ">
                         <%--                <a href="/view/login-signUp/login.jsp">--%>
                     <div class="single-menu">
-<%--                        <div><img width="100%" height="45%" src="${product.productImage}"></div>--%>
+                        <div><img width="100%" height="50%" src="${product.productImage}"></div>
                         <div class="title-div justify-content-between d-flex">
                             <h4>${product.productName}</h4>
                             <p class="price float-right">
