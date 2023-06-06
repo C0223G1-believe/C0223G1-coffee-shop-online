@@ -2,6 +2,7 @@ package com.example.coffee_shop.product.controller;
 
 import com.example.coffee_shop.product.model.Product;
 import com.example.coffee_shop.product.service.ProductService;
+import com.example.coffee_shop.type_product.model.TypeProduct;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -10,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "ProductServlet", value = "/test")
+@WebServlet(name = "ProductServlet", value = "/product")
 public class ProductServlet extends HttpServlet {
     private ProductService productService = new ProductService();
     @Override
@@ -36,7 +37,7 @@ public class ProductServlet extends HttpServlet {
     public void showListProduct (HttpServletRequest request, HttpServletResponse response){
         List<Product> productList = productService.productList();
         request.setAttribute("productList" , productList);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/index.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/view/product/list-product.jsp");
         try {
             requestDispatcher.forward(request,response);
         } catch (ServletException e) {
@@ -46,7 +47,7 @@ public class ProductServlet extends HttpServlet {
         }
     }
     public void showCreateForm (HttpServletRequest request, HttpServletResponse response){
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/test/create-product.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/product/create-product.jsp");
         try {
             requestDispatcher.forward(request,response);
         } catch (ServletException e) {
@@ -66,7 +67,7 @@ public class ProductServlet extends HttpServlet {
         request.setAttribute("price",price);
         request.setAttribute("description",description);
         request.setAttribute("image",image);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/test/update-product.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/product/update-product.jsp");
         try {
             requestDispatcher.forward(request,response);
         } catch (ServletException e) {
@@ -97,7 +98,7 @@ public class ProductServlet extends HttpServlet {
         String image  = request.getParameter("image");
         productService.createProduct(new Product(name,price,description,image));
         try {
-            response.sendRedirect("/test");
+            response.sendRedirect("/product");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -107,7 +108,7 @@ public class ProductServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         productService.deleteProduct(id);
         try {
-            response.sendRedirect("/test");
+            response.sendRedirect("/product");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -122,7 +123,7 @@ public class ProductServlet extends HttpServlet {
         Product product = new Product(name, price,description,image);
         productService.updateProduct(id,product);
         try {
-            response.sendRedirect("/test");
+            response.sendRedirect("/product");
         } catch (IOException e) {
             e.printStackTrace();
         }
