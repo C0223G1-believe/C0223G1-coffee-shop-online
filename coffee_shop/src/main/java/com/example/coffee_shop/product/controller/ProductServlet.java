@@ -2,13 +2,11 @@ package com.example.coffee_shop.product.controller;
 
 import com.example.coffee_shop.product.model.Product;
 import com.example.coffee_shop.product.service.ProductService;
-import com.example.coffee_shop.type_product.model.TypeProduct;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "ProductServlet", value = "/product")

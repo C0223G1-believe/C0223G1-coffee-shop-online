@@ -154,6 +154,11 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
     }
 
     @Override
+    public List<User> searchUser(String userName, String phone) {
+        return null;
+    }
+
+    @Override
     public List<User> searchUser(String userName) {
         Connection connection = baseRepository.getConnection();
         List<User> userList = null;
