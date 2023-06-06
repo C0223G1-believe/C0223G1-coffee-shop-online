@@ -10,6 +10,7 @@ public class Product {
     private String productImage;
     private TypeProduct typeProduct;
 
+
     public Product(int productID, String productName, double productPrice, String productDescription, String productImage, TypeProduct typeProduct) {
         this.productID = productID;
         this.productName = productName;
@@ -19,12 +20,12 @@ public class Product {
         this.typeProduct = typeProduct;
     }
 
-    public Product(int productID, String productName, double productPrice, String productDescription, String productImage) {
-        this.productID = productID;
+    public Product( String productName, double productPrice, String productDescription, String productImage, TypeProduct typeProduct) {
         this.productName = productName;
         this.productPrice = productPrice;
         this.productDescription = productDescription;
         this.productImage = productImage;
+        this.typeProduct = typeProduct;
     }
 
     public Product(String productName, double productPrice, String productDescription, String productImage) {

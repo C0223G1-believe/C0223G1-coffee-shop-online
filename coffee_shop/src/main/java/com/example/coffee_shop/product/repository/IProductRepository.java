@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface IProductRepository {
     List<Product> productList();
-    void createProduct (Product product);
-    void updateProduct (int id,Product product);
+    void createProduct (Product product, int id);
+    void updateProduct (int id,Product product,String name);
     void deleteProduct (int id);
-    Product searchProduct(int id);
+    Product searchProduct(String name);
 }
