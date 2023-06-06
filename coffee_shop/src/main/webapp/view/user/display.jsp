@@ -21,7 +21,8 @@
         <input type="text" name="phone" placeholder="Enter Phone">
         <button class="rounded-3 bg-primary" type="submit">Search</button>
     </form>
-    <table style="color: white" class="table table-striped col-lg-11">
+    <table id="tableStudent" style="color: white" class="table table-striped table-bordered col-lg-11">
+        <thead>
         <tr>
             <th>STT</th>
             <th>user name</th>
@@ -32,6 +33,8 @@
             <th>Edit</th>
             <th>Delete</th>
         </tr>
+        </thead>
+        <tbody>
         <c:forEach var="user" items="${listUser}" varStatus="loop">
             <tr>
                 <td><c:out value="${loop.count}"/></td>
@@ -57,6 +60,7 @@
             </tr>
 
         </c:forEach>
+        </tbody>
     </table>
 </div>
 
@@ -88,12 +92,11 @@
 <script src="bootstrap520/js/bootstrap.bundle.js"></script>
 <script>
 
-
     $(document).ready(function () {
         $('#tableStudent').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
-            "pageLength": 2
+            "pageLength": 5
         });
     });
 

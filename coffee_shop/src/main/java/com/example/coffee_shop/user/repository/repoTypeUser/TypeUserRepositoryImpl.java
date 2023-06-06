@@ -12,17 +12,17 @@ import java.util.List;
 
 public class TypeUserRepositoryImpl implements ITypeUserRepository{
     BaseRepository baseRepository =new BaseRepository();
-    private static final String SELECT_TYPE_USER = " SELECT * from type_user ";
+    private static final String SELECT_ROLE = " SELECT * from role ";
     @Override
-    public List<Role> displayTypeUser() {
+    public List<Role> displayRole() {
         Connection connection = baseRepository.getConnection();
         List<Role> typeUserList = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(SELECT_TYPE_USER);
+            ResultSet resultSet = statement.executeQuery(SELECT_ROLE);
             while (resultSet.next()) {
-                int idTypeUser = resultSet.getInt("id_type_user");
-                String nameTypeUser = resultSet.getString("name_type");
+                int idTypeUser = resultSet.getInt("id_role");
+                String nameTypeUser = resultSet.getString("name_role");
                typeUserList.add(new Role(idTypeUser,nameTypeUser));
             }
 

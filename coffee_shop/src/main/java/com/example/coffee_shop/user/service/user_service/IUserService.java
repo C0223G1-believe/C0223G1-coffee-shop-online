@@ -21,7 +21,7 @@ public interface IUserService {
     User findById(int id);
 
     // Search
-    List<User> searchUser(String userName);
+    List<User> searchUser(String userName, String phone);
 
     boolean checkUserName(String userName, String eimail,String phone);
 
