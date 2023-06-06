@@ -22,15 +22,15 @@
     </form>
     <a class="btn btn-primary" href="/product?action=create" role="button">Add New Product</a>
     <table style="color: white" class="table table-striped col-lg-11">
-        <tr>
-            <th>Sequence Number</th>
-            <th>Product Name</th>
-            <th>Product Price</th>
-            <th>Product Description</th>
-            <th>Product Image</th>
-            <th>Product Type</th>
-            <th>Edit</th>
-            <th>Delete</th>
+        <tr >
+            <th style="color: #14515b">Sequence Number</th>
+            <th style="color: #14515b">Product Name</th>
+            <th style="color: #14515b">Product Price</th>
+            <th style="color: #14515b">Product Description</th>
+            <th style="color: #14515b">Product Image</th>
+            <th style="color: #14515b">Product Type</th>
+            <th style="color: #14515b">Edit</th>
+            <th style="color: #14515b">Delete</th>
         </tr>
         <c:forEach var="product" items="${productList}" varStatus="loop">
             <tr>

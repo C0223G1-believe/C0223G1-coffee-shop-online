@@ -16,7 +16,7 @@
 <div class="container">
     <form style="color: white; margin-top: 10em" action="/User?action=edit" method="post">
         <table style="color: white;">
-            <tr>
+            <tr hidden>
                 <td><label>id: </label></td>
                 <td><input style="border-radius: 10px" name="id" value="${user.id}" readonly></td>
             </tr>
