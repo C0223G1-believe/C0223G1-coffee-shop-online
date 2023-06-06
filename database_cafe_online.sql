@@ -75,8 +75,7 @@ CREATE TABLE `order` (
     FOREIGN KEY (user_id)
         REFERENCES `user` (user_id)
         ON DELETE SET NULL,
-    id_status INT NULL,
-    FOREIGN KEY(id_status) REFERENCES `status`(id) ON DELETE SET NULL
+    id_status INT NULL DEFAULT'1', FOREIGN KEY(id_status) REFERENCES `status`(id) ON DELETE SET NULL 
 );
 
 CREATE TABLE detail_order (
