@@ -2,7 +2,8 @@ package com.example.coffee_shop.product.repository;
 
 import com.example.coffee_shop.BaseRepository;
 import com.example.coffee_shop.product.model.Product;
-import com.example.coffee_shop.type_product.model.TypeProduct;
+import com.example.coffee_shop.product.model.TypeProduct;
+
 
 import java.sql.*;
 import java.util.ArrayList;

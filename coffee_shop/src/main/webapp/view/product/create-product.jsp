@@ -56,10 +56,10 @@
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                             <select name="type" class="form-select" aria-label="Default select example">
-                                                <option selected>Traditional Coffee</option>
-                                                <option value="1">Machine Coffee</option>
-                                                <option value="2">Tea</option>
-                                                <option value="3">Juice</option>
+                                                <option value="1" selected>Traditional Coffee</option>
+                                                <option value="2">Machine Coffee</option>
+                                                <option value="3">Tea</option>
+                                                <option value="4">Juice</option>
                                             </select>
                                         </div>
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
