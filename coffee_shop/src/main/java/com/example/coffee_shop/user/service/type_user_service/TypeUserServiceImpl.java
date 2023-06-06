@@ -10,7 +10,7 @@ public class TypeUserServiceImpl implements ITypeUserService{
     ITypeUserRepository typeUserRepository = new TypeUserRepositoryImpl();
 
     @Override
-    public List<Role> displayTypeUser() {
-        return typeUserRepository.displayTypeUser();
+    public List<Role> displayRole() {
+        return typeUserRepository.displayRole();
     }
 }

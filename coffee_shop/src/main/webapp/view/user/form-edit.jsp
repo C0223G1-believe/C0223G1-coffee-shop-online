@@ -39,10 +39,10 @@
             <tr>
                 <td><label>Type User: </label></td>
                 <td>
-                    <select style="border-radius: 10px" name="typeUser">
-                        <option value="${user.typeUser.id}">${user.typeUser.name}</option>
-                        <c:forEach var="typeUser" items="${listTypeUser}" varStatus="loop">
-                            <option value="${typeUser.id}"> ${typeUser.name}</option>
+                    <select style="border-radius: 10px" name="role">
+                        <option value="${user.role.id}">${user.role.name}</option>
+                        <c:forEach var="role" items="${listRole}" varStatus="loop">
+                            <option value="${role.id}"> ${role.name}</option>
                         </c:forEach>
                     </select>
                 </td>

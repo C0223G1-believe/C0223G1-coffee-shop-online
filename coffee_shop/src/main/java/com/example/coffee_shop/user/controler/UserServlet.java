@@ -1,4 +1,5 @@
 package com.example.coffee_shop.user.controler;
+
 import com.example.coffee_shop.user.model.Role;
 import com.example.coffee_shop.user.model.User;
 import com.example.coffee_shop.user.service.type_user_service.ITypeUserService;
@@ -43,9 +44,9 @@ public class UserServlet extends HttpServlet {
     private void showFormEdit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         User user = userService.findById(id);
-        List<Role> listTypeUser = typeUserService.displayTypeUser();
+        List<Role> roleList = typeUserService.displayRole();
         request.setAttribute("user", user);
-        request.setAttribute("listTypeUser",listTypeUser);
+        request.setAttribute("listRole",roleList);
         showFromAdd(request, "/view/user/form-edit.jsp", response);
     }
 
@@ -71,8 +72,22 @@ public class UserServlet extends HttpServlet {
                 break;
             case "delete":
                 deleteUser(request, response);
+                break;
+            case"search":
+                searchUser(request, response);
+                break;
 
         }
+    }
+
+    private void searchUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        List<User> listUser =  userService.searchUser(email,phone);
+        request.setAttribute("listUser", listUser);
+      request.getRequestDispatcher("/view/user/display.jsp").forward(request,response);
+
+
     }
 
     private void addUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -95,7 +110,7 @@ public class UserServlet extends HttpServlet {
         String password = request.getParameter("password");
         String email = request.getParameter("email");
         String phoneNumber = request.getParameter("phoneNumber");
-        int idRole = Integer.parseInt(request.getParameter("id_role"));
+        int idRole = Integer.parseInt(request.getParameter("role"));
         Role role =new Role(idRole);
         User user = new User(id,userName,password,email,phoneNumber,role);
         if (userService.checkUserName(userName,email,phoneNumber)){
