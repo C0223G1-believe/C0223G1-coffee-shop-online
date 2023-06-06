@@ -1,6 +1,6 @@
 package com.example.coffee_shop.product.model;
 
-import com.example.coffee_shop.type_product.model.TypeProduct;
+
 
 public class Product {
     private int productID;

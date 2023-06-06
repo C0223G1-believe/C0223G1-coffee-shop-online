@@ -65,7 +65,7 @@
                     <ul class="nav-menu">
                         <li class="menu-active"><a href="/User">User Manager</a></li>
                         <li class="menu-active"><a href="/product">Product Manager</a></li>
-                        <li class="menu-active"><a href="#coffee">Bill Manager</a></li>
+                        <li class="menu-active"><a href="/Order">Bill Manager</a></li>
                     </ul>
                 </nav>
             <!-- #nav-menu-container -->
