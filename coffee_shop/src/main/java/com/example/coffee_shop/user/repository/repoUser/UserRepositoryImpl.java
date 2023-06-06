@@ -21,11 +21,13 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
             " user_password = ?," +
             " user_email = ?," +
             " user_phone_number = ?," +
-            " id_type_user = ? " +
+            " id_role = ? " +
             " WHERE user_id = ? and user_name <> ?;";
     private static final String DELETE_USER =" DELETE from user where user.user_id = ? ";
-    private static final String SELECT_USER_BY_PHONE_AND_PASS ="SELECT * FROM user JOIN role ON role.id_role = user.id_role WHERE  user_phone_number =? && user_password =?;";
-
+    private static final String SELECT_USER_BY_PHONE_AND_PASS ="SELECT * FROM user " +
+            "JOIN role ON role.id_role = user.id_role " +
+            "WHERE  user_phone_number =? && user_password =?;";
+    private static final String SEARCH_USER ="SELECT * from user join role ON role.id_role = user.id_role WHERE user.user_email = ? or user.user_phone_number = ? ;";
 
     @Override
     public boolean addUser(User user) {
@@ -134,7 +136,7 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * from user " +
-                    " JOIN type_user on type_user.id_type_user = user.id_type_user " +
+                    " JOIN role on role.id_role = user.id_role" +
                     " where user.user_id =" +id);
             while(resultSet.next()){
                 String userName = resultSet.getString("user_name");
@@ -144,8 +146,8 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
                 int idRole = resultSet.getInt("id_role");
                 String nameRole = resultSet.getString("name_role");
                 Role typeUser = new Role(idRole,nameRole);
-                 user = new User(id,userName,password,email,phoneNumber,typeUser);
-             }
+                user = new User(id,userName,password,email,phoneNumber,typeUser);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -154,30 +156,30 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
     }
 
     @Override
-    public List<User> searchUser(String userName) {
+    public List<User> searchUser(String userName, String phone) {
         Connection connection = baseRepository.getConnection();
-        List<User> userList = null;
+        List<User> userList = new ArrayList<>();
         try {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * from " +
-                    " user join type_user ON type_user.id_type_user = user.id_type_user " +
-                    "  WHERE user.user_name like '%"+userName+"%'");
+            PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_USER);
+            preparedStatement.setString(1,userName);
+            preparedStatement.setString(2,phone);
+            ResultSet resultSet = preparedStatement.executeQuery();
             while(resultSet.next()){
                 int id = resultSet.getInt("user_id");
+                String name = resultSet.getString("user_name");
                 String password = resultSet.getString("user_password");
                 String email = resultSet.getString("user_email");
                 String phoneNumber = resultSet.getString("user_phone_number");
                 int idRole = resultSet.getInt("id_role");
-                String nameRole = resultSet.getString("name_role");
+                String nameRole = resultSet.getString("role.name_role");
                 Role role = new Role(idRole,nameRole);
-                userList.add(new User(id,userName,password,email,phoneNumber,role));
-
+                userList.add(new User(id,name,password,email,phoneNumber,role));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return null;
+        return userList;
     }
 
     @Override
@@ -192,11 +194,11 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * from user");
             while(resultSet.next()){
-                 id = resultSet.getInt("user_id");
-                 userNam =resultSet.getString("user_name");
-                 password = resultSet.getString("user_password");
-                 email = resultSet.getString("user_email");
-                 phoneNumber = resultSet.getString("user_phone_number");
+                id = resultSet.getInt("user_id");
+                userNam =resultSet.getString("user_name");
+                password = resultSet.getString("user_password");
+                email = resultSet.getString("user_email");
+                phoneNumber = resultSet.getString("user_phone_number");
                 if (userNam.contains(userName)){
                     return true;
                 }

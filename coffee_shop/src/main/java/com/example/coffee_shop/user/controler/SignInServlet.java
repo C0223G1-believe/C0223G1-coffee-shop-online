@@ -17,8 +17,6 @@ import java.util.List;
 public class SignInServlet extends HttpServlet {
     private IUserService userService = new UserServiceImpl();
     private IProductService productService = new ProductService();
-
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -51,6 +49,5 @@ public class SignInServlet extends HttpServlet {
             requestDispatcher = request.getRequestDispatcher("/view/login-signUp/login.jsp");
             requestDispatcher.forward(request,response);
         }
-
     }
 }
