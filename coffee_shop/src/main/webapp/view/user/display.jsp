@@ -21,17 +21,17 @@
         <input type="text" name="phone" placeholder="Enter Phone">
         <button class="rounded-3 bg-primary" type="submit">Search</button>
     </form>
-    <table id="tableStudent" style="color: white" class="table table-striped table-bordered col-lg-11">
+    <table id="tableStudent" style="color: white" class="table table-striped col-lg-11">
         <thead>
         <tr>
-            <th>STT</th>
-            <th>user name</th>
-            <th>password</th>
-            <th>email</th>
-            <th>phone number</th>
-            <th>type user</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th style="color: #14515b">STT</th>
+            <th style="color: #14515b">user name</th>
+            <th style="color: #14515b">password</th>
+            <th style="color: #14515b">email</th>
+            <th style="color: #14515b">phone number</th>
+            <th style="color: #14515b">type user</th>
+            <th style="color: #14515b">Edit</th>
+            <th style="color: #14515b">Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -45,7 +45,7 @@
                 <td><c:out value="${user.role.name}"/></td>
                 <td>
                     <a class="text-decoration-none" href="/User?action=edit&id=${user.id}">
-                        <button type="button" class=" btn btn-warning text-white bg-warning rounded-3">
+                        <button type="button" class=" btn btn-warning bg-warnimg text-white rounded-3">
                             Edit
                         </button>
                     </a>
