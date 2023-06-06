@@ -114,7 +114,7 @@ public class UserServlet extends HttpServlet {
         Role role =new Role(idRole);
         User user = new User(id,userName,password,email,phoneNumber,role);
         if (userService.checkUserName(userName,email,phoneNumber)){
-            response.sendRedirect("/User");
+            response.sendRedirect("/User?action=edit&id="+id);
         }else {
             if (userService.editUser(user)){
                 response.sendRedirect("/User");
