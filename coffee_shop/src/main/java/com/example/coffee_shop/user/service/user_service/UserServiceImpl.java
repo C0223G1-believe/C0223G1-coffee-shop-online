@@ -1,9 +1,12 @@
 package com.example.coffee_shop.user.service.user_service;
 
+import com.example.coffee_shop.user.Regex;
 import com.example.coffee_shop.user.model.User;
 import com.example.coffee_shop.user.repository.repoUser.IUserCoffeeRepository;
 import com.example.coffee_shop.user.repository.repoUser.UserRepositoryImpl;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 public class UserServiceImpl implements IUserService {
@@ -14,8 +17,24 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public boolean addUser(User user) {
-        return userRepository.addUser(user);
+    public boolean addUser(HttpServletRequest request, HttpServletResponse response) {
+        String phoneNumber = request.getParameter("phone");
+        String email = request.getParameter("email");
+        String userName = request.getParameter("userName");
+        String password1 = request.getParameter("password1");
+        String password2 = request.getParameter("password2");
+        User user = new User(userName, password1, email, phoneNumber);
+        if (!Regex.validFullName(userName)) {
+            return false;
+        } else if (!Regex.validFullName(password1)) {
+            return false;
+        } else if (password1 == password2 && password1 != "" || password2 != "") {
+            userRepository.addUser(user);
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
     @Override

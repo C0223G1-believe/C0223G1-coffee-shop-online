@@ -12,7 +12,10 @@ public class Order {
     private User user;
     private StatusOrder statusOrder;
 
-    public Order() {
+    public Order(int id, User user, StatusOrder statusOrder) {
+        this.id = id;
+        this.user = user;
+        this.statusOrder = statusOrder;
     }
 
     public Order(String orderDate, String comment, String address, User user, StatusOrder statusOrder) {

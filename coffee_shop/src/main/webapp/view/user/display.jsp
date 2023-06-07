@@ -10,8 +10,8 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="bootstrap520/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="datatables/css/dataTables.bootstrap5.min.css"/>
+    <link rel="stylesheet" href="/library/bootstrap520/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/library/datatables/css/dataTables.bootstrap5.min.css"/>
 </head>
 <body>
 <c:import url="/navbar-admin.jsp"></c:import>
@@ -21,7 +21,7 @@
         <input type="text" name="phone" placeholder="Enter Phone">
         <button class="rounded-3 bg-primary" type="submit">Search</button>
     </form>
-    <table id="tableStudent" style="color: white" class="table table-striped col-lg-11">
+    <table id="tableUser" style="color: white" class="table table-striped col-lg-11">
         <thead>
         <tr>
             <th style="color: #14515b">STT</th>
@@ -86,14 +86,14 @@
         </div>
     </div>
 </div>
-<script src="jquery/jquery-3.5.1.min.js"></script>
-<script src="datatables/js/jquery.dataTables.min.js"></script>
-<script src="datatables/js/dataTables.bootstrap5.min.js"></script>
-<script src="bootstrap520/js/bootstrap.bundle.js"></script>
+<script src="/library/jquery/jquery-3.5.1.min.js"></script>
+<script src="/library/datatables/js/jquery.dataTables.min.js"></script>
+<script src="/library/datatables/js/dataTables.bootstrap5.min.js"></script>
+<script src="/library/bootstrap520/js/bootstrap.bundle.js"></script>
 <script>
 
     $(document).ready(function () {
-        $('#tableStudent').dataTable({
+        $('#tableUser').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
             "pageLength": 5

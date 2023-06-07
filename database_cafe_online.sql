@@ -47,7 +47,7 @@ CREATE TABLE product (
 
 INSERT INTO product(product_name,product_price,product_description,product_image,product_type_id) VALUES
 ('Black Coffee ',17000,'Coffee and suger','img/1479133216-5745aa499882e46721b6545bb1c38bb0.jpg',1),
-('Milk Coffee ',17000,'Coffee and condensed milk','img/omd33.jpg',1),
+('Milk Coffee ',17000,'Coffee and condensed milk','img/d33.jpg',1),
 ('SaiGon Black Coffee ',17000,'Coffee and suger then shake','img/ca-phe-sai-gon-saigon-coffee-gac-mang-re-cafe-kontum-kon-tum-gacmangre-2.jpg',1),
 ('SaiGon Milk Coffee ',17000,'Coffee and condensed milk then shake','img/ca-phe-sai-gon-saigon-coffee-gac-mang-re-cafe-kontum-kon-tum-gacmangre-2.jpg',2),
 ('Salt Coffee ',17000,'Coffee,condensed milk,rich,salt,base cream','images/coffee/11.-Ca-phe-muoi.png',2),
@@ -69,7 +69,7 @@ INSERT INTO status (name_status) VALUES
 CREATE TABLE `order` (
     order_id INT PRIMARY KEY AUTO_INCREMENT,
     order_date DATETIME NOT NULL,
-    `comment` VARCHAR(100),
+    `comment` VARCHAR(100) ,
     address VARCHAR(50) NOT NULL,
     user_id INT NULL,
     FOREIGN KEY (user_id)
@@ -77,7 +77,8 @@ CREATE TABLE `order` (
         ON DELETE SET NULL,
     id_status INT NULL DEFAULT'1', FOREIGN KEY(id_status) REFERENCES `status`(id) ON DELETE SET NULL 
 );
-
+insert into `order`(order_date,comment,address,user_id) value
+('2092-12-24','thêm trà và sữa','Đà nẵng, việt nam',3);
 CREATE TABLE detail_order (
 detail_order_id INT PRIMARY KEY AUTO_INCREMENT,
 quality INT,
@@ -86,3 +87,27 @@ FOREIGN KEY(order_id) REFERENCES `order`(order_id)  ON DELETE SET NULL ,
 product_id INT NULL,
 FOREIGN KEY(product_id) REFERENCES product(product_id) ON DELETE SET NULL 
 );
+insert into detail_order(quality,order_id,product_id) VALUES
+(12,1,2),
+(2,1,4);
+DELIMITER //
+CREATE PROCEDURE sp_find_order_by_id(in id int)
+BEGIN
+SELECT * FROM `order` as o
+ JOIN detail_order as detail on detail.order_id = o.order_id 
+ JOIN product as pro on pro.product_id = detail.order_id
+ JOIN `status` as sta on sta.id = o.id_status
+ JOIN `user` on `user`.user_id = o.user_id WHERE o.order_id ;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE sp_delete_order_detail_order(in id int)
+BEGIN
+DELETE FROM detail_order WHERE order_id = id ;
+DELETE FROM `order` WHERE order_id = id ;
+END //
+DELIMITER ;
+
+
+

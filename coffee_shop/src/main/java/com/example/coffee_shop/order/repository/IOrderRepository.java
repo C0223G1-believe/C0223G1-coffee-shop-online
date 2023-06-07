@@ -1,6 +1,8 @@
 package com.example.coffee_shop.order.repository;
 
+import com.example.coffee_shop.order.model.DetailOrder;
 import com.example.coffee_shop.order.model.Order;
+import com.example.coffee_shop.order.model.StatusOrder;
 
 import java.util.List;
 
@@ -10,9 +12,10 @@ public interface IOrderRepository{
     //add
 
     //edit
-    boolean editOrder(Order order);
+    boolean editOrder(int idOrder, int idStatus);
     //findByid
-    Order findById(int id);
+    List<DetailOrder> findById(int id);
+    Order order(int id);
     //delete
     boolean deleteOrder(int id);
 

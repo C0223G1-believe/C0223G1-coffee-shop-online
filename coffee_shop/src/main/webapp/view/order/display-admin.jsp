@@ -10,27 +10,27 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="bootstrap520/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="datatables/css/dataTables.bootstrap5.min.css"/>
+    <link rel="stylesheet" href="/library/bootstrap520/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/library/datatables/css/dataTables.bootstrap5.min.css"/>
 </head>
 <body>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
     <form style="color: white; margin-top:9em" action="/Order?action=search" method="post">
-        <input type="email" name="email" placeholder="Enter Email">
-        <input type="text" name="phone" placeholder="Enter Phone">
+        <input type="email" name="email" placeholder="Enter User Name">
+        <input type="text" name="phone" placeholder="Enter Status">
         <button class="rounded-3 bg-primary" type="submit">Search</button>
     </form>
-    <table id="tableStudent" style="color: white" class="table table-striped col-lg-11">
+    <table id="tableOrder" style="color: white" class="table table-striped col-lg-11">
         <thead>
         <tr>
             <th style="color: #14515b">STT</th>
             <th style="color: #14515b">User Name</th>
             <th style="color: #14515b">Order Date</th>
-            <th style="color: #14515b">address</th>
-            <th style="color: #14515b">comment</th>
-            <th style="color: #14515b">status</th>
-            <th style="color: #14515b">Edit</th>
+            <th style="color: #14515b">Address</th>
+            <th style="color: #14515b">Comment</th>
+            <th style="color: #14515b">Status</th>
+            <th style="color: #14515b">Detail</th>
             <th style="color: #14515b">Delete</th>
         </tr>
         </thead>
@@ -38,22 +38,22 @@
         <c:forEach var="order" items="${listOrder}" varStatus="loop">
             <tr>
                 <td><c:out value="${loop.count}"/></td>
-                <td><c:out value="${ }"/></td>
-                <td><c:out value="${ }"/></td>
-                <td><c:out value="${ }"/></td>
-                <td><c:out value="${ }"/></td>
-                <td><c:out value="${ }"/></td>
+                <td><c:out value="${order.user.userName}"/></td>
+                <td><c:out value="${order.orderDate}"/></td>
+                <td><c:out value="${order.address}"/></td>
+                <td><c:out value="${order.comment }"/></td>
+                <td><c:out value="${order.statusOrder.nameStatus}"/></td>
                 <td>
-                    <a class="text-decoration-none" href="/User?action=edit&id=${ }">
+                    <a class="text-decoration-none" href="/Order?action=edit&id=${order.id}">
                         <button type="button" class=" btn btn-warning bg-warnimg text-white rounded-3">
-                            Edit
+                            Detail
                         </button>
                     </a>
                 </td>
                 <td>
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-danger rounded-3" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal" onclick="remove(${ },'${ }')">
+                            data-bs-target="#exampleModal" onclick="remove(${order.id},'${order.user.userName}')">
                         Delete
                     </button>
                 </td>
@@ -63,8 +63,6 @@
         </tbody>
     </table>
 </div>
-
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -74,10 +72,10 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h4>Are you sure delete this user with userName: <span style="color:red;" id="nameDelete"></span></h4>
+                <h4>Are you sure to delete the customer's invoice with this name: <span style="color:red;" id="nameDelete"></span></h4>
             </div>
             <div class="modal-footer">
-                <form action="/User?action=delete" method="post">
+                <form action="/Order?action=delete" method="post">
                     <input type="hidden" name="idDelete" id="idDelete">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
                     <button type="submit" class="btn btn-primary">Yes</button>
@@ -86,14 +84,13 @@
         </div>
     </div>
 </div>
-<script src="jquery/jquery-3.5.1.min.js"></script>
-<script src="datatables/js/jquery.dataTables.min.js"></script>
-<script src="datatables/js/dataTables.bootstrap5.min.js"></script>
-<script src="bootstrap520/js/bootstrap.bundle.js"></script>
+<script src="/library/jquery/jquery-3.5.1.min.js"></script>
+<script src="/library/datatables/js/jquery.dataTables.js"></script>
+<script src="/library/datatables/js/dataTables.bootstrap5.min.js"></script>
+<script src="/library/bootstrap520/js/bootstrap.bundle.js"></script>
 <script>
-
     $(document).ready(function () {
-        $('#tableStudent').dataTable({
+        $('#tableOrder').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
             "pageLength": 5

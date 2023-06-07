@@ -146,7 +146,33 @@ public class ProductRepository implements IProductRepository{
 
     @Override
     public Product getProductById(int id) {
-        return null;
+        Connection connection = baseRepository.getConnection();
+        Product product = null;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from product join product_type on product_type.product_type_id = product.product_type_id where product_id =?");
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int idd = resultSet.getInt("product_id");
+                String name = resultSet.getString("product_name");
+                double price = resultSet.getDouble("product_price");
+                String description = resultSet.getString("product_description");
+                String image = resultSet.getString("product_image");
+                int idTypeProduct = resultSet.getInt("product.product_type_id");
+                String nameTypeProduct = resultSet.getString("product_type_name");
+                TypeProduct typeProduct = new TypeProduct(idTypeProduct, nameTypeProduct);
+                product = new Product(idd, name, price, description, image, typeProduct);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return product;
     }
 
 }

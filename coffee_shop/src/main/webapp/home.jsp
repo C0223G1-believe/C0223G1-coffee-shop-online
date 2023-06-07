@@ -83,8 +83,8 @@
                             <a href="/view/login-signUp/login.jsp" style="color: #c0c031; font-weight: bold">SIGN IN</a>
                             <%
                             } else {%>
-                            <span style="color: #c0c031; font-weight: bold"><%=user.getUserName()%></span><a
-                                href="/LogOutServlet" style="color: #c0c031">log out</a>
+                            <span style="color: #c0c031; font-weight: bold"><%=user.getUserName()%></span>
+                            <a href="/LogOutServlet" style="color: #c0c031">log out</a>
                             <%
                                 }
                             %>
