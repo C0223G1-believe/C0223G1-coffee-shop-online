@@ -15,6 +15,9 @@ public class TypeProduct {
 
     public TypeProduct() {
     }
+    public TypeProduct(String name){
+        this.name =name;
+    }
 
     public int getId() {
         return id;

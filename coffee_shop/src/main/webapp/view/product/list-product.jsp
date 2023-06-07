@@ -45,7 +45,8 @@
                 <td><img width="50px" height="30px" src="<c:out value="${product.productImage}"/>"></td>
                 <td><c:out value="${product.typeProduct.name}"/></td>
                 <td>
-                    <a class="text-decoration-none" href="/product?action=update&id=${product.productID}">
+                    <a class="text-decoration-none"
+                       href="/product?action=update&id=${product.productID}&name=${product.productName}&price=${product.productPrice}&description=${product.productDescription}&type=${product.typeProduct.name}">
                         <button type="button" class=" btn btn-warning text-white bg-warning rounded-3">
                             Edit
                         </button>
@@ -54,16 +55,18 @@
                 <td>
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-danger rounded-3" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal" onclick="remove(${product.productID},'${product.productName}')">
+                            data-bs-target="#exampleModal"
+                            onclick="remove(${product.productID},'${product.productName}')">
                         Delete
                     </button>
                 </td>
             </tr>
 
         </c:forEach>
-        </tbody>
     </table>
 </div>
+
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

@@ -5,6 +5,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon-->
@@ -32,6 +33,7 @@
     <link rel="stylesheet" href="library/css/animate.min.css">
     <link rel="stylesheet" href="library/css/owl.carousel.css">
     <link rel="stylesheet" href="library/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 </head>
 <body>
 <header id="header" id="home">
@@ -49,6 +51,9 @@
                         <li>
                             <a href="tel:(012) 6985 236 7512">(012) 6985 236 7512</a>
                         </li>
+                        <li>
+                            <a href="/cart.jsp"><i class="fa-solid success fa-cart-shopping">  ${size}</i></a>
+                        </li>
                     </ul>
                 </div>
 
@@ -59,11 +64,11 @@
     <div class="container">
         <div class="row align-items-center justify-content-between d-flex">
             <div id="logo">
-                <a href="#home"><img src="img/logo.png" alt="" title=""/></a>
+                <a href=""><img src="img/logo.png" alt="" title=""/></a>
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="#home">Home</a></li>
+                    <li class="menu-active"><a href="">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#coffee">Coffee</a></li>
                     <li><a href="#review">Review</a></li>
@@ -140,7 +145,6 @@
     </div>
 </section>
 <!-- End video-sec Area -->
-
 <!-- Start menu Area -->
 <section class="menu-area section-gap" id="coffee">
     <div class="container">
@@ -154,31 +158,28 @@
         </div>
 
         <div class="row">
-            <%--            cuchino--%>
-            <c:forEach items="${productList}" var="product" step="1">
-                <div class="col-lg-4 ">
-                        <%--                <a href="/view/login-signUp/login.jsp">--%>
-                    <div class="single-menu">
-                            <%--                        <div><img width="100%" height="45%" src="${product.productImage}"></div>--%>
-                        <div class="title-div justify-content-between d-flex">
-                            <h4>${product.productName}</h4>
-                            <p class="price float-right">
-                                    ${product.productPrice}
-                            </p>
+                <c:forEach items="${productList}" var="product">
+                    <div class="card" style="width: 18rem;">
+                        <img src="${product.productImage}" class="card-img-top" alt="photo">
+                        <div class="card-body">
+                            <h5 class="card-title">${product.productName}</h5>
+                            <h3 class="card-title">${product.productPrice}</h3>
+                            <p class="card-text">${product.productDescription}</p>
+                            <%
+                                if (user == null) {
+                                } else {%>
+                            <a href="/BuyProdutServlet?id=${product.productID}&num=1" class="btn btn-primary">Add Card</a>
+                            <%
+                                }
+                            %>
                         </div>
-                        <p>
-                                ${product.productDescription}
-                        </p>
                     </div>
-                </div>
-            </c:forEach>
+                </c:forEach>
         </div>
     </div>
 </section>
 <!-- End menu Area -->
-<button href="/BuyProdutServlet">buy</button>
-<button type="submit" href="/BuyProdutServlet">buy</button>
-<a href="/BuyProdutServlet">buy</a>
+
 <!-- Start gallery Area -->
 <section class="gallery-area section-gap" id="gallery">
     <div class="container">
