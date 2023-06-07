@@ -10,8 +10,12 @@
 <html>
 <head>
     <title> Add New</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="bootstrap520/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="datatables/css/dataTables.bootstrap5.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 </head>
 <body>
 <section class="vh-100" style="background-color: #6c6e72;">
@@ -31,24 +35,28 @@
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input name="name" type="text" id="form3Example1c" class="form-control"/>
-                                                <label class="form-label" for="form3Example1c">Product Name</label>
+                                                <input name="name" type="text" id="name" class="form-control"
+                                                       title="Example 'Black Coffee'" required pattern="(^[a-zA-Z]{1,30} [a-zA-Z]{1,30}$)">
+                                                <label class="form-label" for="name">Product Name</label>
                                             </div>
+
                                         </div>
 
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input name="price" type="number" id="form3Example3c" class="form-control"/>
-                                                <label class="form-label" for="form3Example3c">Product Price</label>
+                                                <input name="price" type="number" id="price"
+                                                       class="form-control" required/>
+                                                <label class="form-label" for="price">Product Price</label>
                                             </div>
                                         </div>
 
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input name="description" type="text" id="form3Example4c" class="form-control"/>
-                                                <label class="form-label" for="form3Example4c">Product
+                                                <input name="description" type="text" id="description"
+                                                       class="form-control" required/>
+                                                <label class="form-label" for="description">Product
                                                     Description</label>
                                             </div>
                                         </div>
@@ -63,12 +71,14 @@
                                             </select>
                                         </div>
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                            <input name="image" type="file" id="myFile" accept="image/*">
+                                            <input name="image" type="file" id="myFile" accept="image/*" required>
                                         </div>
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                             <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                                         </div>
-
+                                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                            <a class="btn btn-outline-primary" href="/product">Back</a>
+                                        </div>
                                     </form>
 
                                 </div>

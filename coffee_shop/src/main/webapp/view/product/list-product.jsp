@@ -21,7 +21,8 @@
         <button class="rounded-3 bg-primary" type="submit">Search</button>
     </form>
     <a class="btn btn-primary" href="/product?action=create" role="button">Add New Product</a>
-    <table style="color: white" class="table table-striped col-lg-11">
+    <table style="color: white" class="table table-striped col-lg-11" id="tableProduct">
+        <thead>
         <tr >
             <th style="color: #14515b">Sequence Number</th>
             <th style="color: #14515b">Product Name</th>
@@ -32,13 +33,15 @@
             <th style="color: #14515b">Edit</th>
             <th style="color: #14515b">Delete</th>
         </tr>
+        </thead>
+        <tbody>
         <c:forEach var="product" items="${productList}" varStatus="loop">
             <tr>
                 <td><c:out value="${loop.count}"/></td>
                 <td><c:out value="${product.productName}"/></td>
-                <td><c:out value="${product.productPrice}"/></td>
+                <td><c:out value="${product.productPrice}$"/></td>
                 <td><c:out value="${product.productDescription}"/></td>
-                <td><img width="50px" height="30px" src="<c:out value="${product.productImage}"/>"></td>
+                <td><img width="50px" height="30px" src="<c:url value="${product.productImage}"/>"></td>
                 <td><c:out value="${product.typeProduct.name}"/></td>
                 <td>
                     <a class="text-decoration-none"
@@ -59,6 +62,7 @@
             </tr>
 
         </c:forEach>
+        </tbody>
     </table>
 </div>
 
@@ -92,13 +96,12 @@
 
 
     $(document).ready(function () {
-        $('#tableStudent').dataTable({
+        $('#tableProduct').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
-            "pageLength": 2
+            "pageLength": 5
         });
     });
-
     function remove(id, name) {
         document.getElementById("nameDelete").innerText = name;
         document.getElementById("idDelete").value = id;
