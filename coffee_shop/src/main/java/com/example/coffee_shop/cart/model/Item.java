@@ -5,15 +5,13 @@ import com.example.coffee_shop.product.model.Product;
 public class Item {
     private Product product;
     private int quanitity;
-    private double price;
 
     public Item() {
     }
 
-    public Item(Product product, int quanitity, double price) {
+    public Item(Product product, int quanitity) {
         this.product = product;
         this.quanitity = quanitity;
-        this.price = price;
     }
 
     public Product getProduct() {
@@ -32,12 +30,5 @@ public class Item {
         this.quanitity = quanitity;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
 
 }
