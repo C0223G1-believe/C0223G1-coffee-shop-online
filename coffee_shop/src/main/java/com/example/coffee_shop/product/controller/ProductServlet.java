@@ -7,6 +7,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "ProductServlet", value = "/product")
@@ -22,12 +23,10 @@ public class ProductServlet extends HttpServlet {
             case "create":
                 showCreateForm(request,response);
                 break;
-            case "delete":
-                deleteProduct(request,response);
-                break;
             case "update":
                 showUpdateForm(request,response);
                 break;
+
             default:
                 showListProduct(request,response);
         }
@@ -60,12 +59,14 @@ public class ProductServlet extends HttpServlet {
         double price = Double.parseDouble(request.getParameter("price"));
         String description = request.getParameter("description");
         String image = request.getParameter("image");
+        String typeProduct =request.getParameter("type");
         request.setAttribute("id",id);
         request.setAttribute("name",name);
         request.setAttribute("price",price);
         request.setAttribute("description",description);
         request.setAttribute("image",image);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/product/update-product.jsp");
+        request.setAttribute("type",typeProduct);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/product/update-product.jsp");
         try {
             requestDispatcher.forward(request,response);
         } catch (ServletException e) {
@@ -84,6 +85,12 @@ public class ProductServlet extends HttpServlet {
             case "create":
                 createProduct(request,response);
                 break;
+            case "delete":
+                deleteProduct(request,response);
+                break;
+            case "search":
+                searchProduct(request,response);
+                break;
             case "update":
                 updateProduct(request,response);
                 break;
@@ -94,7 +101,8 @@ public class ProductServlet extends HttpServlet {
         double price  = Double.parseDouble(request.getParameter("price"));
         String description  = request.getParameter("description");
         String image  = request.getParameter("image");
-        productService.createProduct(new Product(name,price,description,image));
+        int  typeProduct = Integer.parseInt(request.getParameter("type"));
+        productService.createProduct(new Product(name,price,description,image),typeProduct);
         try {
             response.sendRedirect("/product");
         } catch (IOException e) {
@@ -103,7 +111,7 @@ public class ProductServlet extends HttpServlet {
     }
 
     public void deleteProduct (HttpServletRequest request, HttpServletResponse response){
-        int id = Integer.parseInt(request.getParameter("id"));
+        int id = Integer.parseInt(request.getParameter("idDelete"));
         productService.deleteProduct(id);
         try {
             response.sendRedirect("/product");
@@ -118,10 +126,27 @@ public class ProductServlet extends HttpServlet {
         double price  = Double.parseDouble(request.getParameter("price"));
         String description  = request.getParameter("description");
         String image  = request.getParameter("image");
+        String typeProduct = request.getParameter("type");
         Product product = new Product(name, price,description,image);
-        productService.updateProduct(id,product);
+        productService.updateProduct(id,product,typeProduct);
+
         try {
             response.sendRedirect("/product");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void searchProduct (HttpServletRequest request, HttpServletResponse response){
+        String name = request.getParameter("name");
+        Product product = productService.searchProduct(name);
+        List<Product> list = new ArrayList<>();
+        list.add(product);
+        request.setAttribute("productList",list);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/view/product/list-product.jsp");
+        try {
+            requestDispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
