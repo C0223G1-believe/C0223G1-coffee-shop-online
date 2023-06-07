@@ -53,7 +53,7 @@
 <form action="/process" method="post">
 <textarea name="address" placeholder="address" required></textarea>
     <br>
-<textarea name="note" placeholder="note" required></textarea>
+<textarea name="note" placeholder="note"></textarea>
     <button type="submit">Buy</button>
 </form>
 <h2><a href="/process?action=back">back</a></h2>
