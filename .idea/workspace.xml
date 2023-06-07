@@ -1,7 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="69989a0e-2e46-4424-a782-94cd203815f0" name="Changes" comment="son up crud lan2" />
+    <list default="true" id="69989a0e-2e46-4424-a782-94cd203815f0" name="Changes" comment="thành commit sửa lại database">
+      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/coffee/ca-phe-den-sai-gon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/coffee/ca-phe-den.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/coffee/ca-phe-dua.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/coffee/ca-phe-sua-sai-gon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/coffee/ca-phe-sua.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/coffee/ca-phe-trung.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/coffee/ly-ca-phe-bac-xiu-da.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/juice/nuoc-ep-ca-chua.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/juice/nuoc-ep-cam.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/juice/nuoc-ep-coc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/juice/nuoc-ep-thom.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/machine_coffee/cappuccino.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/machine_coffee/latte.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/machine_coffee/mocha-1545378736.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/tea/tra-dao.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/tea/tra-dau.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/tea/tra-oi-hong.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/tea/tra-vai.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/tea/tra-xoai.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/.gradle/7.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/product/controller/ProductServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/product/controller/ProductServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/product/model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/product/model/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/product/repository/IProductRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/product/repository/IProductRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/product/repository/ProductRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/product/repository/ProductRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/product/service/IProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/product/service/IProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/product/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/product/service/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/type_product/model/TypeProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/build/classes/java/main/com/example/coffee_shop/type_product/model/TypeProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/build/libs/coffee_shop-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/build/libs/coffee_shop-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/product/controller/ProductServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/product/controller/ProductServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/product/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/product/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/product/repository/IProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/product/repository/IProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/product/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/product/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/product/service/IProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/product/service/IProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/product/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/product/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/type_product/model/TypeProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/java/com/example/coffee_shop/type_product/model/TypeProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/coffee/11-cover5-10-40-10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/coffee/cach-pha-cafe-cot-dua.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/coffee/images (1).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/coffee/images (2).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/coffee/images (3).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/coffee/images.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/coffee/moi-la-voi-cong-thuc-lam-ca-phe-matcha-thom-ngon-khong-tuong-202206060951298564.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/coffee/tải xuống (1).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/coffee/tải xuống (2).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/coffee/tải xuống.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/ice_cream/1-1200x676-9.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/ice_cream/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/ice_cream/bot-kem-tuoi2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/ice_cream/cach-lam-5-mon-kem-trai-cay-giai-nhiet-ngay-he.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/ice_cream/kem-bo.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/ice_cream/kem-khoai-mon.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/ice_cream/kem-trai-dua.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/ice_cream/mon-kem-xoai-ngot-thanh.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/nuoc_ep/images (1).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/nuoc_ep/images (2).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/nuoc_ep/images (3).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/nuoc_ep/images (4).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/nuoc_ep/images (5).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/nuoc_ep/images (6).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/nuoc_ep/images.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/nuoc_ep/nuoc-ep-dau-tay-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/nuoc_ep/tải xuống (1).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/nuoc_ep/tải xuống (2).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/nuoc_ep/tải xuống.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/soda/16_6b48d3deda4d4855be5d8abeed00d196.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/soda/2202140912-soda-viet-quat.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/soda/cong-thuc-soda-1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/soda/hinh-soda-nho.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/soda/nuoc-soda-la-gi-cach-pha-che-soda-don-gian-giai-nhiet-mua-he-21.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/soda/soda-chanh-day_goc-ca-phe_5fa7c1246ff94f97a1b29c585a3baa2c_master.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/soda/soda-chanh-tắc-recipe-main-photo.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/soda/soda-phuc-bon-tu.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/soda/soda-tao-xanh-os814iqof47zrmzy3i49zjdr7mrqbnzce9exmvp2io.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/trà/cach-lam-tra-dau-ngam-ngon-nhu-tra-dau-dong-du-04.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/trà/images (1).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/trà/images (2).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/trà/images.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/trà/tra-dao.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/trà/tra-sua-thai-xanh.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/trà/tải xuống (1).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/trà/tải xuống (2).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/trà/tải xuống (3).jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/images/trà/tải xuống.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/img/1479133216-5745aa499882e46721b6545bb1c38bb0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/view/product/create-product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/view/product/create-product.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee_shop/src/main/webapp/view/product/list-product.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/coffee_shop/src/main/webapp/view/product/list-product.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,7 +110,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Son_Thanh" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -32,8 +125,10 @@
     <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -54,7 +149,10 @@
       <workItem from="1685807478527" duration="40000" />
       <workItem from="1685836223440" duration="1402000" />
       <workItem from="1685842592455" duration="25000" />
+      <workItem from="1685869195866" duration="317000" />
       <workItem from="1685864257042" duration="56000" />
+      <workItem from="1685956740869" duration="175000" />
+      <workItem from="1686037966171" duration="639000" />
     </task>
     <task id="LOCAL-00001" summary="son">
       <created>1685777365360</created>
@@ -98,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685805016977</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="son up database">
+      <created>1685956789888</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685956789888</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

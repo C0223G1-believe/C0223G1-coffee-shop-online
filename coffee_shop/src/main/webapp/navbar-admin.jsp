@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.coffee_shop.user.model.User" %><%--
   Created by IntelliJ IDEA.
   User: TechCare
   Date: 6/4/2023
@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="library/css/owl.carousel.css">
     <link rel="stylesheet" href="library/css/main.css">
 <body class="bg-secondary">
-<header id="header" id="home">
+<header id="header" id="home" class="bg-dark">
     <div class="header-top">
         <div class="container">
             <div class="row justify-content-end">
@@ -64,8 +64,24 @@
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
                         <li class="menu-active"><a href="/User">User Manager</a></li>
-                        <li class="menu-active"><a href="#about">Product Manager</a></li>
-                        <li class="menu-active"><a href="#coffee">Bill Manager</a></li>
+                        <li class="menu-active"><a href="/product">Product Manager</a></li>
+                        <li class="menu-active"><a href="/Order">Bill Manager</a></li>
+                        <li class="menu-active">
+                            <div>
+                                <%
+                                    User user = (User) session.getAttribute("user");
+                                    if (user == null) {
+                                %>
+                                <a href="/view/login-signUp/login.jsp" style="color: #c0c031;"> SIGN IN</a>
+                                <%
+                                } else {%>
+                                <span style="color: #c0c031; font-weight: bold"><%=user.getUserName()%></span>
+                                <a href="/LogOutServlet" style="color: #c0c031">log out</a>
+                                <%
+                                    }
+                                %>
+                            </div>
+                        </li>
                     </ul>
                 </nav>
             <!-- #nav-menu-container -->

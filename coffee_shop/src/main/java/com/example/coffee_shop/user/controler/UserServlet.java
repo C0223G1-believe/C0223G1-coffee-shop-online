@@ -1,6 +1,7 @@
 package com.example.coffee_shop.user.controler;
 
-import com.example.coffee_shop.user.model.TypeUser;
+import com.example.coffee_shop.user.Regex;
+import com.example.coffee_shop.user.model.Role;
 import com.example.coffee_shop.user.model.User;
 import com.example.coffee_shop.user.service.type_user_service.ITypeUserService;
 import com.example.coffee_shop.user.service.type_user_service.TypeUserServiceImpl;
@@ -26,50 +27,104 @@ public class UserServlet extends HttpServlet {
         }
         switch (action) {
             case "add":
+                showFromAdd(request, "/view/login-signUp/sign-up.jsp", response);
                 break;
             case "edit":
                 showFormEdit(request, response);
                 break;
-
             default:
                 displayUser(request, response);
         }
     }
 
+    private static void showFromAdd(HttpServletRequest request, String path, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher(path).forward(request, response);
+    }
 
 
     private void showFormEdit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         User user = userService.findById(id);
-        List<TypeUser> listTypeUser = typeUserService.displayTypeUser();
+        List<Role> roleList = typeUserService.displayRole();
         request.setAttribute("user", user);
-        request.setAttribute("listTypeUser",listTypeUser);
-        request.getRequestDispatcher("/user/form-edit.jsp").forward(request, response);
+        request.setAttribute("listRole", roleList);
+        showFromAdd(request, "/view/user/form-edit.jsp", response);
     }
 
     private void displayUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<User> listUser = userService.displayUser();
         request.setAttribute("listUser", listUser);
-        request.getRequestDispatcher("user/display.jsp").forward(request, response);
+        showFromAdd(request, "/view/user/display.jsp", response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String action = request.getParameter("action");
-        if (action== null){
-            action= "";
+        if (action == null) {
+            action = "";
         }
-        switch (action){
+        switch (action) {
             case "add":
+                addUser(request, response);
                 break;
             case "edit":
+                editUser(request, response);
                 break;
             case "delete":
                 deleteUser(request, response);
+                break;
+            case "search":
+                searchUser(request, response);
+                break;
 
         }
     }
+
+    private void searchUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        List<User> listUser = userService.searchUser(email, phone);
+        request.setAttribute("listUser", listUser);
+        request.getRequestDispatcher("/view/user/display.jsp").forward(request, response);
+
+
+    }
+
+    private void addUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (userService.addUser(request,response)){
+            String notification = "successfully added new";
+            request.setAttribute("notification",notification);
+            request.getRequestDispatcher("/view/login-signUp/login.jsp").forward(request, response);
+        }else {
+            String error = "* Do not use special characters for the field User and Password";
+            request.setAttribute("error",error);
+            request.getRequestDispatcher("/view/login-signUp/sign-up.jsp").forward(request, response);
+        }
+
+
+
+    }
+
+    private void editUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String userName = request.getParameter("userName");
+        String password = request.getParameter("password");
+        String email = request.getParameter("email");
+        String phoneNumber = request.getParameter("phoneNumber");
+        int idRole = Integer.parseInt(request.getParameter("role"));
+        Role role = new Role(idRole);
+        User user = new User(id, userName, password, email, phoneNumber, role);
+        if (userService.checkUserName(userName, email, phoneNumber)) {
+            response.sendRedirect("/User?action=edit&id=" + id);
+        } else {
+            if (userService.editUser(user)) {
+                response.sendRedirect("/User");
+            }
+        }
+
+    }
+
     private void deleteUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("idDelete"));
         userService.deleteUser(id);

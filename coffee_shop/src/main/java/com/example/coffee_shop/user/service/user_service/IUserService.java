@@ -2,6 +2,8 @@ package com.example.coffee_shop.user.service.user_service;
 
 import com.example.coffee_shop.user.model.User;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 public interface IUserService {
@@ -9,7 +11,7 @@ public interface IUserService {
     List<User> displayUser();
 
     // add
-    boolean addUser(User user);
+    boolean addUser(HttpServletRequest request, HttpServletResponse response);
 
     // edit
     boolean editUser(User user);
@@ -21,9 +23,9 @@ public interface IUserService {
     User findById(int id);
 
     // Search
-    List<User> searchUser(String userName);
+    List<User> searchUser(String userName, String phone);
 
-    boolean checkUserName(String userName);
+    boolean checkUserName(String userName, String eimail,String phone);
 
     User getUserByPhoneAndPass(String phone, String pass);
 }
