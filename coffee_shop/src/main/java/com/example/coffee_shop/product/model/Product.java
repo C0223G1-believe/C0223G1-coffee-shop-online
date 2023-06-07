@@ -17,6 +17,12 @@ public class Product {
         this.productImage = productImage;
     }
 
+    public Product(int productID, String productName, TypeProduct typeProduct) {
+        this.productID = productID;
+        this.productName = productName;
+
+        this.typeProduct = typeProduct;
+    }
 
     public Product(int productID, String productName, double productPrice, String productDescription, String productImage, TypeProduct typeProduct) {
         this.productID = productID;
