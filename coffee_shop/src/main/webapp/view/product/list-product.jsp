@@ -5,23 +5,25 @@
   Time: 11:11 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="bootstrap520/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="datatables/css/dataTables.bootstrap5.min.css"/>
+    <link rel="stylesheet" href="/library/bootstrap520/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/library/datatables/css/dataTables.bootstrap5.min.css"/>
 </head>
 <body>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
-    <form style="color: white; margin-top:9em" action="/product?action=search" method="post">
+    <form style="color: white; margin-top:8em" action="/product?action=search" method="post">
         <input type="name" name="name" placeholder="Enter Name Product">
         <button class="rounded-3 bg-primary" type="submit">Search</button>
     </form>
     <a class="btn btn-primary" href="/product?action=create" role="button">Add New Product</a>
-    <table style="color: white" class="table table-striped col-lg-11">
+    <table id="tableProduct" style="color: white" class="table table-striped col-lg-11">
+        <thead>
         <tr >
             <th style="color: #14515b">Sequence Number</th>
             <th style="color: #14515b">Product Name</th>
@@ -32,6 +34,8 @@
             <th style="color: #14515b">Edit</th>
             <th style="color: #14515b">Delete</th>
         </tr>
+        </thead>
+        <tbody>
         <c:forEach var="product" items="${productList}" varStatus="loop">
             <tr>
                 <td><c:out value="${loop.count}"/></td>
@@ -57,10 +61,9 @@
             </tr>
 
         </c:forEach>
+        </tbody>
     </table>
 </div>
-
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -82,18 +85,16 @@
         </div>
     </div>
 </div>
-<script src="jquery/jquery-3.5.1.min.js"></script>
-<script src="datatables/js/jquery.dataTables.min.js"></script>
-<script src="datatables/js/dataTables.bootstrap5.min.js"></script>
-<script src="bootstrap520/js/bootstrap.bundle.js"></script>
+<script src="/library/jquery/jquery-3.5.1.min.js"></script>
+<script src="/library/datatables/js/jquery.dataTables.min.js"></script>
+<script src="/library/datatables/js/dataTables.bootstrap5.min.js"></script>
+<script src="/library/bootstrap520/js/bootstrap.bundle.js"></script>
 <script>
-
-
     $(document).ready(function () {
-        $('#tableStudent').dataTable({
+        $('#tableProduct').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
-            "pageLength": 2
+            "pageLength": 5
         });
     });
 

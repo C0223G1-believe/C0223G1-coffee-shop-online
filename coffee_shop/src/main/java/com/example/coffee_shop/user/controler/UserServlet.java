@@ -1,5 +1,6 @@
 package com.example.coffee_shop.user.controler;
 
+import com.example.coffee_shop.user.Regex;
 import com.example.coffee_shop.user.model.Role;
 import com.example.coffee_shop.user.model.User;
 import com.example.coffee_shop.user.service.type_user_service.ITypeUserService;
@@ -46,7 +47,7 @@ public class UserServlet extends HttpServlet {
         User user = userService.findById(id);
         List<Role> roleList = typeUserService.displayRole();
         request.setAttribute("user", user);
-        request.setAttribute("listRole",roleList);
+        request.setAttribute("listRole", roleList);
         showFromAdd(request, "/view/user/form-edit.jsp", response);
     }
 
@@ -60,10 +61,10 @@ public class UserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String action = request.getParameter("action");
-        if (action== null){
-            action= "";
+        if (action == null) {
+            action = "";
         }
-        switch (action){
+        switch (action) {
             case "add":
                 addUser(request, response);
                 break;
@@ -73,7 +74,7 @@ public class UserServlet extends HttpServlet {
             case "delete":
                 deleteUser(request, response);
                 break;
-            case"search":
+            case "search":
                 searchUser(request, response);
                 break;
 
@@ -83,40 +84,41 @@ public class UserServlet extends HttpServlet {
     private void searchUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
-        List<User> listUser =  userService.searchUser(email,phone);
+        List<User> listUser = userService.searchUser(email, phone);
         request.setAttribute("listUser", listUser);
-      request.getRequestDispatcher("/view/user/display.jsp").forward(request,response);
+        request.getRequestDispatcher("/view/user/display.jsp").forward(request, response);
 
 
     }
 
     private void addUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String phoneNumber =  request.getParameter("phone");
-        String email = request.getParameter("email");
-        String userName = request.getParameter("userName");
-        String password1 = request.getParameter("password1");
-        String password2 = request.getParameter("password2");
-        if (password1==password2 && password1!=""||password2!=""){
-            userService.addUser(new User(userName,password1,email,phoneNumber));
+        if (userService.addUser(request,response)){
+            String notification = "successfully added new";
+            request.setAttribute("notification",notification);
             request.getRequestDispatcher("/view/login-signUp/login.jsp").forward(request, response);
+        }else {
+            String error = "* Do not use special characters for the field User and Password";
+            request.setAttribute("error",error);
+            request.getRequestDispatcher("/view/login-signUp/sign-up.jsp").forward(request, response);
         }
-            request.getRequestDispatcher("/view/login-signUp/sign-up.jsp").forward(request,response);
+
+
 
     }
 
-    private  void editUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void editUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
         String phoneNumber = request.getParameter("phoneNumber");
         int idRole = Integer.parseInt(request.getParameter("role"));
-        Role role =new Role(idRole);
-        User user = new User(id,userName,password,email,phoneNumber,role);
-        if (userService.checkUserName(userName,email,phoneNumber)){
-            response.sendRedirect("/User?action=edit&id="+id);
-        }else {
-            if (userService.editUser(user)){
+        Role role = new Role(idRole);
+        User user = new User(id, userName, password, email, phoneNumber, role);
+        if (userService.checkUserName(userName, email, phoneNumber)) {
+            response.sendRedirect("/User?action=edit&id=" + id);
+        } else {
+            if (userService.editUser(user)) {
                 response.sendRedirect("/User");
             }
         }

@@ -27,7 +27,9 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
     private static final String SELECT_USER_BY_PHONE_AND_PASS ="SELECT * FROM user " +
             "JOIN role ON role.id_role = user.id_role " +
             "WHERE  user_phone_number =? && user_password =?;";
-    private static final String SEARCH_USER ="SELECT * from user join role ON role.id_role = user.id_role WHERE user.user_email = ? or user.user_phone_number = ? ;";
+    private static final String SEARCH_USER ="SELECT * from user " +
+            " join role ON role.id_role = user.id_role " +
+            " WHERE user.user_email = ? or user.user_phone_number = ? ;";
 
     @Override
     public boolean addUser(User user) {

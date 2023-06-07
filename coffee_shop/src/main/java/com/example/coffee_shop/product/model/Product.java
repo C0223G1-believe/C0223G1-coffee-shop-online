@@ -10,6 +10,13 @@ public class Product {
     private String productImage;
     private TypeProduct typeProduct;
 
+    public Product(int productID, String productName, double productPrice, String productImage) {
+        this.productID = productID;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productImage = productImage;
+    }
+
     public Product(int productID, String productName, double productPrice, String productDescription, String productImage, TypeProduct typeProduct) {
         this.productID = productID;
         this.productName = productName;
