@@ -13,18 +13,23 @@ public class ProductService implements IProductService{
     }
 
     @Override
-    public void createProduct(Product product) {
-        productRepository.createProduct(product);
+    public void createProduct(Product product, int id) {
+        productRepository.createProduct(product, id);
     }
 
     @Override
-    public void updateProduct(int id, Product product) {
-        productRepository.updateProduct(id,product);
+    public void updateProduct(int id, Product product,String name) {
+        productRepository.updateProduct(id,product,name);
     }
 
     @Override
     public void deleteProduct(int id) {
-         productRepository.deleteProduct(id);
+        productRepository.deleteProduct(id);
+    }
+
+    @Override
+    public Product searchProduct(String name) {
+        return productRepository.searchProduct(name);
     }
 
     @Override

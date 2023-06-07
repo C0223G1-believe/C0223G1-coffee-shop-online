@@ -17,29 +17,30 @@
                     <div class="card">
                         <div style="color: white">
                         <div class="card-body p-5" style="background:#1e1d1d">
-                            <h2 class="text-uppercase text-center mb-2 mt-0 fw-bold">Create an account</h2>
-                                <form class="mt-0" style="height: 600px" action="/User?action=add" method="post">
-                                    <div class="form-outline mb-4">
-                                        <input type="tel" id="form3Example1cr" name="phone" class="form-control form-control-lg"/>
+                            <div class="text-center"><p style="color: darkred">${error}</p></div>
+                            <h4 class="text-uppercase text-center mb-2 mt-0 fw-bold">Create an account</h4>
+                                <form class="mt-0" style="height: 30em" action="/User?action=add" method="post">
+                                    <div class="form-outline mb-1">
+                                        <input type="tel" id="form3Example1cr" value="${phone}" name="phone" pattern="^([0-9]{10})$" class="form-control form-control-lg"/>
                                         <label class="form-label" for="form3Example1cr">Phone Number</label>
                                     </div>
-                                    <div class="form-outline mb-4">
-                                        <input type="email" id="form3Example1cg" name="email" class="form-control form-control-lg"/>
+                                    <div class="form-outline mb-1">
+                                        <input type="email" id="form3Example1cg" value="${email}" name="email" class="form-control form-control-lg"/>
                                         <label class="form-label" for="form3Example1cg">Your Email</label>
                                     </div>
 
-                                    <div class="form-outline mb-4">
-                                        <input type="text" id="form3Example3cg" name="userName" pattern="^[a-zA-Z0-9_]+$" class="form-control form-control-lg"/>
+                                    <div class="form-outline mb-1">
+                                        <input type="text" id="form3Example3cg" name="userName" value="${name}" class="form-control form-control-lg"/>
                                         <label class="form-label" for="form3Example3cg">User Name</label>
                                     </div>
 
-                                    <div class="form-outline mb-4">
-                                        <input type="password" id="form3Example4cg" pattern="^[a-zA-Z0-9_]+$" name="password1" class="form-control form-control-lg"/>
+                                    <div class="form-outline mb-1">
+                                        <input type="password" id="form3Example4cg" value="${pass1}" name="password1" class="form-control form-control-lg"/>
                                         <label class="form-label" for="form3Example4cg">Password</label>
                                     </div>
 
-                                    <div class="form-outline mb-4">
-                                        <input type="password" id="form3Example4cdg" name="password2" class="form-control form-control-lg"/>
+                                    <div class="form-outline mb-1">
+                                        <input type="password" id="form3Example4cdg" value="${pass2}" name="password2" class="form-control form-control-lg"/>
                                         <label class="form-label" for="form3Example4cdg">Repeat your password</label>
                                     </div>
 
@@ -48,8 +49,7 @@
                                             Register
                                         </button>
                                     </div>
-
-                                    <p class="text-center text-white mt-5 mb-0">Have already an account? <a
+                                    <p class="text-center text-white mt-1 mb-0">Have already an account? <a
                                             href="/view/login-signUp/login.jsp"
                                             class="fw-bold text-white"><u>Login here</u></a></p>
                                 </form>

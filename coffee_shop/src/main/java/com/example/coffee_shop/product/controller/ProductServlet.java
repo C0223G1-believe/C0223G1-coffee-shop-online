@@ -77,24 +77,24 @@ public class ProductServlet extends HttpServlet {
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       String action = request.getParameter("action");
-       if (action == null){
-           action = "";
-       }
-       switch (action){
-           case "create":
-               createProduct(request,response);
-               break;
-           case "delete":
-               deleteProduct(request,response);
-               break;
-           case "search":
-               searchProduct(request,response);
-               break;
-           case "update":
-               updateProduct(request,response);
-               break;
-       }
+        String action = request.getParameter("action");
+        if (action == null){
+            action = "";
+        }
+        switch (action){
+            case "create":
+                createProduct(request,response);
+                break;
+            case "delete":
+                deleteProduct(request,response);
+                break;
+            case "search":
+                searchProduct(request,response);
+                break;
+            case "update":
+                updateProduct(request,response);
+                break;
+        }
     }
     public void createProduct (HttpServletRequest request, HttpServletResponse response){
         String name  = request.getParameter("name");
