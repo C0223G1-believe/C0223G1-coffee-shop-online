@@ -5,23 +5,24 @@
   Time: 11:11 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="bootstrap520/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="datatables/css/dataTables.bootstrap5.min.css"/>
+    <link rel="stylesheet" href="/library/bootstrap520/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/library/datatables/css/dataTables.bootstrap5.min.css"/>
 </head>
 <body>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
-    <form style="color: white; margin-top:9em" action="/product?action=search" method="post">
-        <input type="text" name="name" placeholder="Enter Name Product">
+    <form style="color: white; margin-top:8em" action="/product?action=search" method="post">
+        <input type="name" name="name" placeholder="Enter Name Product">
         <button class="rounded-3 bg-primary" type="submit">Search</button>
     </form>
     <a class="btn btn-primary" href="/product?action=create" role="button">Add New Product</a>
-    <table style="color: white" class="table table-striped col-lg-11" id="tableProduct">
+    <table id="tableProduct" style="color: white" class="table table-striped col-lg-11">
         <thead>
         <tr >
             <th style="color: #14515b">Sequence Number</th>
@@ -39,9 +40,9 @@
             <tr>
                 <td><c:out value="${loop.count}"/></td>
                 <td><c:out value="${product.productName}"/></td>
-                <td><c:out value="${product.productPrice}$"/></td>
+                <td><c:out value="${product.productPrice}"/></td>
                 <td><c:out value="${product.productDescription}"/></td>
-                <td><img width="50px" height="30px" src="<c:url value="${product.productImage}"/>"></td>
+                <td><img width="50px" height="30px" src="<c:out value="${product.productImage}"/>"></td>
                 <td><c:out value="${product.typeProduct.name}"/></td>
                 <td>
                     <a class="text-decoration-none"
@@ -62,7 +63,6 @@
             </tr>
 
         </c:forEach>
-        </tbody>
     </table>
 </div>
 
@@ -88,13 +88,11 @@
         </div>
     </div>
 </div>
-<script src="jquery/jquery-3.5.1.min.js"></script>
-<script src="datatables/js/jquery.dataTables.min.js"></script>
-<script src="datatables/js/dataTables.bootstrap5.min.js"></script>
-<script src="bootstrap520/js/bootstrap.bundle.js"></script>
+<script src="/library/jquery/jquery-3.5.1.min.js"></script>
+<script src="/library/datatables/js/jquery.dataTables.min.js"></script>
+<script src="/library/datatables/js/dataTables.bootstrap5.min.js"></script>
+<script src="/library/bootstrap520/js/bootstrap.bundle.js"></script>
 <script>
-
-
     $(document).ready(function () {
         $('#tableProduct').dataTable({
             "dom": 'lrtip',
@@ -102,6 +100,7 @@
             "pageLength": 5
         });
     });
+
     function remove(id, name) {
         document.getElementById("nameDelete").innerText = name;
         document.getElementById("idDelete").value = id;

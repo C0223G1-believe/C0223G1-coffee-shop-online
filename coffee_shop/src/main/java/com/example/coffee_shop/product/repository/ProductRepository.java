@@ -14,7 +14,7 @@ public class ProductRepository implements IProductRepository{
     private static final String SELECT_ALL_PRODUCT =  " select * from product " +
             "join product_type on product_type.product_type_id = product.product_type_id; ";
     private static final String INSERT_PRODUCT = "insert into product(product_name,product_price,product_description,product_image,product_type_id) " +
-                                                   "values (?,?,?,?,?);";
+            "values (?,?,?,?,?);";
 
     private static final String DELETE_BY_ID = "delete from product where product_id = ?;";
     private static final String UPDATE_PRODUCT = "UPDATE product SET product_name = ?, product_price =?, product_description = ?, product_image = ?,product_type_id=? WHERE product_id = ?;";
@@ -130,7 +130,7 @@ public class ProductRepository implements IProductRepository{
                 int idTypeProduct = resultSet.getInt("product.product_type_id");
                 String nameTypeProduct = resultSet.getString("product_type.product_type_name");
                 TypeProduct typeProduct = new TypeProduct(idTypeProduct,nameTypeProduct);
-                 product = new Product(id,productName,price,description,image,typeProduct);
+                product = new Product(id,productName,price,description,image,typeProduct);
             }
         } catch (SQLException e) {
             e.printStackTrace();

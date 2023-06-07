@@ -1,6 +1,8 @@
 package com.example.coffee_shop.order.service;
 
+import com.example.coffee_shop.order.model.DetailOrder;
 import com.example.coffee_shop.order.model.Order;
+import com.example.coffee_shop.order.model.StatusOrder;
 import com.example.coffee_shop.order.repository.IOrderRepository;
 import com.example.coffee_shop.order.repository.OrderRepostiory;
 
@@ -14,12 +16,17 @@ public class OrderService implements IOrderService {
     }
 
     @Override
-    public boolean editOrder(Order order) {
-        return orderRepository.editOrder(order);
+    public boolean editOrder(int idOrder, int idStatus) {
+        return orderRepository.editOrder(idOrder,idStatus);
     }
 
     @Override
-    public Order findById(int id) {
+    public Order showOrder(int id) {
+        return orderRepository.order(id);
+    }
+
+    @Override
+    public List<DetailOrder> findById(int id) {
         return orderRepository.findById(id);
     }
 

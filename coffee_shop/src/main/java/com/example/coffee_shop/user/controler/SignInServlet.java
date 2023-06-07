@@ -31,9 +31,8 @@ public class SignInServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
             if (user.getRole().getId() == 1) {
-                List<User> listUser = userService.displayUser();
-                request.setAttribute("listUser", listUser);
-                request.getRequestDispatcher("/view/user/display.jsp").forward(request, response);
+                response.sendRedirect("/User");
+
             } else {
                 //cus
                 List<Product> productList = productService.productList();
