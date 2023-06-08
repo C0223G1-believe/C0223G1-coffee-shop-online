@@ -71,7 +71,7 @@ CREATE TABLE `order` (
     order_date DATETIME NOT NULL,
     `comment` VARCHAR(100),
     address VARCHAR(50) NOT NULL,
-    user_id INT NULL,
+user_id INT NULL,
     FOREIGN KEY (user_id)
         REFERENCES `user` (user_id)
         ON DELETE SET NULL,
