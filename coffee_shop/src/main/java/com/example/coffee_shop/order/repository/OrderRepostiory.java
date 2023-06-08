@@ -31,7 +31,7 @@ public class OrderRepostiory implements IOrderRepository {
             " JOIN product as pro on pro.product_id = detail.order_id " +
             " JOIN `status` as sta on sta.id = o.id_status " +
             " JOIN `user` on `user`.user_id = o.user_id " +
-            " where `user`.user_name like %?% or sta.name_status like %?% " +
+            " where user.user_name = ? or sta.name_status = ? " +
             " group by o.order_id";
     @Override
     public List<Order> displayOrder() {
