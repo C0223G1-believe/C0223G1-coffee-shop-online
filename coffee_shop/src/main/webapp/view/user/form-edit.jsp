@@ -1,4 +1,6 @@
-<%@ page import="com.example.coffee_shop.model.user.model.User" %><%--
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.example.coffee_shop.model.user.model.User" %>
+<%--
   Created by IntelliJ IDEA.
   User: TechCare
   Date: 6/4/2023
@@ -6,7 +8,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
     <title>Title</title>
@@ -18,15 +20,16 @@
 %>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
-    <form style="color: white; margin-top: 10em" action="/User?action=edit" method="post">
+    <h1 style="margin-top: 3em; margin-bottom: 1em ">Edit User</h1>
+    <form style="color: white" action="/User?action=edit" method="post">
         <table style="color: white;">
             <tr hidden>
                 <td><label>id: </label></td>
-                <td><input style="border-radius: 10px" name="id" value="${user.id}" readonly></td>
+                <td><input style="border-radius: 10px" name="id"  value="${user.id}"></td>
             </tr>
             <tr>
                 <td><label>User name: </label></td>
-                <td><input style="border-radius: 10px" name="userName" value="${user.userName}"/></td>
+                <td><input style="border-radius: 10px" name="userName" value="${user.userName}" readonly/></td>
             </tr>
             <tr>
                 <td><label>Password: </label></td>
@@ -34,11 +37,11 @@
             </tr>
             <tr>
                 <td><label>Email: </label></td>
-                <td><input style="border-radius: 10px" name="email" value="${user.userEmail}"/></td>
+                <td><input type="email" style="border-radius: 10px" name="email" value="${user.userEmail}"/></td>
             </tr>
             <tr>
                 <td><label>Phone number: </label></td>
-                <td><input style="border-radius: 10px" name="phoneNumber" value="${user.userPhoneNumber}"/></td>
+                <td><input type="tel" style="border-radius: 10px" name="phoneNumber" value="${user.userPhoneNumber}"/></td>
             </tr>
             <tr>
                 <td><label>Type User: </label></td>
@@ -46,7 +49,9 @@
                     <select style="border-radius: 10px" name="role">
                         <option value="${user.role.id}">${user.role.name}</option>
                         <c:forEach var="role" items="${listRole}" varStatus="loop">
-                            <option value="${role.id}"> ${role.name}</option>
+                            <c:if test="${role.id != user.role.id}">
+                                <option value="${role.id}"> ${role.name}</option>
+                            </c:if>
                         </c:forEach>
                     </select>
                 </td>

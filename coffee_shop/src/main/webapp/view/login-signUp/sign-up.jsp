@@ -37,7 +37,7 @@
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                     <div class="card mt-5">
-                        <div class="text-bg-dark text-center"><p style="color:rgba(241,226,4,0.92); margin:1em 0 1em">${error}</p></div>
+                        <div class="text-bg-dark text-center"><p style="font-size: 20px;color:rgba(238,216,122,0.92); margin:1em 0 1em">${error}</p></div>
                         <div style="color: white">
                             <div class="card-body pt-0 pb-5 px-5 bg-dark">
                                 <h4 class="text-uppercase text-center mb-2 mt-0 fw-bold">Create an account</h4>
