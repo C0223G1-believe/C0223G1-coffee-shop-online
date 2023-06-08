@@ -89,7 +89,10 @@ public class ProcessServlet extends HttpServlet {
         String address = request.getParameter("address");
         String note = request.getParameter("note");
         oderService.addOrder(user,cart,note,address);
-        session.invalidate();
+        Cart cart1 = null;
+        session.setAttribute("cart",cart1);
+        session.setAttribute("size", "");
+
         List<Product> productList = productService.productList();
         request.setAttribute("productList", productList);
         request.getRequestDispatcher("/home.jsp").forward(request, response);
