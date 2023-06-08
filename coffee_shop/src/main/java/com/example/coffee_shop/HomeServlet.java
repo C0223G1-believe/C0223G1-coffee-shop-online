@@ -1,8 +1,8 @@
 package com.example.coffee_shop;
 
-import com.example.coffee_shop.product.model.Product;
-import com.example.coffee_shop.product.service.IProductService;
-import com.example.coffee_shop.product.service.ProductService;
+import com.example.coffee_shop.model.product.model.Product;
+import com.example.coffee_shop.model.product.service.IProductService;
+import com.example.coffee_shop.model.product.service.ProductService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
