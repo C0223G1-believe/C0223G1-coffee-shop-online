@@ -1,5 +1,5 @@
-<%@ page import="com.example.coffee_shop.user.model.User" %>
-<%@ page import="com.example.coffee_shop.product.service.ProductService" %>
+<%@ page import="com.example.coffee_shop.model.user.model.User" %>
+<%@ page import="com.example.coffee_shop.model.product.service.ProductService" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 

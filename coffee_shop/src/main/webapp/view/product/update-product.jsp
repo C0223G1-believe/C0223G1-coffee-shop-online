@@ -1,4 +1,4 @@
-<%@ page import="com.example.coffee_shop.user.model.User" %><%--
+<%@ page import="com.example.coffee_shop.model.user.model.User" %><%--
   Created by IntelliJ IDEA.
   User: Admin
   Date: 6/3/2023
