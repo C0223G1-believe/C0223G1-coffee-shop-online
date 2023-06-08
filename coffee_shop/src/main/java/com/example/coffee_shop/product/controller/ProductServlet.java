@@ -98,15 +98,34 @@ public class ProductServlet extends HttpServlet {
     }
     public void createProduct (HttpServletRequest request, HttpServletResponse response){
         String name  = request.getParameter("name");
-        double price  = Double.parseDouble(request.getParameter("price"));
-        String description  = request.getParameter("description");
-        String image  = request.getParameter("image");
-        int  typeProduct = Integer.parseInt(request.getParameter("type"));
-        productService.createProduct(new Product(name,price,description,image),typeProduct);
-        try {
-            response.sendRedirect("/product");
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (productService.findByName(name)){
+            List<Product> productList = productService.productList();
+            request.setAttribute("productList" , productList);
+            double price  = Double.parseDouble(request.getParameter("price"));
+            String description  = request.getParameter("description");
+            String image  = request.getParameter("image");
+            int  typeProduct = Integer.parseInt(request.getParameter("type"));
+            productService.createProduct(new Product(name,price,description,image),typeProduct);
+            String toast = request.getParameter("toast");
+            request.setAttribute("toast",toast);
+                try {
+                    try {
+                        request.getRequestDispatcher("/view/product/list-product.jsp").forward(request,response);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } catch (ServletException e) {
+                    e.printStackTrace();
+                }
+        }else {
+            request.setAttribute("message","Sorry , this name was exits");
+            try {
+                request.getRequestDispatcher("/view/product/create-product.jsp").forward(request,response);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ServletException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -121,6 +140,8 @@ public class ProductServlet extends HttpServlet {
     }
 
     public void updateProduct (HttpServletRequest request, HttpServletResponse response){
+        List<Product> productList = productService.productList();
+        request.setAttribute("productList" , productList);
         int id = Integer.parseInt(request.getParameter("id"));
         String name  = request.getParameter("name");
         double price  = Double.parseDouble(request.getParameter("price"));
@@ -129,10 +150,14 @@ public class ProductServlet extends HttpServlet {
         String typeProduct = request.getParameter("type");
         Product product = new Product(name, price,description,image);
         productService.updateProduct(id,product,typeProduct);
+        String toast = request.getParameter("toast");
+        request.setAttribute("toast",toast);
 
         try {
-            response.sendRedirect("/product");
+            request.getRequestDispatcher("/view/product/list-product.jsp").forward(request,response);
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ServletException e) {
             e.printStackTrace();
         }
     }
