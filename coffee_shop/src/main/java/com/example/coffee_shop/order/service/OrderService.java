@@ -34,4 +34,9 @@ public class OrderService implements IOrderService {
     public boolean deleteOrder(int id) {
         return orderRepository.deleteOrder(id);
     }
+
+    @Override
+    public List<Order> searchOrder(String userName, String status) {
+        return orderRepository.searchOrder(userName, status);
+    }
 }
