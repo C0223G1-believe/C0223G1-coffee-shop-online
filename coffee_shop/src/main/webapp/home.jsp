@@ -100,11 +100,13 @@
                             %>
                             <a href="/view/login-signUp/login.jsp" style="color: #c0c031; font-weight: bold">SIGN IN</a>
                             <%
-                            } else {%>
-                            <span style="color: #c0c031; font-weight: bold"><%=user.getUserName()%></span>
+                            } else if (user.getRole().getId()==1){%>
+                            <a href="/User"><span style="color: #c0c031; font-weight: bold"><%=user.getUserName()%></span></a>
                             <a href="/LogOutServlet" style="color: #c0c031">log out</a>
                             <%
-                                }
+                                }else {%>
+                            <span style="color: #c0c031; font-weight: bold"><%=user.getUserName()%></span>
+                        <% }
                             %>
                         </div>
                     </li>
