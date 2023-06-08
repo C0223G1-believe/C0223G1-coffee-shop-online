@@ -13,6 +13,11 @@ public class ProductService implements IProductService{
     }
 
     @Override
+    public boolean findByName(String name) {
+        return productRepository.findByName(name);
+    }
+
+    @Override
     public void createProduct(Product product, int id) {
         productRepository.createProduct(product, id);
     }
