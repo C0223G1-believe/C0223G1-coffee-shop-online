@@ -36,42 +36,46 @@
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                    <div class="card mt-2">
-                        <div class="text-bg-dark text-center"><p style="color:#c91d1d; margin: 0">${error}</p></div>
+                    <div class="card mt-5">
+                        <div class="text-bg-dark text-center"><p style="color:rgba(241,226,4,0.92); margin:1em 0 1em">${error}</p></div>
                         <div style="color: white">
                             <div class="card-body pt-0 pb-5 px-5 bg-dark">
                                 <h4 class="text-uppercase text-center mb-2 mt-0 fw-bold">Create an account</h4>
                                 <form class="mt-0" style="height: 30em" action="/User?action=add" method="post">
                                     <div class="form-outline mb-1">
-                                        <input type="tel" id="form3Example1cr" value="${phone}" name="phone"
-                                               pattern="^([0-9]{10})$" class="form-control form-control-lg"/>
                                         <label class="form-label" for="form3Example1cr">Phone Number</label>
+                                        <input type="tel" id="form3Example1cr" value="${phone}" name="phone"
+                                               pattern="^([0-9]{10})$" class="form-control form-control-lg" required/>
+
                                     </div>
                                     <div class="form-outline mb-1">
-                                        <input type="email" id="form3Example1cg" value="${email}" name="email"
-                                               class="form-control form-control-lg"/>
                                         <label class="form-label" for="form3Example1cg">Your Email</label>
+                                        <input type="email" id="form3Example1cg" value="${email}" name="email"
+                                               class="form-control form-control-lg" required/>
+
                                     </div>
 
                                     <div class="form-outline mb-1">
-                                        <input type="text" id="form3Example3cg" name="userName" value="${name}"
-                                               class="form-control form-control-lg"/>
                                         <label class="form-label" for="form3Example3cg">User Name</label>
+                                        <input type="text" id="form3Example3cg" name="userName" value="${name}"
+                                               class="form-control form-control-lg" required/>
+
                                     </div>
 
                                     <div class="form-outline mb-1">
-                                        <input type="password" id="form3Example4cg" value="${pass1}" name="password1"
-                                               class="form-control form-control-lg"/>
                                         <label class="form-label" for="form3Example4cg">Password</label>
+                                        <input type="password" id="form3Example4cg" value="${pass1}" name="password1"
+                                               class="form-control form-control-lg" required/>
                                     </div>
 
                                     <div class="form-outline mb-1">
-                                        <input type="password" id="form3Example4cdg" value="${pass2}" name="password2"
-                                               class="form-control form-control-lg"/>
                                         <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                                        <input type="password" id="form3Example4cdg" value="${pass2}" name="password2"
+                                               class="form-control form-control-lg" />
+
                                     </div>
 
-                                    <div class="d-flex justify-content-center">
+                                    <div class="d-flex justify-content-center mt-2">
                                         <button type="submit"
                                                 class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">
                                             Register
