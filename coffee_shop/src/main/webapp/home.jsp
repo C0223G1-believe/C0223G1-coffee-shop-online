@@ -126,7 +126,8 @@
                 <%
                     if (user != null) {
                     } else {%>
-                <a href="/view/login-signUp/login.jsp" class="primary-btn text-uppercase">Buy Now</a>
+                <a href="/view/login-signUp/login.jsp" class="primary-btn text-uppercase"
+                   style="position: fixed; z-index: 1; color: white; background: #563232;left:0px">Buy Now</a>
                 <%
                     }
                 %>
@@ -176,21 +177,23 @@
         <div class="row">
             <c:forEach items="${productList}" var="product">
                 <div class="col-3">
-                <div class="card" style="width: 100%;height: 90%">
-                    <img height="150px" src="${product.productImage}" class="card-img-top" alt="photo">
-                    <div class="card-body">
-                        <h5 class="card-title">${product.productName}</h5>
-                        <h3 class="card-title">$${product.productPrice}</h3>
-                        <p class="card-text">${product.productDescription}</p>
-                        <%
-                            if (user == null) {
-                            } else {%>
-                        <a style="background: #493434" href="/BuyProdutServlet?id=${product.productID}&num=1&toast=s" class="btn btn-primary">Add Card</a>
-                        <%
-                            }
-                        %>
+                    <div class="card p-1" style="width: 100%;height: 90%">
+                        <img height="150px" src="${product.productImage}" class="card-img-top" alt="photo">
+                        <div class="card-body">
+                            <h5 class="card-title">${product.productName}</h5>
+                            <h3 class="card-title">$${product.productPrice}</h3>
+                            <p class="card-text">${product.productDescription}</p>
+                            <%
+                                if (user == null) {
+                                } else {%>
+                            <a style="background: #493434"
+                               href="/BuyProdutServlet?id=${product.productID}&num=1&toast=s" class="btn btn-primary">Add
+                                Card</a>
+                            <%
+                                }
+                            %>
+                        </div>
                     </div>
-                </div>
                 </div>
             </c:forEach>
         </div>
@@ -402,7 +405,7 @@
 <!-- End footer Area -->
 <%
     String flag = String.valueOf(request.getAttribute("check"));
-    if (flag.equals("sa")){
+    if (flag.equals("sa")) {
         request.removeAttribute("check");
 %>
 <script>
