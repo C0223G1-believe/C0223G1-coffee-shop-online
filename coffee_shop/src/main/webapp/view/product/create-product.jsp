@@ -10,14 +10,20 @@
 <html>
 <head>
     <title> Add New</title>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="bootstrap520/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="datatables/css/dataTables.bootstrap5.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
-</head>
+   </head>
 <body>
+<%
+    String message = (String) request.getAttribute("message");
+    if (message == null) {
+        message = "";
+    }
+%>
 <section class="vh-100" style="background-color: #6c6e72;">
     <div class="container-fluid h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -27,19 +33,19 @@
                         <div class="card-body p-md-5">
                             <div class="row justify-content-center">
                                 <div class="col-md-10 col-lg-8 col-xl-5 order-2 order-lg-1">
-
                                     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Add New Product</p>
-
                                     <form class="mx-1 mx-md-4">
-
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input name="name" type="text" id="name" class="form-control"
-                                                       title="Example 'Black Coffee'" required pattern="(^[a-zA-Z]{1,30} [a-zA-Z]{1,30}$)">
+                                                       title="Example 'Black Coffee'" required
+                                                       pattern="(^[a-zA-Z]{1,30} [a-zA-Z]{1,30}$)">
+                                                <input name="toast" value="add" hidden>
                                                 <label class="form-label" for="name">Product Name</label>
+                                                <p style="color: red"><%=message%>
+                                                </p>
                                             </div>
-
                                         </div>
 
                                         <div class="d-flex flex-row align-items-center mb-4">
