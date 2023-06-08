@@ -34,13 +34,13 @@
 
                                 <div class="form-outline form-white mb-4">
                                     <input type="tel" name="phone" id="typeEmailX"
-                                           class="form-control form-control-lg"/>
+                                           class="form-control form-control-lg" required/>
                                     <label class="form-label" for="typeEmailX">Phone</label>
                                 </div>
 
                                 <div class="form-outline form-white mb-4">
                                     <input type="password" name="password" id="typePasswordX"
-                                           class="form-control form-control-lg"/>
+                                           class="form-control form-control-lg" required/>
                                     <label class="form-label" for="typePasswordX">Password</label>
                                 </div>
                                 <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a>
