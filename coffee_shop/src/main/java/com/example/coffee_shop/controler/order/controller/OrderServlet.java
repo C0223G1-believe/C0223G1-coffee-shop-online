@@ -43,6 +43,8 @@ public class OrderServlet extends HttpServlet {
     private void showListOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         List<Order> orderList = orderService.displayOrder();
+        String result = "Hello Admin";
+        request.setAttribute("show",result);
         request.setAttribute("listOrder", orderList);
         request.getRequestDispatcher("view/order/display-admin.jsp").forward(request, response);
     }
@@ -76,15 +78,20 @@ public class OrderServlet extends HttpServlet {
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("idDelete"));
+        String result = "Delete Success";
         orderService.deleteOrder(id);
-        response.sendRedirect("/Order");
+        request.setAttribute("delete",result);
+        request.getRequestDispatcher("/view/order/display-admin.jsp").forward(request,response);
     }
 
     private void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int idOder = Integer.parseInt(request.getParameter("order"));
         int idStatus = Integer.parseInt(request.getParameter("status"));
+        String result = "Successful status change ";
+        request.setAttribute("show",result);
         orderService.editOrder(idOder, idStatus);
-        response.sendRedirect("/Order");
+       request.setAttribute("detail",result);
+       request.getRequestDispatcher("/view/order/display-admin.jsp").forward(request,response);
     }
 
 }

@@ -63,6 +63,7 @@
             </div>
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
+                        <li class="menu-active"><a href="/process?action=back">Home</a> </li>
                         <li class="menu-active"><a href="/User">User Manager</a></li>
                         <li class="menu-active"><a href="/productType">Product Type</a></li>
                         <li class="menu-active"><a href="/product">Product Manager</a></li>

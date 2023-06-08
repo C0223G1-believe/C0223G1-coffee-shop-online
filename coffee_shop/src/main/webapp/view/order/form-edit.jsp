@@ -20,7 +20,10 @@
 %>
 <c:import url="/navbar-admin.jsp"> </c:import>
 <div class="container">
-    <form action="/Order?action=edit" style="color: white; margin-top:9em" method="post">
+
+    <h1 style=" margin-top:3em; margin-bottom: 0.8em">List Detail Order</h1>
+
+    <form action="/Order?action=edit" style="color: white" method="post">
         <table id="tableDetailOrder" class="table table-striped col-lg-11">
             <thead>
             <tr>
@@ -40,7 +43,7 @@
                     <td><img width="40rem" height="40rem" src="/<c:out value="${detailOrder.product.productImage}"/>">
                     </td>
                     <td><c:out value="${detailOrder.product.productName}"/></td>
-                    <td><c:out value="${detailOrder.product.productPrice}"/></td>
+                    <td><c:out value="$ ${detailOrder.product.productPrice}"/></td>
                     <td><c:out value="${detailOrder.quality }"/></td>
                 </tr>
             </c:forEach>
@@ -62,7 +65,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h4>you updated the user's order status <span style="color:red;" id="nameUser"></span></h4>
+                <h4 style="font-size: 15px">you updated the user's order status <span style="color:red;" id="nameUser"></span></h4>
             </div>
             <div class="modal-footer">
                 <form action="/Order?action=edit" method="post">

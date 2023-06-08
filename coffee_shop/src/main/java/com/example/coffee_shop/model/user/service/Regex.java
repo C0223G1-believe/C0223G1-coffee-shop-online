@@ -1,4 +1,4 @@
-package com.example.coffee_shop.model.user.service.user_service;
+package com.example.coffee_shop.model.user.service;
 
 public class Regex {
 
