@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Product List</title>
     <link rel="stylesheet" href="/library/bootstrap520/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/library/datatables/css/dataTables.bootstrap5.min.css"/>
     <style>
@@ -47,7 +47,6 @@
             <th style="color: #14515b">Product Name</th>
             <th style="color: #14515b">Product Price</th>
             <th style="color: #14515b">Product Description</th>
-            <th style="color: #14515b">Product Image</th>
             <th style="color: #14515b">Product Type</th>
             <th style="color: #14515b">Edit</th>
             <th style="color: #14515b">Delete</th>
@@ -60,7 +59,6 @@
             <td><c:out value="${product.productName}"/></td>
             <td><c:out value="$${product.productPrice}"/></td>
             <td><c:out value="${product.productDescription}"/></td>
-            <td><img width="50px" height="30px" src="<c:out value="${product.productImage}"/>"></td>
             <td><c:out value="${product.typeProduct.name}"/></td>
             <td>
                 <a class="text-decoration-none"
