@@ -26,6 +26,13 @@ public class OrderRepostiory implements IOrderRepository {
 
     private static final String DELETE_ORDER = "call sp_delete_order_detail_order(?)";
 
+    private static final String SEARCH_ORDER = " SELECT o.*,`user`.user_name,sta.name_status FROM `order` as o " +
+            " JOIN detail_order as detail on detail.order_id = o.order_id " +
+            " JOIN product as pro on pro.product_id = detail.order_id " +
+            " JOIN `status` as sta on sta.id = o.id_status " +
+            " JOIN `user` on `user`.user_id = o.user_id " +
+            " where user.user_name like %?% or sta.name_status like %?% " +
+            "group by o.order_id";
     @Override
     public List<Order> displayOrder() {
         Connection connection = baseRepository.getConnection();
@@ -161,5 +168,39 @@ public class OrderRepostiory implements IOrderRepository {
             }
         }
         return false;
+    }
+
+    @Override
+    public List<Order> searchOrder(String userName, String status) {
+        Connection connection = baseRepository.getConnection();
+        List<Order> orders = new ArrayList<>();
+        try {
+           PreparedStatement preparedStatement =connection.prepareStatement(SEARCH_ORDER);
+           preparedStatement.setString(1,userName);
+           preparedStatement.setString(2,status);
+           ResultSet resultSet =preparedStatement.executeQuery();
+            while(resultSet.next()){
+                int idOrder = resultSet.getInt("order_id");
+                String orderDate = resultSet.getString("order_date");
+                String comment = resultSet.getString("comment");
+                String address = resultSet.getString("address");
+                int idUser = resultSet.getInt("user_id");
+                String nameUser = resultSet.getString("user_name");
+                int idStatus = resultSet.getInt("id_status");
+                String nameStatus = resultSet.getString("name_status");
+                StatusOrder statusOrder =new StatusOrder(idStatus,nameStatus);
+                User user = new User(idUser,nameUser);
+                orders.add(new Order(idOrder,orderDate,comment,address,user,statusOrder));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return orders;
     }
 }

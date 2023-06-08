@@ -21,8 +21,8 @@
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
     <form style="color: white; margin-top:9em" action="/Order?action=search" method="post">
-        <input type="email" name="email" placeholder="Enter User Name">
-        <input type="text" name="phone" placeholder="Enter Status">
+        <input type="useName" name="email" placeholder="Enter User Name">
+        <input type="text" name="status" placeholder="Enter Status">
         <button class="rounded-3 bg-primary" type="submit">Search</button>
     </form>
     <table id="tableOrder" style="color: white" class="table table-striped col-lg-11">

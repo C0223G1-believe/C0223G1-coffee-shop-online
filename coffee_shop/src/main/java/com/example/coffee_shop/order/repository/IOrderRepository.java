@@ -18,6 +18,8 @@ public interface IOrderRepository{
     Order order(int id);
     //delete
     boolean deleteOrder(int id);
+    // search
+    List<Order> searchOrder(String userName, String status);
 
 
 

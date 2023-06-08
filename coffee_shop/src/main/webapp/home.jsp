@@ -184,7 +184,8 @@
                         <%
                             if (user == null) {
                             } else {%>
-                        <a href="/BuyProdutServlet?id=${product.productID}&num=1&toast=s" class="btn btn-primary">Add Card</a>
+                        <a href="/BuyProdutServlet?id=${product.productID}&num=1&toast=s" class="btn btn-primary">Add
+                            Card</a>
                         <%
                             }
                         %>
@@ -400,7 +401,7 @@
 <!-- End footer Area -->
 <%
     String flag = String.valueOf(request.getAttribute("check"));
-    if (flag.equals("sa")){
+    if (flag.equals("sa")) {
         request.removeAttribute("check");
 %>
 <script>

@@ -19,7 +19,7 @@
     }
 %>
 <form method="post" action="/SignInServlet">
-    <section class="vh-100 gradient-custom" style="background-image: url('https://images.unsplash.com/photo-1620820186187-fc32e79adb74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29mZmVlJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60');">
+    <section class="min-vh-100 gradient-custom" style="background-image: url('https://images.unsplash.com/photo-1620820186187-fc32e79adb74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29mZmVlJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60');">
 
     <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100 mt-">

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,33 +10,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
           integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <style>
-        .toast {
-            background-color: #d20138;
-            color: #000205;
-            padding: 15px;
-            border-radius: 30px;
-            position: fixed;
-            top: 100px;
-            right: 0px;
-            font-weight: bold;
-            z-index: 1;
-            display: flex;
-            animation: slideInLeft ease 2s, fadeOut linear 1s 2s forwards;
-        }
-    </style>
 </head>
 <body>
-
-<section class="vh-100 bg-image"
+<div>
+    <c:if test="${error == null}">
+    <div id="toast">
+        <div class="toast toast--error">
+            <div class="toast__icon">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <div class="toast__body">
+                <h3 class="toast__title">error</h3>
+                <p class="toast__msg">${error}</p>
+            </div>
+            <div class="toast__close">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </div>
+        </div>
+    </div>
+    </c:if>
+</div>
+<section class="min-vh-100 bg-image"
          style="background-image: url('https://images.unsplash.com/photo-1620820186187-fc32e79adb74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29mZmVlJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60');">
     <div class="mask d-flex align-items-center h-100 gradient-custom-3 mt-0 mb-0">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                    <div class="card">
+                    <div class="card mt-2">
+                        <div class="text-bg-dark text-center"><p style="color:#c91d1d; margin: 0">${error}</p></div>
                         <div style="color: white">
-                            <div class="card-body p-5" style="background:#1e1d1d">
+                            <div class="card-body pt-0 pb-5 px-5 bg-dark">
                                 <h4 class="text-uppercase text-center mb-2 mt-0 fw-bold">Create an account</h4>
                                 <form class="mt-0" style="height: 30em" action="/User?action=add" method="post">
                                     <div class="form-outline mb-1">
@@ -78,17 +82,15 @@
                                             class="fw-bold text-white"><u>Login here</u></a></p>
                                 </form>
                             </div>
-                            <div id="toastMessage" >
-                            </div>
                         </div>
                     </div>
-
                 </div>
 
             </div>
+
         </div>
     </div>
+    </div>
 </section>
-
 </body>
 </html>
