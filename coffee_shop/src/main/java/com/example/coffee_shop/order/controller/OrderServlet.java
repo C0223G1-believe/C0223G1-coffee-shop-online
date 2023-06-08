@@ -61,7 +61,18 @@ public class OrderServlet extends HttpServlet {
             case "delete":
                 delete(request, response);
                 break;
+            case"search":
+                searchOrder(request, response);
+                break;
         }
+    }
+
+    private void searchOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String userName = request.getParameter("userName");
+        String status =request.getParameter("status");
+        List<Order> orderList = orderService.searchOrder(userName,status);
+        request.setAttribute("listOrder", orderList);
+        request.getRequestDispatcher("view/order/display-admin.jsp").forward(request, response);
     }
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

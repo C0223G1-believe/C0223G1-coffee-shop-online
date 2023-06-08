@@ -97,6 +97,7 @@ public class UserServlet extends HttpServlet {
             request.setAttribute("notification",notification);
             request.getRequestDispatcher("/view/login-signUp/login.jsp").forward(request, response);
         }else {
+
             String error = "* Do not use special characters for the field User and Password";
             request.setAttribute("error",error);
             request.getRequestDispatcher("/view/login-signUp/sign-up.jsp").forward(request, response);

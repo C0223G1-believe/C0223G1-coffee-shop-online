@@ -12,6 +12,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="/library/bootstrap520/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/library/datatables/css/dataTables.bootstrap5.min.css"/>
+    <link rel="stylesheet" href="/library/css/css-login/css-toast-delete.css">
 </head>
 <body>
 <%
@@ -84,11 +85,15 @@
                 <form action="/User?action=delete" method="post">
                     <input type="hidden" name="idDelete" id="idDelete">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                    <button type="submit" class="btn btn-primary">Yes</button>
+                    <button type="submit" class="btn btn-primary" onclick="showErrorToast()" >Yes</button>
                 </form>
             </div>
         </div>
     </div>
+</div>
+<div id="toast">
+
+</div>
 </div>
 <script src="/library/jquery/jquery-3.5.1.min.js"></script>
 <script src="/library/datatables/js/jquery.dataTables.min.js"></script>
@@ -107,6 +112,53 @@
     function remove(id, name) {
         document.getElementById("nameDelete").innerText = name;
         document.getElementById("idDelete").value = id;
+    }
+    function main(
+        title ='',
+        message = '',
+        type = 'info',
+        duration = 3000
+    ){
+        let main = document.getElementById('toast');
+        if (main){
+            let toast = document.createElement('div');
+            // auto remove
+            let autoRemoveId = setTimeout(function (){
+                main.removeChild(toast);
+            })
+            // remove toast when clicked
+            toast.onclick = function (e){
+                if (e.target.closest('.toast__close')){
+                    main.removeChild(toast);
+                }
+            }
+            toast.classList.add('toast',`toast--${type}`);
+            toast.innerHTML = `
+                <div class="toast__icon">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <div class="toast__body">
+                    <h3 class="toast__title">${title}</h3>
+                    <p class="toast__msg">${error}</p>
+                </div>
+                <div class="toast__close">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </div>
+                `;
+            main.appendChild('toast');
+            window.addEventListener('load', function() {
+                showToast("${error}");
+            });
+        }
+    }
+
+    function showErrorToast(){
+        main({
+            title: 'Error',
+            message: '',
+            type: 'error',
+            duration: '3000'
+        });
     }
 </script>
 </body>
