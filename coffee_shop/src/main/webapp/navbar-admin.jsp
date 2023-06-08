@@ -108,3 +108,16 @@
 <script src="library/js/mail-script.js"></script>
 <script src="library/js/main.js"></script>
 </html>
+
+<%
+    User user = (User) session.getAttribute("user");
+    if (user != null && user.getRole().getId() == 1) {
+%>
+
+
+<%
+} else {%>
+<h1 style="text-align: center; margin-top: 20%">ERROR 403</h1>
+<%
+    }
+%>
