@@ -180,7 +180,7 @@
                     <img height="150px" src="${product.productImage}" class="card-img-top" alt="photo">
                     <div class="card-body">
                         <h5 class="card-title">${product.productName}</h5>
-                        <h3 class="card-title">${product.productPrice}</h3>
+                        <h3 class="card-title">$${product.productPrice}</h3>
                         <p class="card-text">${product.productDescription}</p>
                         <%
                             if (user == null) {

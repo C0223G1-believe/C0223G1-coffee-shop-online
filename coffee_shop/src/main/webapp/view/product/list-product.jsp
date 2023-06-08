@@ -58,7 +58,7 @@
         <tr>
             <td><c:out value="${loop.count}"/></td>
             <td><c:out value="${product.productName}"/></td>
-            <td><c:out value="${product.productPrice}"/></td>
+            <td><c:out value="$${product.productPrice}"/></td>
             <td><c:out value="${product.productDescription}"/></td>
             <td><img width="50px" height="30px" src="<c:out value="${product.productImage}"/>"></td>
             <td><c:out value="${product.typeProduct.name}"/></td>

@@ -19,7 +19,7 @@ public class ProductRepository implements IProductRepository{
     private static final String DELETE_BY_ID = "delete from product where product_id = ?;";
     private static final String UPDATE_PRODUCT = "UPDATE product SET product_name = ?, product_price =?, product_description = ?, product_image = ?,product_type_id=? WHERE product_id = ?;";
     private static final String SELECT_PRODUCT_BY_NAME = "select * from product join product_type on " +
-            "product_type.product_type_id = product.product_type_id where product.product_name = ?;";
+            "product_type.product_type_id = product.product_type_id where product.product_name like %?%;";
 
     @Override
     public List<Product> productList() {
