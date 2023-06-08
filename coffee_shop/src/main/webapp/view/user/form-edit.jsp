@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.coffee_shop.user.model.User" %><%--
   Created by IntelliJ IDEA.
   User: TechCare
   Date: 6/4/2023
@@ -12,6 +12,10 @@
     <title>Title</title>
 </head>
 <body>
+<%
+    User user = (User) session.getAttribute("user");
+    if (user != null && user.getRole().getId() == 1) {
+%>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
     <form style="color: white; margin-top: 10em" action="/User?action=edit" method="post">
@@ -62,5 +66,11 @@
         </table>
     </form>
 </div>
+<%
+} else {%>
+<h1 style="text-align: center; margin-top: 20%">ERROR 403</h1>
+<%
+    }
+%>
 </body>
 </html>

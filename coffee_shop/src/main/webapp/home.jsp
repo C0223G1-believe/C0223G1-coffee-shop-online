@@ -1,8 +1,10 @@
 <%@ page import="com.example.coffee_shop.user.model.User" %>
+<%@ page import="com.example.coffee_shop.product.service.ProductService" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% ProductService productService = new ProductService();%>
 <html>
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
@@ -34,6 +36,20 @@
     <link rel="stylesheet" href="library/css/owl.carousel.css">
     <link rel="stylesheet" href="library/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <style>
+        .toast {
+            background-color: #4eef04;
+            color: #132c88;
+            padding: 15px;
+            border-radius: 30px;
+            position: fixed;
+            top: 100px;
+            right: 0px;
+            font-weight: bold;
+            z-index: 1;
+            display: none;
+        }
+    </style>
 </head>
 <body>
 <header id="header" id="home">
@@ -52,7 +68,7 @@
                             <a href="tel:(012) 6985 236 7512">(012) 6985 236 7512</a>
                         </li>
                         <li>
-                            <a href="/cart.jsp"><i class="fa-solid success fa-cart-shopping">  ${size}</i></a>
+                            <a href="/cart.jsp"><i class="fa-solid success fa-cart-shopping"> ${size}</i></a>
                         </li>
                     </ul>
                 </div>
@@ -64,13 +80,13 @@
     <div class="container">
         <div class="row align-items-center justify-content-between d-flex">
             <div id="logo">
-                <a href=""><img src="img/logo.png" alt="" title=""/></a>
+                <a href="/process?action=back"><img src="img/logo.png" alt="logo" title=""/></a>
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="">Home</a></li>
+                    <li class="menu-active"><a href="/process?action=back">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#coffee">Coffee</a></li>
+                    <li><a href="#coffee">Menu</a></li>
                     <li><a href="#review">Review</a></li>
                     <li><a href="#blog">Blog</a></li>
                     <li><a href="https://bocongan.gov.vn/">Page</a></li>
@@ -158,23 +174,23 @@
         </div>
 
         <div class="row">
-                <c:forEach items="${productList}" var="product">
-                    <div class="card" style="width: 18rem;">
-                        <img src="${product.productImage}" class="card-img-top" alt="photo">
-                        <div class="card-body">
-                            <h5 class="card-title">${product.productName}</h5>
-                            <h3 class="card-title">${product.productPrice}</h3>
-                            <p class="card-text">${product.productDescription}</p>
-                            <%
-                                if (user == null) {
-                                } else {%>
-                            <a href="/BuyProdutServlet?id=${product.productID}&num=1" class="btn btn-primary">Add Card</a>
-                            <%
-                                }
-                            %>
-                        </div>
+            <c:forEach items="${productList}" var="product">
+                <div class="card" style="width: 18rem;">
+                    <img src="${product.productImage}" class="card-img-top" alt="photo">
+                    <div class="card-body">
+                        <h5 class="card-title">${product.productName}</h5>
+                        <h3 class="card-title">${product.productPrice}</h3>
+                        <p class="card-text">${product.productDescription}</p>
+                        <%
+                            if (user == null) {
+                            } else {%>
+                        <a href="/BuyProdutServlet?id=${product.productID}&num=1&toast=s" class="btn btn-primary">Add Card</a>
+                        <%
+                            }
+                        %>
                     </div>
-                </c:forEach>
+                </div>
+            </c:forEach>
         </div>
     </div>
 </section>
@@ -322,7 +338,7 @@
 </section>
 <!-- End blog Area -->
 
-
+<div id="toastMessage" class="toast"></div>
 <!-- start footer Area -->
 <footer class="footer-area section-gap">
     <div class="container">
@@ -382,6 +398,31 @@
     </div>
 </footer>
 <!-- End footer Area -->
+<%
+    String flag = String.valueOf(request.getAttribute("check"));
+    if (flag.equals("sa")){
+        request.removeAttribute("check");
+%>
+<script>
+    // Function to show the toast message
+    function showToast(message) {
+        var toast = document.getElementById("toastMessage");
+        toast.style.display = "block";
+        toast.innerText = message;
+
+        setTimeout(function () {
+            toast.style.display = "none";
+        }, 3000); // Hide the toast message after 3 seconds
+    }
+
+    // Automatically show the toast message when the page is reloaded
+    window.addEventListener('load', function () {
+        showToast("Item Added to your Cart!");
+    });
+</script>
+<%
+    }
+%>
 
 <script src="library/js/vendor/jquery-2.2.4.min.js"></script>
 <script src="library/https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
@@ -405,3 +446,12 @@
 <script src="library/js/main.js"></script>
 </body>
 </html>
+
+
+<script>
+
+    <%--<button type="button" onclick="addCart(${product.productID})"></button>--%>
+    <%--function addCart(${id}) {--%>
+    <%--<% productService.getProductById(${id})%>--%>
+    }
+</script>

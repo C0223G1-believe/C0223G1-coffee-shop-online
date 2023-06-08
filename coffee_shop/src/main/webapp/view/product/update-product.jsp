@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.coffee_shop.user.model.User" %><%--
   Created by IntelliJ IDEA.
   User: Admin
   Date: 6/3/2023
@@ -17,6 +17,11 @@
     <link rel="stylesheet" href="datatables/css/dataTables.bootstrap5.min.css"/>
 </head>
 <body>
+<%
+    User user = (User) session.getAttribute("user");
+    if (user != null && user.getRole().getId() == 1) {
+%>
+
 <section class="vh-100" style="background-color: black;">
     <div class="container-fluid h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -117,6 +122,12 @@
         reader.readAsDataURL(file);
     });
 </script>
+<%
+} else {%>
+<h1 style="text-align: center; margin-top: 20%">ERROR 403</h1>
+<%
+    }
+%>
 </body>
 </html>
 <!doctype html>
