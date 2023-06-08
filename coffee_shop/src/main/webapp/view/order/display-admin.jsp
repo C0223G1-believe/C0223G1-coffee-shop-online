@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.coffee_shop.user.model.User" %><%--
   Created by IntelliJ IDEA.
   User: DELL
   Date: 6/3/2023
@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="/library/datatables/css/dataTables.bootstrap5.min.css"/>
 </head>
 <body>
+<%
+    User user = (User) session.getAttribute("user");
+    if (user != null && user.getRole().getId() == 1) {
+%>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
     <form style="color: white; margin-top:9em" action="/Order?action=search" method="post">
@@ -102,6 +106,12 @@
         document.getElementById("idDelete").value = id;
     }
 </script>
+<%
+} else {%>
+<h1 style="text-align: center; margin-top: 20%">ERROR 403</h1>
+<%
+    }
+%>
 </body>
 </html>
 <!doctype html>

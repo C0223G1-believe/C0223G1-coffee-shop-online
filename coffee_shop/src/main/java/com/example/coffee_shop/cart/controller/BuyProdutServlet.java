@@ -41,6 +41,12 @@ public class BuyProdutServlet extends HttpServlet {
         List<Item> list = cart.getItems();
         session.setAttribute("cart",cart);
         session.setAttribute("size",list.size());
+        String toast = request.getParameter("toast");
+        if (toast==null){
+            toast="";
+        }
+        String check = toast+"a";
+        request.setAttribute("check",check);
         request.getRequestDispatcher("/home.jsp").forward(request,response);
     }
 
