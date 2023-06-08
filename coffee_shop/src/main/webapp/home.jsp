@@ -21,7 +21,7 @@
     <!-- meta character set -->
     <meta charset="UTF-8">
     <!-- Site Title -->
-    <title>Coffee</title>
+    <title>Home</title>
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
     <!--
@@ -48,6 +48,8 @@
             font-weight: bold;
             z-index: 1;
             display: none;
+            animation: slideInLeft ease 2s, fadeOut linear 1s 2s forwards;
+            transition: all linear 0.3s;
         }
     </style>
 </head>
@@ -98,11 +100,13 @@
                             %>
                             <a href="/view/login-signUp/login.jsp" style="color: #c0c031; font-weight: bold">SIGN IN</a>
                             <%
-                            } else {%>
-                            <span style="color: #c0c031; font-weight: bold"><%=user.getUserName()%></span>
+                            } else if (user.getRole().getId()==1){%>
+                            <a href="/User"><span style="color: #c0c031; font-weight: bold"><%=user.getUserName()%></span></a>
                             <a href="/LogOutServlet" style="color: #c0c031">log out</a>
                             <%
-                                }
+                                }else {%>
+                            <span style="color: #c0c031; font-weight: bold"><%=user.getUserName()%></span>
+                        <% }
                             %>
                         </div>
                     </li>
@@ -176,21 +180,17 @@
         <div class="row">
             <c:forEach items="${productList}" var="product">
                 <div class="col-3">
-                <div class="card" style="width: 100%;height: 90%">
-                    <img height="150px" src="${product.productImage}" class="card-img-top" alt="photo">
-                    <div class="card-body">
-                        <h5 class="card-title">${product.productName}</h5>
-                        <h3 class="card-title">$${product.productPrice}</h3>
-                        <p class="card-text">${product.productDescription}</p>
-                        <%
-                            if (user == null) {
-                            } else {%>
-                        <a style="background: #493434" href="/BuyProdutServlet?id=${product.productID}&num=1&toast=s" class="btn btn-primary">Add Card</a>
-                        <%
-                            }
-                        %>
+                    <div class="card" style="width: 100%;height: 90%">
+                        <img height="150px" src="${product.productImage}" class="card-img-top" alt="photo">
+                        <div class="card-body">
+                            <h5 class="card-title">${product.productName}</h5>
+                            <h3 class="card-title">$${product.productPrice}</h3>
+                            <p class="card-text">${product.productDescription}</p>
+                            <a style="background: #493434"
+                               href="/BuyProdutServlet?id=${product.productID}&num=1&toast=s" class="btn btn-primary">Add
+                                Card</a>
+                        </div>
                     </div>
-                </div>
                 </div>
             </c:forEach>
         </div>
@@ -347,41 +347,17 @@
         <div class="row">
             <div class="col-lg-5 col-md-6 col-sm-6">
                 <div class="single-footer-widget">
-                    <h6>About Us</h6>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore dolore magna aliqua.
-                    </p>
-                    <p class="footer-text">
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                        All rights reserved | This template is made with <i class="fa fa-heart-o"
-                                                                            aria-hidden="true"></i> by <a
-                            href="https://bocongan.gov.vn/" target="_blank">Colorlib</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    </p>
+                    <h6>Designer By</h6>
+                    <h3 style="color:#bbbb12;">Team 1:</h3>
+                    <p>Tran Dinh Ngoc Sang</p>
+                    <p>Ngguyen Viet Cao</p>
+                    <p>Tran Thanh Son</p>
+                    <p>Vo Hai Thanh</p>
                 </div>
             </div>
             <div class="col-lg-5  col-md-6 col-sm-6">
                 <div class="single-footer-widget">
-                    <h6>Newsletter</h6>
-                    <p>Stay update with our latest</p>
-                    <div class="" id="mc_embed_signup">
-                        <form target="_blank" novalidate="true"
-                              action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                              method="get" class="form-inline">
-                            <input class="form-control" name="EMAIL" placeholder="Enter Email"
-                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Feedback '"
-                                   required="" type="email">
-                            <button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right"
-                                                                         aria-hidden="true"></i></button>
-                            <div style="position: absolute; left: -5000px;">
-                                <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-                            </div>
-
-                            <div class="info pt-20"></div>
-                        </form>
-                    </div>
+                    <h6>Where there is a will, there is a way.</h6>
                 </div>
             </div>
             <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
@@ -389,10 +365,7 @@
                     <h6>Follow Us</h6>
                     <p>Let us be social</p>
                     <div class="footer-social d-flex align-items-center">
-                        <a href="https://bocongan.gov.vn/"><i class="fa fa-facebook"></i></a>
-                        <a href="https://bocongan.gov.vn/"><i class="fa fa-twitter"></i></a>
-                        <a href="https://bocongan.gov.vn/"><i class="fa fa-dribbble"></i></a>
-                        <a href="https://bocongan.gov.vn/"><i class="fa fa-behance"></i></a>
+                        <a href="#"></a>
                     </div>
                 </div>
             </div>
@@ -402,7 +375,7 @@
 <!-- End footer Area -->
 <%
     String flag = String.valueOf(request.getAttribute("check"));
-    if (flag.equals("sa")){
+    if (flag.equals("sa")) {
         request.removeAttribute("check");
 %>
 <script>
@@ -414,7 +387,7 @@
 
         setTimeout(function () {
             toast.style.display = "none";
-        }, 3000); // Hide the toast message after 3 seconds
+        }, 1200); // Hide the toast message after 3 seconds
     }
 
     // Automatically show the toast message when the page is reloaded

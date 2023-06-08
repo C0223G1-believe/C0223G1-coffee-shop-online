@@ -21,8 +21,8 @@
         }
     </style>
 </head>
-<body>
-<section class="h-100 h-custom" style="background-color: #d2c9ff;">
+<body style="background-color: #562f2f">
+<section class="h-100 h-custom" >
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-12">
@@ -66,7 +66,7 @@
                                                 </button>
                                             </div>
                                             <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                                <h6 class="mb-0">${i.product.productPrice}</h6>
+                                                <h6 class="mb-0">$${i.product.productPrice}</h6>
                                             </div>
                                             <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                                 <a href="/process?action=delete&id=${i.product.productID}"
@@ -90,13 +90,13 @@
 
                                     <div class="d-flex justify-content-between mb-4">
                                         <h5 class="text-uppercase">items ${size}</h5>
-                                        <h5>${o.totalMoney}</h5>
+                                        <h5>$${o.totalMoney}</h5>
                                     </div>
                                     <form action="/process" method="post">
                                         <h5 class="text-uppercase mb-3">Address<span style="color: red">*</span></h5>
 
                                         <div class="mb-4 pb-2">
-                                            <textarea name="address" placeholder="address"
+                                            <textarea name="address" placeholder="address" style="width: 100%; height: 15%"
                                                       required></textarea>
                                             <br>
                                         </div>
@@ -105,8 +105,7 @@
 
                                         <div class="mb-5">
                                             <div class="form-outline">
-                                                <textarea name="note" placeholder="note"></textarea>
-                                                <label class="form-label">Enter your note</label>
+                                                <textarea name="note" placeholder="note" style="width: 100%"></textarea>
                                             </div>
                                         </div>
 
@@ -114,11 +113,11 @@
 
                                         <div class="d-flex justify-content-between mb-5">
                                             <h5 class="text-uppercase">TOTAL PRICE</h5>
-                                            <h5>${o.totalMoney}</h5>
+                                            <h5>$${o.totalMoney}</h5>
                                         </div>
 
                                         <button type="submit" class="btn btn-dark btn-block btn-lg"
-                                                data-mdb-ripple-color="dark">Register
+                                                data-mdb-ripple-color="dark">ODER
                                         </button>
                                     </form>
 
