@@ -49,6 +49,7 @@
 </tr>
     </c:forEach>
 </table>
+<label>Toltal money</label><span>${o.totalMoney}</span>
 <br>
 <form action="/process" method="post">
 <textarea name="address" placeholder="address" required></textarea>
@@ -58,9 +59,5 @@
 </form>
 <h2><a href="/process?action=back">back</a></h2>
 <a></a>
-
-
-
-
 </body>
 </html>
