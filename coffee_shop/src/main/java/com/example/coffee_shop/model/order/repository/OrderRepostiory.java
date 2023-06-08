@@ -150,6 +150,7 @@ public class OrderRepostiory implements IOrderRepository {
             CallableStatement callableStatement =connection.prepareCall(DELETE_ORDER);
             callableStatement.setInt(1,id);
             callableStatement.executeUpdate();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {

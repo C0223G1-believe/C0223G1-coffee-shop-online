@@ -106,6 +106,7 @@
                             <%
                                 }else {%>
                             <span style="color: #c0c031; font-weight: bold"><%=user.getUserName()%></span>
+                            <a href="/LogOutServlet" style="color: #c0c031">log out</a>
                         <% }
                             %>
                         </div>

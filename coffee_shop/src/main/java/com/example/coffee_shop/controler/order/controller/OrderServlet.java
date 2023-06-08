@@ -44,7 +44,7 @@ public class OrderServlet extends HttpServlet {
 
         List<Order> orderList = orderService.displayOrder();
         String result = "Hello Admin";
-        request.setAttribute("show",result);
+        request.setAttribute("show", result);
         request.setAttribute("listOrder", orderList);
         request.getRequestDispatcher("view/order/display-admin.jsp").forward(request, response);
     }
@@ -62,7 +62,7 @@ public class OrderServlet extends HttpServlet {
             case "delete":
                 delete(request, response);
                 break;
-            case"search":
+            case "search":
                 searchOrder(request, response);
                 break;
         }
@@ -70,8 +70,8 @@ public class OrderServlet extends HttpServlet {
 
     private void searchOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userName = request.getParameter("userName");
-        String status =request.getParameter("status");
-        List<Order> orderList = orderService.searchOrder(userName,status);
+        String status = request.getParameter("status");
+        List<Order> orderList = orderService.searchOrder(userName, status);
         request.setAttribute("listOrder", orderList);
         request.getRequestDispatcher("view/order/display-admin.jsp").forward(request, response);
     }
@@ -79,19 +79,23 @@ public class OrderServlet extends HttpServlet {
     private void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("idDelete"));
         String result = "Delete Success";
+        List<Order> orderList = orderService.displayOrder();
+        request.setAttribute("listOrder", orderList);
         orderService.deleteOrder(id);
-        request.setAttribute("delete",result);
-        request.getRequestDispatcher("/view/order/display-admin.jsp").forward(request,response);
+        request.setAttribute("delete", result);
+        request.getRequestDispatcher("/view/order/display-admin.jsp").forward(request, response);
     }
 
     private void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int idOder = Integer.parseInt(request.getParameter("order"));
         int idStatus = Integer.parseInt(request.getParameter("status"));
+
         String result = "Successful status change ";
-        request.setAttribute("show",result);
+        List<Order> orderList = orderService.displayOrder();
         orderService.editOrder(idOder, idStatus);
-       request.setAttribute("detail",result);
-       request.getRequestDispatcher("/view/order/display-admin.jsp").forward(request,response);
+        request.setAttribute("listOrder", orderList);
+        request.setAttribute("detail", result);
+        request.getRequestDispatcher("/view/order/display-admin.jsp").forward(request, response);
     }
 
 }
