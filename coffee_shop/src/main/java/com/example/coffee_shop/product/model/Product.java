@@ -32,7 +32,6 @@ public class Product {
         this.productImage = productImage;
         this.typeProduct = typeProduct;
     }
-
     public Product( String productName, double productPrice, String productDescription, String productImage, TypeProduct typeProduct) {
         this.productName = productName;
         this.productPrice = productPrice;

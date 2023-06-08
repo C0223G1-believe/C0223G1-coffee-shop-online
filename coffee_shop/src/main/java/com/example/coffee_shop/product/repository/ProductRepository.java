@@ -52,23 +52,35 @@ public class ProductRepository implements IProductRepository{
     }
 
     @Override
+    public boolean findByName(String name) {
+        for (int i = 0; i < productList().size(); i++) {
+            if(productList().get(i).getProductName().equals(name)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
     public void createProduct(Product product, int id) {
-        Connection connection = baseRepository.getConnection();
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PRODUCT);
-            preparedStatement.setString(1,product.getProductName());
-            preparedStatement.setDouble(2,product.getProductPrice());
-            preparedStatement.setString(3,product.getProductDescription());
-            preparedStatement.setString(4,product.getProductImage());
-            preparedStatement.setInt(5,id);
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
+        if(findByName(product.getProductName())){
+            Connection connection = baseRepository.getConnection();
             try {
-                connection.close();
+                PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PRODUCT);
+                preparedStatement.setString(1,product.getProductName());
+                preparedStatement.setDouble(2,product.getProductPrice());
+                preparedStatement.setString(3,product.getProductDescription());
+                preparedStatement.setString(4,product.getProductImage());
+                preparedStatement.setInt(5,id);
+                preparedStatement.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();
+            } finally {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

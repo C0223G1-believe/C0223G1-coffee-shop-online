@@ -10,6 +10,9 @@
 <html>
 <head>
     <title> Update Product</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="bootstrap520/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="datatables/css/dataTables.bootstrap5.min.css"/>
 </head>
@@ -35,7 +38,7 @@
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-<%--                                                <label><c:out value="${id}"></c:out></label>--%>
+                                                <input name="toast" value="edit" hidden>
                                                 <input name="id" value="${id}" class="form-control"/>
                                                 <label class="form-label" >Product ID</label>
                                             </div>
@@ -43,17 +46,16 @@
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <label><c:out value="${name}"></c:out></label>
-                                                <input name="name" type="text"  class="form-control"/>
-                                                <label class="form-label" >Product Name</label>
+                                                <input name="name" type="text" value="${name}" class="form-control" id="name"
+                                                       title="Example 'Black Coffee'" required pattern="(^[a-zA-Z]{1,30} [a-zA-Z]{1,30}$)"/>
+                                                <label class="form-label" for="name">Product Name</label>
                                             </div>
                                         </div>
 
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <label><c:out value="${price}"></c:out></label>
-                                                <input name="price" type="number"  class="form-control"/>
+                                                <input name="price" type="number" value="${price}" class="form-control" required/>
                                                 <label class="form-label" >Product Price</label>
                                             </div>
                                         </div>
@@ -61,8 +63,7 @@
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <label><c:out value="${description}"></c:out></label>
-                                                <input name="description" type="text"  class="form-control"/>
+                                                <input name="description" type="text" value="${description}" class="form-control" required/>
                                                 <label class="form-label" >Product
                                                     Description</label>
                                             </div>
@@ -78,10 +79,13 @@
                                             </select>
                                         </div>
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                            <input name="image" type="file" id="myFile" accept="image/*">
+                                            <input name="image" type="file" id="myFile" accept="image/*" required>
                                         </div>
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                             <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                                        </div>
+                                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                            <a class="btn btn-outline-primary" href="/product">Back</a>
                                         </div>
                                     </form>
                                 </div>

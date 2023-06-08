@@ -46,18 +46,18 @@ CREATE TABLE product (
 );
 
 INSERT INTO product(product_name,product_price,product_description,product_image,product_type_id) VALUES
-('Black Coffee ',17000,'Coffee and suger','img/1479133216-5745aa499882e46721b6545bb1c38bb0.jpg',1),
-('Milk Coffee ',17000,'Coffee and condensed milk','img/d33.jpg',1),
-('SaiGon Black Coffee ',17000,'Coffee and suger then shake','img/ca-phe-sai-gon-saigon-coffee-gac-mang-re-cafe-kontum-kon-tum-gacmangre-2.jpg',1),
-('SaiGon Milk Coffee ',17000,'Coffee and condensed milk then shake','img/ca-phe-sai-gon-saigon-coffee-gac-mang-re-cafe-kontum-kon-tum-gacmangre-2.jpg',2),
-('Salt Coffee ',17000,'Coffee,condensed milk,rich,salt,base cream','images/coffee/11.-Ca-phe-muoi.png',2),
-('Egg Coffee',17000,'Coffee,condensed milk,rich,egg,base cream','images/coffee/11-cover5-10-40-10.jpg',2),
-('Coconut Coffee',17000,'Milk,condensed milk,ice,coconut then blended','images/coffee/cach-pha-cafe-cot-dua.jpeg',3),
-('White Coffee ',17000,'Coffee,condensed milk,milk','images/coffee/images (1).jpeg',3),
-('Machine Coffee',17000,'Use machine coffee to make','img/b1.jpg',3),
-('Machine Coffee',17000,'Use machine coffee to make','img/b1.jpg',4),
-('Machine Coffee',17000,'Use machine coffee to make','img/b1.jpg',4),
-('Machine Coffee',17000,'Use machine coffee to make','img/b1.jpg',4);
+('Black Coffee',5,'Coffee and suger','images/coffee/ca-phe-den.jpg',1),
+('Milk Coffee',7,'Coffee and condensed milk','images/coffee/ca-phe-sua.jpg',1),
+('SaiGon Black Coffee',10,'Coffee and suger then shake','images/coffee/ca-phe-den-sai-gon.jpg',1),
+('SaiGon Milk Coffee',12,'Coffee and condensed milk then shake','images/coffee/ca-phe-sua-sai-gon.jpg',1),
+('Peach Tea',15,'Peach tea bags,sugar,lemon,syrup peach','images/tea/tra-dao.jpg',3),
+('Lychee Tea',15,'Lychee tea bags,sugar,lemon,syrup lychee','images/tea/tra-vai.webp',3),
+('Mango Tea',15,'Jasmine tea,sugar,lemon,mango jam','images/tea/tra-xoai.png',3),
+('Latte',20,'Use machine coffee to make and fresh milk','images/machine_coffee/latte.jpg',2),
+('Cappuccino',20,'Use machine coffee to make and fresh milk','images/machine_coffee/cappuccino.jpg',2),
+('Tomato Juice',17,'Fresh tomato and sugar or condensed milk','images/juice/nuoc-ep-ca-chua.jpg',4),
+('Orange Juice',17,'Orange and sugar','images/juice/nuoc-ep-cam.jpg',4),
+('Pineapple Juice',17,'Pineapple and sugar','images/juice/nuoc-ep-thom.jpg',4);
 CREATE TABLE `status` (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name_status VARCHAR(50)
@@ -69,7 +69,7 @@ INSERT INTO status (name_status) VALUES
 CREATE TABLE `order` (
     order_id INT PRIMARY KEY AUTO_INCREMENT,
     order_date DATETIME NOT NULL,
-    `comment` VARCHAR(100) ,
+    `comment` VARCHAR(100),
     address VARCHAR(50) NOT NULL,
     user_id INT NULL,
     FOREIGN KEY (user_id)
@@ -77,8 +77,7 @@ CREATE TABLE `order` (
         ON DELETE SET NULL,
     id_status INT NULL DEFAULT'1', FOREIGN KEY(id_status) REFERENCES `status`(id) ON DELETE SET NULL 
 );
-insert into `order`(order_date,comment,address,user_id) value
-('2092-12-24','thêm trà và sữa','Đà nẵng, việt nam',3);
+
 CREATE TABLE detail_order (
 detail_order_id INT PRIMARY KEY AUTO_INCREMENT,
 quality INT,
@@ -87,9 +86,6 @@ FOREIGN KEY(order_id) REFERENCES `order`(order_id)  ON DELETE SET NULL ,
 product_id INT NULL,
 FOREIGN KEY(product_id) REFERENCES product(product_id) ON DELETE SET NULL 
 );
-insert into detail_order(quality,order_id,product_id) VALUES
-(12,1,2),
-(2,1,4);
 DELIMITER //
 CREATE PROCEDURE sp_find_order_by_id(in id int)
 BEGIN
@@ -108,6 +104,3 @@ DELETE FROM detail_order WHERE order_id = id ;
 DELETE FROM `order` WHERE order_id = id ;
 END //
 DELIMITER ;
-
-
-
