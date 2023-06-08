@@ -19,5 +19,6 @@ public interface IOrderService {
     Order showOrder(int id);
     //delete
     boolean deleteOrder(int id);
+    List<Order> searchOrder(String userName, String status);
 
 }
