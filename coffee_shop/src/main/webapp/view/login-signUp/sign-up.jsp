@@ -9,25 +9,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
           integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>
+        .toast {
+            background-color: #d20138;
+            color: #000205;
+            padding: 15px;
+            border-radius: 30px;
+            position: fixed;
+            top: 100px;
+            right: 0px;
+            font-weight: bold;
+            z-index: 1;
+            display: flex;
+            animation: slideInLeft ease 2s, fadeOut linear 1s 2s forwards;
+        }
+    </style>
 </head>
 <body>
 
 <section class="vh-100 bg-image"
          style="background-image: url('https://images.unsplash.com/photo-1620820186187-fc32e79adb74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29mZmVlJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60');">
-        <div id="toast">
-            <div class="toast toast--error">
-                <div class="toast__icon">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                </div>
-                <div class="toast__body">
-                    <h3 class="toast__title">Success</h3>
-                    <p class="toast__msg">${error}wqueoiqwueoqi</p>
-                </div>
-                <div class="toast__close">
-                    <i class="fa-solid fa-circle-xmark"></i>
-                </div>
-            </div>
-        </div>
     <div class="mask d-flex align-items-center h-100 gradient-custom-3 mt-0 mb-0">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -77,7 +78,8 @@
                                             class="fw-bold text-white"><u>Login here</u></a></p>
                                 </form>
                             </div>
-
+                            <div id="toastMessage" >
+                            </div>
                         </div>
                     </div>
 
