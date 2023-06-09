@@ -18,4 +18,6 @@ public interface IProductRepository {
     Product searchProduct(String name);
 
     Product getProductById(int id);
+
+    List<Product> productListByType(int idType);
 }

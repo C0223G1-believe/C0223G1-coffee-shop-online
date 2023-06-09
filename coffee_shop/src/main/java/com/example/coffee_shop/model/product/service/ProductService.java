@@ -5,8 +5,9 @@ import com.example.coffee_shop.model.product.repository.ProductRepository;
 
 import java.util.List;
 
-public class ProductService implements IProductService{
+public class ProductService implements IProductService {
     ProductRepository productRepository = new ProductRepository();
+
     @Override
     public List<Product> productList() {
         return productRepository.productList();
@@ -23,8 +24,8 @@ public class ProductService implements IProductService{
     }
 
     @Override
-    public void updateProduct(int id, Product product,String name) {
-        productRepository.updateProduct(id,product,name);
+    public void updateProduct(int id, Product product, String name) {
+        productRepository.updateProduct(id, product, name);
     }
 
     @Override
@@ -40,5 +41,10 @@ public class ProductService implements IProductService{
     @Override
     public Product getProductById(int id) {
         return productRepository.getProductById(id);
+    }
+
+    @Override
+    public List<Product> productListByType(int idType) {
+        return productRepository.productListByType(idType);
     }
 }
