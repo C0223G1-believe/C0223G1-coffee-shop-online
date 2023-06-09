@@ -40,6 +40,7 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         } finally {
             try {
                 connection.close();

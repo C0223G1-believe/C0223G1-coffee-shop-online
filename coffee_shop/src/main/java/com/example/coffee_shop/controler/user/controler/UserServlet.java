@@ -98,7 +98,7 @@ public class UserServlet extends HttpServlet {
             request.getRequestDispatcher("/view/login-signUp/login.jsp").forward(request, response);
         }else {
 
-            String error = "* Do not use special characters for the field User and Password";
+            String error = "* Do not use special characters for the field User and Password or appeared";
             request.setAttribute("error",error);
             request.getRequestDispatcher("/view/login-signUp/sign-up.jsp").forward(request, response);
         }
@@ -121,7 +121,7 @@ public class UserServlet extends HttpServlet {
         } else {
             if (userService.editUser(user)) {
                 String result = "Edit Success";
-                request.setAttribute("edit",result);
+                request.setAttribute("show",result);
                 List<User> listUser = userService.displayUser();
                 request.setAttribute("listUser", listUser);
                 request.getRequestDispatcher("/view/user/display.jsp").forward(request,response);
@@ -134,7 +134,7 @@ public class UserServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("idDelete"));
         userService.deleteUser(id);
         String result = "Delete Success";
-        request.setAttribute("delete",result);
+        request.setAttribute("show",result);
         List<User> listUser = userService.displayUser();
         request.setAttribute("listUser", listUser);
         try {

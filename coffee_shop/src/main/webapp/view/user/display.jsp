@@ -16,7 +16,7 @@
     <style>
         #success{
             position: fixed;
-            left: 1em;
+            left: 2em;
         }
         .son{
             contain: layout ;
@@ -24,12 +24,12 @@
             align-items: center;
             background-color: wheat;
             border-radius: 12px;
-            border-left: 10px solid;
+            padding-bottom: 25px;
             min-width: 10em;
             max-width: 17em;
             max-height: 5rem;
             box-shadow: 0 5px 8px rgba(36, 245, 10, 0.08);
-            animation: slideInLeft ease 2s, fadeOut linear 1s 2s forwards;
+            animation: slideInLeft ease 2s, fadeOut linear 1s 3s forwards;
             transition: all linear 0.3s;
         }
         @keyframes slideInLeft {
@@ -50,49 +50,43 @@
     </style>
 </head>
 <body>
-<div id="success">
-    <span class="son" style="margin-top: 4em;float: left; background-color: #00ffff; max-height: 25px">${show}</span>
-</div>
-<div id="success">
-    <span class="son" style="margin-top: 4em;float: left; background-color: #12d53e; max-height: 25px">${edit}</span>
-</div>
-<div id="success">
-    <span class="son" style="margin-top: 4em;float: left; background-color: #f60048; max-height: 25px">${delete}</span>
-</div>
 <%
     User user = (User) session.getAttribute("user");
     if (user != null && user.getRole().getId() == 1) {
 %>
+<div id="success">
+    <span class="son" style="margin-top: 2em;float: left; color: black; background-color: #12d53e">${show}</span>
+</div>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
 
     <h2 style="margin-top: 4em">List User </h2>
     <form style="color: white; float: right" action="/User?action=search" method="post">
         <input type="text" name="phone" placeholder="Enter Phone">
-        <button class="bg-primary border-0" style="color: whitesmoke" type="submit">Search</button>
+        <button class="rounded-3 bg-primary" type="submit">Search</button>
     </form>
     <table id="tableUser" style="color: white" class="table table-striped col-lg-11">
         <thead>
         <tr>
-            <th style="color: #14515b">STT</th>
-            <th style="color: #14515b">user name</th>
-            <th style="color: #14515b">password</th>
-            <th style="color: #14515b">email</th>
-            <th style="color: #14515b">phone number</th>
-            <th style="color: #14515b">type user</th>
-            <th style="color: #14515b">Edit</th>
-            <th style="color: #14515b">Delete</th>
+            <th style="color: white">STT</th>
+            <th style="color: white">user name</th>
+            <th style="color: white">password</th>
+            <th style="color: white">email</th>
+            <th style="color: white">phone number</th>
+            <th style="color: white">type user</th>
+            <th style="color: white">Edit</th>
+            <th style="color: white">Delete</th>
         </tr>
         </thead>
         <tbody>
         <c:forEach var="user" items="${listUser}" varStatus="loop">
             <tr>
-                <td><c:out value="${loop.count}"/></td>
-                <td><c:out value="${user.userName}"/></td>
-                <td><c:out value="${user.userPassword}"/></td>
-                <td><c:out value="${user.userEmail}"/></td>
-                <td><c:out value="${user.userPhoneNumber}"/></td>
-                <td><c:out value="${user.role.name}"/></td>
+                <td style="color: white"><c:out value="${loop.count}"/></td>
+                <td style="color: white"><c:out value="${user.userName}"/></td>
+                <td style="color: white"><c:out value="${user.userPassword}"/></td>
+                <td style="color: white"><c:out value="${user.userEmail}"/></td>
+                <td style="color: white"><c:out value="${user.userPhoneNumber}"/></td>
+                <td style="color: white"><c:out value="${user.role.name}"/></td>
                 <td>
                     <a class="text-decoration-none" href="/User?action=edit&id=${user.id}">
                         <button type="button" class=" btn btn-warning bg-warnimg text-white rounded-3">
@@ -124,7 +118,10 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h4 style="font-size:15px">Are you sure delete this user with userName: <span style="color:red;" id="nameDelete"></span></h4>
+                <h5>Are you sure delete this user with userName:
+                    <span style="color:red;" id="nameDelete"></span>
+                </h5>
+                <h5>This data cannot be recovered.</h5>
             </div>
             <div class="modal-footer">
                 <form action="/User?action=delete" method="post">
