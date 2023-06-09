@@ -64,7 +64,7 @@
                     </a>
                 </td>
                 <td>
-                    <button style="border-radius: 15px" class="btn btn-primary w-100" type="submit">Edit</button>
+                    <button style="border-radius: 15px; background-color: #c0c031" class="btn w-100" type="submit">Edit</button>
                 </td>
             </tr>
 

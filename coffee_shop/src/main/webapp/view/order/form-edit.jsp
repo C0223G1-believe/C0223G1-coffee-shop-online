@@ -52,7 +52,7 @@
         <button type="button" class="btn btn-primary btn-outline-light rounded-3 text-center" data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
                 onclick="update(${showOrder.id},${showOrder.statusOrder.id},'${showOrder.user.userName}')">
-            Status Change
+            Update Status
         </button>
     </form>
 </div>
