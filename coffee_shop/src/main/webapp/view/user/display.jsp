@@ -16,7 +16,7 @@
     <style>
         #success{
             position: fixed;
-            left: 1em;
+            left: 2em;
         }
         .son{
             contain: layout ;
@@ -24,7 +24,7 @@
             align-items: center;
             background-color: wheat;
             border-radius: 12px;
-            border-left: 10px solid;
+            padding-bottom: 25px;
             min-width: 10em;
             max-width: 17em;
             max-height: 5rem;
@@ -54,15 +54,11 @@
     User user = (User) session.getAttribute("user");
     if (user != null && user.getRole().getId() == 1) {
 %>
-<div id="success">
-    <span class="son" style="margin-top: 4em;float: left; background-color: #00ffff; max-height: 100px; ">${show}</span>
-</div>
-<div id="success">
-    <span class="son" style="margin-top: 4em;float: left; background-color: #12d53e; max-height: 100px">${edit}</span>
-</div>
-<div id="success">
-    <span class="son" style="margin-top: 4em;float: left; background-color: #f60048; max-height: 100px">${delete}</span>
-</div>
+<c:if test="${show != null}">
+    <div id="success">
+        <span class="son" style="margin-top: 2em;float: left; color: black; background-color: #12d53e">${show}</span>
+    </div>
+</c:if>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
 
@@ -160,44 +156,6 @@
     function remove(id, name) {
         document.getElementById("nameDelete").innerText = name;
         document.getElementById("idDelete").value = id;
-    }
-    function main(
-        title ='',
-        message = '',
-        type = 'info',
-        duration = 3000
-    ){
-        let main = document.getElementById('toast');
-        if (main){
-            let toast = document.createElement('div');
-            // auto remove
-            let autoRemoveId = setTimeout(function (){
-                main.removeChild(toast);
-            })
-            // remove toast when clicked
-            toast.onclick = function (e){
-                if (e.target.closest('.toast__close')){
-                    main.removeChild(toast);
-                }
-            }
-            toast.classList.add('toast',`toast--${type}`);
-            toast.innerHTML = `
-                <div class="toast__icon">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                </div>
-                <div class="toast__body">
-                    <h3 class="toast__title">${title}</h3>
-                    <p class="toast__msg">${error}</p>
-                </div>
-                <div class="toast__close">
-                    <i class="fa-solid fa-circle-xmark"></i>
-                </div>
-                `;
-            main.appendChild('toast');
-            window.addEventListener('load', function() {
-                showToast("${error}");
-            });
-        }
     }
 
 </script>

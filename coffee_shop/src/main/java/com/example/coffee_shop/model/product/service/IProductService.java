@@ -18,4 +18,6 @@ public interface IProductService {
     List<Product> searchByName(String name);
 
     public Product getProductById(int id);
+
+    List<Product> productListByType(int idType);
 }

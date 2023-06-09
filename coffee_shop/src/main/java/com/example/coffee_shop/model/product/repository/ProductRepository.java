@@ -179,4 +179,9 @@ public class ProductRepository implements IProductRepository{
         return product;
     }
 
+    @Override
+    public List<Product> productListByType(int idType) {
+        return null;
+    }
+
 }
