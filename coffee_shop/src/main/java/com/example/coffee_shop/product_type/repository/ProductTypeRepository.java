@@ -1,5 +1,6 @@
 package com.example.coffee_shop.product_type.repository;
 
+import com.example.coffee_shop.BaseRepository;
 import com.example.coffee_shop.product_type.model.ProductType;
 
 import java.sql.Connection;

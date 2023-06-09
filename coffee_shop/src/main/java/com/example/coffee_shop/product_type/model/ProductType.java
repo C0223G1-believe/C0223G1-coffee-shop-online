@@ -31,4 +31,7 @@ public class ProductType {
     public void setProductTypeName(String productTypeName) {
         this.productTypeName = productTypeName;
     }
+
+//    public void getRole() {
+//    }
 }
