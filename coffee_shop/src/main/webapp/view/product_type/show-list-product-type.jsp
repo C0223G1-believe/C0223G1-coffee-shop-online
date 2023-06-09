@@ -55,20 +55,20 @@
 <div class="container">
     <form style="color: white; margin-top:8em" action="/productType?action=search" method="post">
         <input type="name" name="name" placeholder="Enter Name Product">
-        <button class="rounded-3 bg-primary" type="submit">Search</button>
+        <button class="rounded-3 bg-primary" type="submit" style="color: white">Search</button>
     </form>
     <a class="btn btn-primary" href="productType?action=create" role="button">Create Product Type</a>
     <table id="tableProduct"  style="color: white"class="table table-striped col-lg-11">
         <tr >
-            <th>STT</th>
-            <th>Name</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th style="color: white">STT</th>
+            <th style="color: white">Name</th>
+            <th style="color: white">Edit</th>
+            <th style="color: white">Delete</th>
         </tr>
         <c:forEach items="${productTypeList}" var="productType" varStatus="look">
             <tr>
-                <td>${look.count}</td>
-                <td>${productType.productTypeName}</td>
+                <td style="color: white">${look.count}</td>
+                <td style="color: white">${productType.productTypeName}</td>
                 <td>
                     <a class="text-decoration-none"
                        href="/productType?action=edit&id=${productType.productTypeId}&name=${productType.productTypeName}">
@@ -105,7 +105,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h4>Are you sure delete this product with Name: <span style="color:red;" id="nameDelete"></span></h4>
+                <h5>Are you sure delete this product with Name:
+                    <span style="color:red;" id="nameDelete"></span></h5>
+                <h5>This data cannot be recovered.</h5>
             </div>
             <div class="modal-footer">
                 <form action="/productType?action=delete" method="post">
