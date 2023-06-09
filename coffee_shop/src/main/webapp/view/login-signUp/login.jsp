@@ -35,15 +35,15 @@
                                 <div class="form-outline form-white mb-4">
                                     <input type="tel" name="phone" id="typeEmailX"
                                            class="form-control form-control-lg" required/>
-                                    <label class="form-label" for="typeEmailX">Phone</label>
+                                    <label class="form-label" for="typeEmailX" style="float: left;margin-bottom: 20px">Phone</label>
                                 </div>
 
                                 <div class="form-outline form-white mb-4">
-                                    <input type="password" name="password" id="typePasswordX"
+                                    <input  type="password" name="password" id="typePasswordX"
                                            class="form-control form-control-lg" required/>
-                                    <label class="form-label" for="typePasswordX">Password</label>
+                                    <label class="form-label" for="typePasswordX" style="float: left;">Password</label>
                                 </div>
-                                <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a>
+                                <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!"></a>
                                 </p>
 
                                 <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>

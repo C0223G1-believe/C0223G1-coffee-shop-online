@@ -54,9 +54,11 @@
     User user = (User) session.getAttribute("user");
     if (user != null && user.getRole().getId() == 1) {
 %>
-<div id="success">
-    <span class="son" style="margin-top: 2em;float: left; color: black; background-color: #12d53e">${show}</span>
-</div>
+<c:if test="${show != null}">
+    <div id="success">
+        <span class="son" style="margin-top: 2em;float: left; color: black; background-color: #12d53e">${show}</span>
+    </div>
+</c:if>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
 
