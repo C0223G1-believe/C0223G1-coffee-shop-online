@@ -111,6 +111,7 @@ public class ProductServlet extends HttpServlet {
                 try {
                     try {
                         request.getRequestDispatcher("/view/product/list-product.jsp").forward(request,response);
+                       productService.productList();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -163,17 +164,24 @@ public class ProductServlet extends HttpServlet {
     }
     public void searchProduct (HttpServletRequest request, HttpServletResponse response){
         String name = request.getParameter("name");
-        Product product = productService.searchProduct(name);
-        List<Product> list = new ArrayList<>();
-        list.add(product);
-        request.setAttribute("productList",list);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/view/product/list-product.jsp");
-        try {
-            requestDispatcher.forward(request,response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(name == null){
+            try {
+                response.sendRedirect("/product");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else{
+            List<Product> product = productService.searchProduct(name);
+            request.setAttribute("productList" , product);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/view/product/list-product.jsp");
+            try {
+                requestDispatcher.forward(request,response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 }

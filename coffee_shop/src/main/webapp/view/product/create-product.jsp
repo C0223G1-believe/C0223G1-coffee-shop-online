@@ -49,7 +49,7 @@
                                         </div>
 
                                         <div class="d-flex flex-row align-items-center mb-4">
-                                            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                            <i class="fa-regular fa-money-bill-1 fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input name="price" type="number" id="price"
                                                        class="form-control" required/>
@@ -58,7 +58,7 @@
                                         </div>
 
                                         <div class="d-flex flex-row align-items-center mb-4">
-                                            <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                            <i class="fa-solid fa-audio-description fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input name="description" type="text" id="description"
                                                        class="form-control" required/>
@@ -68,7 +68,7 @@
                                         </div>
 
                                         <div class="d-flex flex-row align-items-center mb-4">
-                                            <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                            <i class="fa-solid fa-mug-hot fa-lg me-3 fa-fw"></i>
                                             <select name="type" class="form-select" aria-label="Default select example">
                                                 <option value="1" selected>Traditional Coffee</option>
                                                 <option value="2">Machine Coffee</option>

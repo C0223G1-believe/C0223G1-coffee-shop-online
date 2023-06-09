@@ -24,30 +24,30 @@
     <form style="color: white; margin-top:9em" action="/User?action=search" method="post">
         <input type="email" name="email" placeholder="Enter Email">
         <input type="text" name="phone" placeholder="Enter Phone">
-        <button class="rounded-3 bg-primary" type="submit">Search</button>
+        <button class="rounded-3 bg-primary" type="submit" style="color: white">Search</button>
     </form>
     <table id="tableUser" style="color: white" class="table table-striped col-lg-11">
         <thead>
         <tr>
-            <th style="color: #14515b">STT</th>
-            <th style="color: #14515b">user name</th>
-            <th style="color: #14515b">password</th>
-            <th style="color: #14515b">email</th>
-            <th style="color: #14515b">phone number</th>
-            <th style="color: #14515b">type user</th>
-            <th style="color: #14515b">Edit</th>
-            <th style="color: #14515b">Delete</th>
+            <th style="color: white">STT</th>
+            <th style="color: white">user name</th>
+            <th style="color: white">password</th>
+            <th style="color: white">email</th>
+            <th style="color: white">phone number</th>
+            <th style="color: white">type user</th>
+            <th style="color: white">Edit</th>
+            <th style="color: white">Delete</th>
         </tr>
         </thead>
         <tbody>
         <c:forEach var="user" items="${listUser}" varStatus="loop">
             <tr>
-                <td><c:out value="${loop.count}"/></td>
-                <td><c:out value="${user.userName}"/></td>
-                <td><c:out value="${user.userPassword}"/></td>
-                <td><c:out value="${user.userEmail}"/></td>
-                <td><c:out value="${user.userPhoneNumber}"/></td>
-                <td><c:out value="${user.role.name}"/></td>
+                <td style="color: white"><c:out value="${loop.count}"/></td>
+                <td style="color: white"><c:out value="${user.userName}"/></td>
+                <td style="color: white"><c:out value="${user.userPassword}"/></td>
+                <td style="color: white"><c:out value="${user.userEmail}"/></td>
+                <td style="color: white"><c:out value="${user.userPhoneNumber}"/></td>
+                <td style="color: white"><c:out value="${user.role.name}"/></td>
                 <td>
                     <a class="text-decoration-none" href="/User?action=edit&id=${user.id}">
                         <button type="button" class=" btn btn-warning bg-warnimg text-white rounded-3">
@@ -79,7 +79,10 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h4>Are you sure delete this user with userName: <span style="color:red;" id="nameDelete"></span></h4>
+                <h5>Are you sure delete this user with userName:
+                    <span style="color:red;" id="nameDelete"></span>
+                </h5>
+                <h5>This data cannot be recovered.</h5>
             </div>
             <div class="modal-footer">
                 <form action="/User?action=delete" method="post">

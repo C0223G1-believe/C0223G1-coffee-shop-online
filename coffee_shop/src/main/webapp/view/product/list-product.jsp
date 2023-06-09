@@ -35,31 +35,31 @@
 %>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
-    <form style="color: white; margin-top:8em" action="/product?action=search" method="post">
+    <form  style="color: white; margin-top:8em; position: relative" action="/product?action=search" method="post">
         <input type="name" name="name" placeholder="Enter Name Product">
-        <button class="rounded-3 bg-primary" type="submit">Search</button>
+        <button class="rounded-3 bg-primary" style="color: white" type="submit">Search</button>
     </form>
     <a class="btn btn-primary" href="/product?action=create" role="button">Add New Product</a>
     <table id="tableProduct" style="color: white" class="table table-striped col-lg-11">
         <thead>
         <tr>
-            <th style="color: #14515b">Sequence Number</th>
-            <th style="color: #14515b">Product Name</th>
-            <th style="color: #14515b">Product Price</th>
-            <th style="color: #14515b">Product Description</th>
-            <th style="color: #14515b">Product Type</th>
-            <th style="color: #14515b">Edit</th>
-            <th style="color: #14515b">Delete</th>
+            <th style="color: #ffffff">Sequence Number</th>
+            <th style="color: #ffffff">Product Name</th>
+            <th style="color: #ffffff">Product Price</th>
+            <th style="color: #ffffff">Product Description</th>
+            <th style="color: #ffffff">Product Type</th>
+            <th style="color: #ffffff">Edit</th>
+            <th style="color: #ffffff">Delete</th>
         </tr>
         </thead>
         <tbody>
         <c:forEach var="product" items="${productList}" varStatus="loop">
         <tr>
-            <td><c:out value="${loop.count}"/></td>
-            <td><c:out value="${product.productName}"/></td>
-            <td><c:out value="$${product.productPrice}"/></td>
-            <td><c:out value="${product.productDescription}"/></td>
-            <td><c:out value="${product.typeProduct.name}"/></td>
+            <td style="color: white"><c:out value="${loop.count}"/></td>
+            <td style="color: white"><c:out value="${product.productName}"/></td>
+            <td style="color: white"><c:out value="$${product.productPrice}"/></td>
+            <td style="color: white"><c:out value="${product.productDescription}"/></td>
+            <td style="color: white"><c:out value="${product.typeProduct.name}"/></td>
             <td>
                 <a class="text-decoration-none"
                    href="/product?action=update&id=${product.productID}&name=${product.productName}&price=${product.productPrice}&description=${product.productDescription}&type=${product.typeProduct.name}">
@@ -93,8 +93,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h4>Are you sure delete this product with Name:
-                    <span style="color:red;" id="nameDelete"></span></h4>
+                <h5>Are you sure delete this product with Name:
+                    <span style="color:red;" id="nameDelete"></span></h5>
+                <h5>This data cannot be recovered.</h5>
             </div>
             <div class="modal-footer">
                 <form action="/product?action=delete" method="post">

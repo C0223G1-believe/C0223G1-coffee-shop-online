@@ -18,8 +18,6 @@ public class ProductRepository implements IProductRepository{
 
     private static final String DELETE_BY_ID = "delete from product where product_id = ?;";
     private static final String UPDATE_PRODUCT = "UPDATE product SET product_name = ?, product_price =?, product_description = ?, product_image = ?,product_type_id=? WHERE product_id = ?;";
-    private static final String SELECT_PRODUCT_BY_NAME = "select * from product join product_type on " +
-            "product_type.product_type_id = product.product_type_id where product.product_name = ?;";
 
     @Override
     public List<Product> productList() {
@@ -126,13 +124,13 @@ public class ProductRepository implements IProductRepository{
     }
 
     @Override
-    public Product searchProduct(String name) {
-        Product product = new Product();
+    public List<Product> searchProduct(String name) {
+        List<Product> product = new ArrayList<>();
         Connection connection = baseRepository.getConnection();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_PRODUCT_BY_NAME);
-            preparedStatement.setString(1,name);
-            ResultSet resultSet = preparedStatement.executeQuery();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from product join product_type on " +
+                    "product_type.product_type_id = product.product_type_id where product.product_name like  '%" +name+"%'");
             while (resultSet.next()){
                 int id = resultSet.getInt("product_id");
                 String productName = resultSet.getString("product_name");
@@ -142,7 +140,7 @@ public class ProductRepository implements IProductRepository{
                 int idTypeProduct = resultSet.getInt("product.product_type_id");
                 String nameTypeProduct = resultSet.getString("product_type.product_type_name");
                 TypeProduct typeProduct = new TypeProduct(idTypeProduct,nameTypeProduct);
-                product = new Product(id,productName,price,description,image,typeProduct);
+                product.add(new Product(id,productName,price,description,image,typeProduct));
             }
         } catch (SQLException e) {
             e.printStackTrace();
