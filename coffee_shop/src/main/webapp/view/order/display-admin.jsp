@@ -47,7 +47,6 @@
             }
         }
     </style>
-    </style>
 </head>
 <body>
 

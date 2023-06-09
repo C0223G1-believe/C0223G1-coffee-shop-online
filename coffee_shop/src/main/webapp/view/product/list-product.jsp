@@ -35,11 +35,11 @@
 %>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
-    <form style="color: white; margin-top:8em" action="/product?action=search" method="post">
+    <form style="color: white; margin-top:8em;" action="/product?action=search" method="post">
         <input type="name" name="name" placeholder="Enter Name Product">
         <button class="rounded-3 bg-primary" type="submit">Search</button>
     </form>
-    <a class="btn btn-primary" href="/product?action=create" role="button">Add New Product</a>
+    <a class="btn btn-primary float-end" href="/product?action=create" role="button">Add New Product</a>
     <table id="tableProduct" style="color: white" class="table table-striped col-lg-11">
         <thead>
         <tr>
