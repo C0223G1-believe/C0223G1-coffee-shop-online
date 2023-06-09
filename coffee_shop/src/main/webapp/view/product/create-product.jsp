@@ -19,7 +19,7 @@
    </head>
 <body>
 <%
-    String message = (String) request.getAttribute("message");
+    String message = (String) request.getAttribute("notification");
     if (message == null) {
         message = "";
     }

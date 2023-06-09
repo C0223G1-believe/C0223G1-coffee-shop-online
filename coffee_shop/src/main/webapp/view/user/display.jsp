@@ -55,13 +55,13 @@
     if (user != null && user.getRole().getId() == 1) {
 %>
 <div id="success">
-    <span class="son" style="margin-top: 4em;float: left; background-color: #00ffff; max-height: 25px">${show}</span>
+    <span class="son" style="margin-top: 4em;float: left; background-color: #00ffff; max-height: 100px; ">${show}</span>
 </div>
 <div id="success">
-    <span class="son" style="margin-top: 4em;float: left; background-color: #12d53e; max-height: 25px">${edit}</span>
+    <span class="son" style="margin-top: 4em;float: left; background-color: #12d53e; max-height: 100px">${edit}</span>
 </div>
 <div id="success">
-    <span class="son" style="margin-top: 4em;float: left; background-color: #f60048; max-height: 25px">${delete}</span>
+    <span class="son" style="margin-top: 4em;float: left; background-color: #f60048; max-height: 100px">${delete}</span>
 </div>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
