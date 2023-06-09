@@ -50,6 +50,11 @@
     </style>
 </head>
 <body>
+
+<%
+    User user = (User) session.getAttribute("user");
+    if (user != null && user.getRole().getId() == 1) {
+%>
 <div id="success">
     <span class="son" style="margin-top: 4em;float: right; background-color: #00ffff; max-height: 25px">${show}</span>
 </div>
@@ -59,10 +64,6 @@
 <div id="success">
     <span class="son" style="margin-top: 4em;float: right; background-color: #f60048; max-height: 25px">${delete}</span>
 </div>
-<%
-    User user = (User) session.getAttribute("user");
-    if (user != null && user.getRole().getId() == 1) {
-%>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
     <h1 style="margin-top:3em; margin-bottom: 0.8em">List Order</h1>

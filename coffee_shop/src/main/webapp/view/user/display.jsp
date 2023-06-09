@@ -29,7 +29,7 @@
             max-width: 17em;
             max-height: 5rem;
             box-shadow: 0 5px 8px rgba(36, 245, 10, 0.08);
-            animation: slideInLeft ease 2s, fadeOut linear 1s 2s forwards;
+            animation: slideInLeft ease 2s, fadeOut linear 1s 3s forwards;
             transition: all linear 0.3s;
         }
         @keyframes slideInLeft {
@@ -50,6 +50,11 @@
     </style>
 </head>
 <body>
+
+<%
+    User user = (User) session.getAttribute("user");
+    if (user != null && user.getRole().getId() == 1) {
+%>
 <div id="success">
     <span class="son" style="margin-top: 4em;float: left; background-color: #00ffff; max-height: 25px">${show}</span>
 </div>
@@ -59,10 +64,6 @@
 <div id="success">
     <span class="son" style="margin-top: 4em;float: left; background-color: #f60048; max-height: 25px">${delete}</span>
 </div>
-<%
-    User user = (User) session.getAttribute("user");
-    if (user != null && user.getRole().getId() == 1) {
-%>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
 
