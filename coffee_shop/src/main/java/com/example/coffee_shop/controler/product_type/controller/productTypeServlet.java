@@ -38,21 +38,17 @@ public class productTypeServlet extends HttpServlet {
     private void deleteProductType(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("idDelete"));
         productTypeService.deleteProductType(id);
-        try {
-            response.sendRedirect("/productType");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        request.setAttribute("success", "success");
+        showProductTypeList(request,response);
     }
 
     private void showFormEditProductType(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
-        request.setAttribute("id", id);
         String name = request.getParameter("name");
+        request.setAttribute("id",id);
         request.setAttribute("name", name);
-
         try {
-            request.getRequestDispatcher("/view/product_type/edit-product-type.jsp").forward(request, response);
+            request.getRequestDispatcher("/view/product_type/edit-product-type.jsp").forward(request,response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -120,7 +116,7 @@ public class productTypeServlet extends HttpServlet {
 
     private void editProductType(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
-        String name = request.getParameter("productType");
+        String name = request.getParameter("name");
         ProductType productType = new ProductType(id, name);
         productTypeService.editProductType(productType);
         try {

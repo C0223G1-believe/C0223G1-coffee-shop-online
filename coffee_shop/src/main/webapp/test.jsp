@@ -5,13 +5,14 @@
   <style>
     /* Styling for the toast message */
     .toast {
-      background-color: #333;
-      color: #fff;
+      background-color: #4eef04;
+      color: #132c88;
       padding: 15px;
-      border-radius: 5px;
+      border-radius: 30px;
       position: fixed;
-      bottom: 30px;
-      right: 30px;
+      top: 100px;
+      right: 0px;
+      font-weight: bold;
       z-index: 1;
       display: none;
     }

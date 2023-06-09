@@ -8,67 +8,61 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<%--<html STYLE="display: none">--%>
-<%--<head>--%>
-<%--    <title>Title</title>--%>
-<%--    <center>--%>
-<%--        <h1>List product type</h1>--%>
-<%--        <br>--%>
-<%--        <a href="/productType?action=create">Add new product type</a>--%>
-<%--    </center>--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--<form method="post" action="">--%>
-<%--    <table border="1" cellpadding="5">--%>
-<%--        <tr >--%>
-<%--            <th>STT</th>--%>
-<%--            <th>Name</th>--%>
-<%--            <th>Action</th>--%>
-<%--        </tr>--%>
-<%--        <c:forEach items="${productTypeList}" var="productType" varStatus="look">--%>
-<%--            <tr>--%>
-<%--                <td>${look.count}</td>--%>
-<%--                <td>${productType.productTypeName}</td>--%>
-<%--                <td>--%>
-<%--                    <a href="/productType?action=edit&id=${productType.productTypeId}&name=${productType.productTypeName}">Edit</a>--%>
-<%--                    <a href="/productType?action=delete&id=${productType.productTypeId}">Delete</a>--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--        </c:forEach>--%>
-<%--    </table>--%>
-
-<%--</form>--%>
-
-<%--</body>--%>
-<%--</html>--%>
-<%--Phần css--%>
 <%--Phần css--%>
 <%--Phần css--%>
 <html>
 <head>
-    <title>Title</title>
+    <title>Cao-C0123G1</title>
     <link rel="stylesheet" href="/library/bootstrap520/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/library/datatables/css/dataTables.bootstrap5.min.css"/>
+<%--    toast--%>
+    <style>
+        /* Styling for the toast message */
+        #toastMessage {
+            background-color: #4eef04;
+            color: #132c88;
+            padding: 15px;
+            border-radius: 30px;
+            position: fixed;
+            top: 100px;
+            right: 0px;
+            font-weight: bold;
+            z-index: 1;
+            display: none;
+        }
+    </style>
 </head>
 <body>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
-    <form style="color: white; margin-top:8em" action="/productType?action=search" method="post">
-        <input type="name" name="name" placeholder="Enter Name Product">
-        <button class="rounded-3 bg-primary" type="submit" style="color: white">Search</button>
-    </form>
-    <a class="btn btn-primary" href="productType?action=create" role="button">Create Product Type</a>
-    <table id="tableProduct"  style="color: white"class="table table-striped col-lg-11">
-        <tr >
-            <th style="color: white">STT</th>
-            <th style="color: white">Name</th>
-            <th style="color: white">Edit</th>
-            <th style="color: white">Delete</th>
+    <%--    Search--%><h1 STYLE="margin-top:3em;text-align: center" >List Product Type</h1>
+
+        <a style="justify-content:start" class="btn btn-primary" href="productType?action=create" role="button">Create
+            Product Type</a>
+
+        <form style="color: white; margin-top:auto;margin-left:52em;justify-content: end ;display: inline-flex"
+              action="/productType?action=search" method="post">
+            <input type="name" name="name" placeholder="Enter Name Product">
+            <button style="color: white" class="rounded-3 bg-primary" type="submit">Search</button>
+        </form>
+
+
+
+    <%--    Crate--%>
+    <table id="tableProduct" style="color: white" class="table table-striped col-lg-11">
+        <thead>
+        <tr>
+            <th>STT</th>
+            <th>Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
+        </thead>
+        <tbody>
         <c:forEach items="${productTypeList}" var="productType" varStatus="look">
             <tr>
-                <td style="color: white">${look.count}</td>
-                <td style="color: white">${productType.productTypeName}</td>
+                <td>${look.count}</td>
+                <td>${productType.productTypeName}</td>
                 <td>
                     <a class="text-decoration-none"
                        href="/productType?action=edit&id=${productType.productTypeId}&name=${productType.productTypeName}">
@@ -85,29 +79,33 @@
                         Delete
                     </button>
                 </td>
-<%--                <td>--%>
-<%--                    <a href="/productType?action=edit&id=${productType.productTypeId}&name=${productType.productTypeName}">Edit</a>--%>
-<%--                    <a href="/productType?action=delete&id=${productType.productTypeId}">Delete</a>--%>
-<%--                </td>--%>
+                    <%--                <td>--%>
+                    <%--                    <a href="/productType?action=edit&id=${productType.productTypeId}&name=${productType.productTypeName}">Edit</a>--%>
+                    <%--                    <a href="/productType?action=delete&id=${productType.productTypeId}">Delete</a>--%>
+                    <%--                </td>--%>
             </tr>
         </c:forEach>
+        </tbody>
     </table>
-
+<%--        hien thi toast--%>
+        <div id="toastMessage" class="toast"></div>
 </div>
 
-
+<%--<script>--%>
+<%--    setTimeout(function displaySuccess() {--%>
+<%--        document.getElementById("success").style.display = "none";--%>
+<%--    },1000)--%>
+<%--</script>--%>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Notification</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Warning:  This action you can't undo</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h5>Are you sure delete this product with Name:
-                    <span style="color:red;" id="nameDelete"></span></h5>
-                <h5>This data cannot be recovered.</h5>
+                <h5>Are you sure delete this product with Name: <span style="color:red;" id="nameDelete"></span></h5>
             </div>
             <div class="modal-footer">
                 <form action="/productType?action=delete" method="post">
@@ -124,11 +122,16 @@
 <script src="/library/datatables/js/dataTables.bootstrap5.min.js"></script>
 <script src="/library/bootstrap520/js/bootstrap.bundle.js"></script>
 <script>
+
+
+    // Phân trang thẻ <thead> bỏ trên phần tittle thẻ <tbody> bỏ phần body
+
+
     $(document).ready(function () {
         $('#tableProduct').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
-            "pageLength": 5
+            "pageLength": 2
         });
     });
 
@@ -136,6 +139,30 @@
         document.getElementById("nameDelete").innerText = name;
         document.getElementById("idDelete").value = id;
     }
+
+</script>
+<%--toast--%>
+<%
+String success = String.valueOf(request.getAttribute("success"));
+if (success.equals("success")){
+%>
+<script>
+    // Function to show the toast message
+    function showToast(message) {
+        var toast = document.getElementById("toastMessage");
+        toast.style.display = "block";
+        toast.innerText = message;
+
+        setTimeout(function () {
+            toast.style.display = "none";
+        }, 1000); // Hide the toast message after 3 seconds
+    }
+
+    // Automatically show the toast message when the page is reloaded
+    window.addEventListener('load', function () {
+        showToast("You deleted success!");
+    });
+    <%}%>
 </script>
 </body>
 </html>
