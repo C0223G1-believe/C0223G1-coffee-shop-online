@@ -82,7 +82,7 @@ public class OrderServlet extends HttpServlet {
         String result = "Delete Success";
         List<Order> orderList = orderService.displayOrder();
         request.setAttribute("listOrder", orderList);
-        request.setAttribute("delete", result);
+        request.setAttribute("show", result);
         request.getRequestDispatcher("/view/order/display-admin.jsp").forward(request, response);
     }
 
@@ -93,7 +93,7 @@ public class OrderServlet extends HttpServlet {
         orderService.editOrder(idOder, idStatus);
         List<Order> orderList = orderService.displayOrder();
         request.setAttribute("listOrder", orderList);
-        request.setAttribute("detail", result);
+        request.setAttribute("show", result);
         request.getRequestDispatcher("/view/order/display-admin.jsp").forward(request, response);
     }
 

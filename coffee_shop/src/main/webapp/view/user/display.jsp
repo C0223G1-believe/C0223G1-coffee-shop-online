@@ -16,7 +16,7 @@
     <style>
         #success{
             position: fixed;
-            left: 1em;
+            left: 2em;
         }
         .son{
             contain: layout ;
@@ -24,7 +24,7 @@
             align-items: center;
             background-color: wheat;
             border-radius: 12px;
-            border-left: 10px solid;
+            padding-bottom: 25px;
             min-width: 10em;
             max-width: 17em;
             max-height: 5rem;
@@ -56,13 +56,7 @@
     if (user != null && user.getRole().getId() == 1) {
 %>
 <div id="success">
-    <span class="son" style="margin-top: 4em;float: left; background-color: #00ffff; max-height: 25px">${show}</span>
-</div>
-<div id="success">
-    <span class="son" style="margin-top: 4em;float: left; background-color: #12d53e; max-height: 25px">${edit}</span>
-</div>
-<div id="success">
-    <span class="son" style="margin-top: 4em;float: left; background-color: #f60048; max-height: 25px">${delete}</span>
+    <span class="son" style="margin-top: 2em;float: left; color: black; background-color: #12d53e">${show}</span>
 </div>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
@@ -170,28 +164,10 @@
 </script>
 </body>
 </html>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Title</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-</head>
-<body>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
 <%
 } else {%>
 <h1 style="text-align: center; margin-top: 20%">ERROR 403</h1>
 <%
     }
 %>
-
-</body>
-</html>

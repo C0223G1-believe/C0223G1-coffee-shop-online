@@ -30,8 +30,13 @@ public class UserServiceImpl implements IUserService {
         } else if (!Regex.validFullName(password1)) {
             return false;
         } else if (password1 == password2 && password1 != "" || password2 != "") {
-            userRepository.addUser(user);
-            return true;
+
+            if (userRepository.addUser(user)){
+                return true;
+            }else {
+                return false;
+            }
+
         } else {
             return false;
         }

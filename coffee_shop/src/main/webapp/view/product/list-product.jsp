@@ -35,11 +35,11 @@
 %>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
-    <form style="color: white; margin-top:8em;" action="/product?action=search" method="post">
+    <form style="color: white; margin-top: 10em; float: right" action="/product?action=search" method="post">
         <input type="name" name="name" placeholder="Enter Name Product">
         <button class="rounded-3 bg-primary" type="submit">Search</button>
     </form>
-    <a class="btn btn-primary float-end" href="/product?action=create" role="button">Add New Product</a>
+    <a class="btn btn-primary" style="margin-top: 10em; margin-bottom: 1em"  href="/product?action=create" role="button">Add New Product</a>
     <table id="tableProduct" style="color: white" class="table table-striped col-lg-11">
         <thead>
         <tr>
@@ -138,24 +138,7 @@ position: fixed ;top: 100px;right: 0px;font-weight: bold;z-index: 1;display: non
 %>
 </body>
 </html>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Title</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-</head>
-<body>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-</body>
-</html>
 <%
     String toast = (String) request.getAttribute("toast");
     if (toast.equals("add")) {
