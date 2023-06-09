@@ -47,9 +47,8 @@ public class productTypeServlet extends HttpServlet {
         String name = request.getParameter("name");
         request.setAttribute("id",id);
         request.setAttribute("name", name);
-
         try {
-            request.getRequestDispatcher("/view/product_type/edit-product-type.jsp").forward(request, response);
+            request.getRequestDispatcher("/view/product_type/edit-product-type.jsp").forward(request,response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {

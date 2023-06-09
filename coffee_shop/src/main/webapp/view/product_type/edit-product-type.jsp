@@ -1,4 +1,3 @@
-<%@ page import="com.example.coffee_shop.product_type.model.ProductType" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%--

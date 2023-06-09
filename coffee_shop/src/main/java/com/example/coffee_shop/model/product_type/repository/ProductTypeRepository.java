@@ -1,7 +1,9 @@
-package com.example.coffee_shop.product_type.repository;
+package com.example.coffee_shop.model.product_type.repository;
 
 import com.example.coffee_shop.BaseRepository;
-import com.example.coffee_shop.product_type.model.ProductType;
+import com.example.coffee_shop.model.product_type.model.ProductType;
+import com.example.coffee_shop.model.product_type.repository.IProductTypeRepository;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,7 +17,7 @@ public class ProductTypeRepository implements IProductTypeRepository {
     private static final String LIST_PRODUCT_SQL = "select * from product_type;";
     private static final String INSERT_PRODUCT_SQL = "INSERT INTO product_type (product_type_name) VALUES (?);";
     private static final String UPDATE_PRODUCT_SQL = "UPDATE product_type SET product_type_name = ? WHERE product_type_id = ?;";
-    private static final String GET_PRODUCT_BY_NAME = "select * from product_type where (product_type_name =?)";
+//    private static final String GET_PRODUCT_BY_NAME = ;
     private static final String DELETE_PRODUCT_BY_ID = "delete from product_type where product_type_id = ?;";
 
     @Override
@@ -97,7 +99,7 @@ public class ProductTypeRepository implements IProductTypeRepository {
         ProductType productType = null;
         Connection connection = baseRepository.getConnection();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(GET_PRODUCT_BY_NAME);
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from product_type where product_type_name like '%"+name+"%'");
             preparedStatement.setString(1, name);
             ResultSet resultSet = preparedStatement.getResultSet();
             while (resultSet.next()) {
@@ -116,8 +118,7 @@ public class ProductTypeRepository implements IProductTypeRepository {
         List<ProductType>productTypeList = new ArrayList<>();
         Connection connection = baseRepository.getConnection();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(GET_PRODUCT_BY_NAME);
-            preparedStatement.setString(1,name);
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from product_type where product_type_name like '%"+name+"%'");
             preparedStatement.executeQuery();
             ResultSet resultSet = preparedStatement.getResultSet();
             while (resultSet.next()){
