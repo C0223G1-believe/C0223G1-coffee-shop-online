@@ -3976,7 +3976,6 @@ tbody.collapse.show {
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 2rem;
 }
 
 .card > hr {
@@ -3985,8 +3984,7 @@ tbody.collapse.show {
 }
 
 .card > .list-group:first-child .list-group-item:first-child {
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+
 }
 
 .card > .list-group:last-child .list-group-item:last-child {

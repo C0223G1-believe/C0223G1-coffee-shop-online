@@ -5,7 +5,7 @@ import com.example.coffee_shop.model.user.model.User;
 import com.example.coffee_shop.model.user.service.type_user_service.ITypeUserService;
 import com.example.coffee_shop.model.user.service.type_user_service.TypeUserServiceImpl;
 import com.example.coffee_shop.model.user.service.user_service.IUserService;
-import com.example.coffee_shop.model.user.UserServiceImpl;
+import com.example.coffee_shop.model.user.service.user_service.UserServiceImpl;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -52,6 +52,8 @@ public class UserServlet extends HttpServlet {
 
     private void displayUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<User> listUser = userService.displayUser();
+        String result = "Hello Admin";
+        request.setAttribute("show",result);
         request.setAttribute("listUser", listUser);
         showFromAdd(request, "/view/user/display.jsp", response);
     }
@@ -81,9 +83,8 @@ public class UserServlet extends HttpServlet {
     }
 
     private void searchUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String email = request.getParameter("email");
         String phone = request.getParameter("phone");
-        List<User> listUser = userService.searchUser(email, phone);
+        List<User> listUser = userService.searchUser(phone);
         request.setAttribute("listUser", listUser);
         request.getRequestDispatcher("/view/user/display.jsp").forward(request, response);
 
@@ -115,11 +116,15 @@ public class UserServlet extends HttpServlet {
         int idRole = Integer.parseInt(request.getParameter("role"));
         Role role = new Role(idRole);
         User user = new User(id, userName, password, email, phoneNumber, role);
-        if (userService.checkUserName(userName, email, phoneNumber)) {
+        if (userService.checkUserName(email, phoneNumber)) {
             response.sendRedirect("/User?action=edit&id=" + id);
         } else {
             if (userService.editUser(user)) {
-                response.sendRedirect("/User");
+                String result = "Edit Success";
+                request.setAttribute("edit",result);
+                List<User> listUser = userService.displayUser();
+                request.setAttribute("listUser", listUser);
+                request.getRequestDispatcher("/view/user/display.jsp").forward(request,response);
             }
         }
 
@@ -128,6 +133,14 @@ public class UserServlet extends HttpServlet {
     private void deleteUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("idDelete"));
         userService.deleteUser(id);
-        response.sendRedirect("/User");
+        String result = "Delete Success";
+        request.setAttribute("delete",result);
+        List<User> listUser = userService.displayUser();
+        request.setAttribute("listUser", listUser);
+        try {
+            request.getRequestDispatcher("/view/user/display.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        }
     }
 }

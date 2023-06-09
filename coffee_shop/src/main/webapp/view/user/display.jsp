@@ -13,18 +13,63 @@
     <link rel="stylesheet" href="/library/bootstrap520/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/library/datatables/css/dataTables.bootstrap5.min.css"/>
     <link rel="stylesheet" href="/library/css/css-login/css-toast-delete.css">
+    <style>
+        #success{
+            position: fixed;
+            left: 1em;
+        }
+        .son{
+            contain: layout ;
+            display: flex;
+            align-items: center;
+            background-color: wheat;
+            border-radius: 12px;
+            border-left: 10px solid;
+            min-width: 10em;
+            max-width: 17em;
+            max-height: 5rem;
+            box-shadow: 0 5px 8px rgba(36, 245, 10, 0.08);
+            animation: slideInLeft ease 2s, fadeOut linear 1s 3s forwards;
+            transition: all linear 0.3s;
+        }
+        @keyframes slideInLeft {
+            from{
+                opacity: 0;
+                transform: translateX(calc(100% + 1em) );
+            }
+            to{
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes fadeOut {
+            to{
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
 <%
     User user = (User) session.getAttribute("user");
     if (user != null && user.getRole().getId() == 1) {
 %>
+<div id="success">
+    <span class="son" style="margin-top: 4em;float: left; background-color: #00ffff; max-height: 25px">${show}</span>
+</div>
+<div id="success">
+    <span class="son" style="margin-top: 4em;float: left; background-color: #12d53e; max-height: 25px">${edit}</span>
+</div>
+<div id="success">
+    <span class="son" style="margin-top: 4em;float: left; background-color: #f60048; max-height: 25px">${delete}</span>
+</div>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
-    <form style="color: white; margin-top:9em" action="/User?action=search" method="post">
-        <input type="email" name="email" placeholder="Enter Email">
+
+    <h2 style="margin-top: 4em">List User </h2>
+    <form style="color: white; float: right" action="/User?action=search" method="post">
         <input type="text" name="phone" placeholder="Enter Phone">
-        <button class="rounded-3 bg-primary" type="submit" style="color: white">Search</button>
+        <button class="rounded-3 bg-primary" type="submit">Search</button>
     </form>
     <table id="tableUser" style="color: white" class="table table-striped col-lg-11">
         <thead>
@@ -88,7 +133,7 @@
                 <form action="/User?action=delete" method="post">
                     <input type="hidden" name="idDelete" id="idDelete">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                    <button type="submit" class="btn btn-primary" onclick="showErrorToast()" >Yes</button>
+                    <button type="submit" class="btn btn-primary" onclick="showErrorToast()">Yes</button>
                 </form>
             </div>
         </div>
@@ -155,14 +200,13 @@
         }
     }
 
-    function showErrorToast(){
-        main({
-            title: 'Error',
-            message: '',
-            type: 'error',
-            duration: '3000'
-        });
-    }
+</script>
+<script>
+    setTimeout(function () {
+        document.getElementById("success").style.display = "none";
+        const main = document.getElementById("success");
+
+    }, 3000);
 </script>
 </body>
 </html>

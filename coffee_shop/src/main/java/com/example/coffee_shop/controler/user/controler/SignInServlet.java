@@ -5,7 +5,7 @@ import com.example.coffee_shop.model.product.service.IProductService;
 import com.example.coffee_shop.model.product.service.ProductService;
 import com.example.coffee_shop.model.user.model.User;
 import com.example.coffee_shop.model.user.service.user_service.IUserService;
-import com.example.coffee_shop.model.user.UserServiceImpl;
+import com.example.coffee_shop.model.user.service.user_service.UserServiceImpl;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

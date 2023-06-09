@@ -22,14 +22,11 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
             " user_email = ?," +
             " user_phone_number = ?," +
             " id_role = ? " +
-            " WHERE user_id = ? and user_name <> ?;";
+            " WHERE user_id = ?";
     private static final String DELETE_USER =" DELETE from user where user.user_id = ? ";
     private static final String SELECT_USER_BY_PHONE_AND_PASS ="SELECT * FROM user " +
             "JOIN role ON role.id_role = user.id_role " +
             "WHERE  user_phone_number =? && user_password =?;";
-    private static final String SEARCH_USER ="SELECT * from user " +
-            " join role ON role.id_role = user.id_role " +
-            " WHERE user.user_email = ? or user.user_phone_number = ? ;";
 
     @Override
     public boolean addUser(User user) {
@@ -97,7 +94,6 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
             preparedStatement.setString(4,user.getUserPhoneNumber());
             preparedStatement.setInt(5,user.getRole().getId());
             preparedStatement.setInt(6,user.getId());
-            preparedStatement.setString(7,user.getUserName());
             preparedStatement.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -158,14 +154,14 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
     }
 
     @Override
-    public List<User> searchUser(String userName, String phone) {
+    public List<User> searchUser(String phone) {
         Connection connection = baseRepository.getConnection();
         List<User> userList = new ArrayList<>();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_USER);
-            preparedStatement.setString(1,userName);
-            preparedStatement.setString(2,phone);
-            ResultSet resultSet = preparedStatement.executeQuery();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * from user " +
+                    " join role ON role.id_role = user.id_role " +
+                    " WHERE user.user_phone_number like '%"+phone+"%' ");
             while(resultSet.next()){
                 int id = resultSet.getInt("user_id");
                 String name = resultSet.getString("user_name");
@@ -185,7 +181,7 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
     }
 
     @Override
-    public boolean checkUserName(String userName, String eimail,String phone) {
+    public boolean checkUserName(String eimail, String phone) {
         Connection connection = baseRepository.getConnection();
         int id;
         String password;
@@ -201,7 +197,7 @@ public class UserRepositoryImpl implements IUserCoffeeRepository{
                 password = resultSet.getString("user_password");
                 email = resultSet.getString("user_email");
                 phoneNumber = resultSet.getString("user_phone_number");
-                if (userNam.contains(userName)){
+                if (email.equals(eimail)&&phoneNumber.equals(phone)){
                     return true;
                 }
             }

@@ -12,18 +12,65 @@
     <title>Title</title>
     <link rel="stylesheet" href="/library/bootstrap520/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/library/datatables/css/dataTables.bootstrap5.min.css"/>
+    <style>
+        #success{
+            position: fixed;
+            right: 1em;
+        }
+        .son{
+            contain: layout ;
+            display: flex;
+            align-items: center;
+            background-color: wheat;
+            border-radius: 12px;
+            border-right: 10px solid;
+            min-width: 10em;
+            max-width: 17em;
+            max-height: 5rem;
+            box-shadow: 0 5px 8px rgba(36, 245, 10, 0.08);
+            animation: slideInRight ease 2s, fadeOut linear 1s 2s forwards;
+            transition: all linear 0.3s;
+        }
+        @keyframes slideInRight {
+            from{
+                opacity: 0;
+                transform: translateX(calc(100% + 1em) );
+            }
+            to{
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes fadeOut {
+            to{
+                opacity: 0;
+            }
+        }
+    </style>
+    </style>
 </head>
 <body>
+
 <%
     User user = (User) session.getAttribute("user");
     if (user != null && user.getRole().getId() == 1) {
 %>
+<div id="success">
+    <span class="son" style="margin-top: 4em;float: right; background-color: #00ffff; max-height: 25px">${show}</span>
+</div>
+<div id="success">
+    <span class="son" style="margin-top: 4em;float: right; background-color: #12d53e; max-height: 25px">${detail}</span>
+</div>
+<div id="success">
+    <span class="son" style="margin-top: 4em;float: right; background-color: #f60048; max-height: 25px">${delete}</span>
+</div>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
-    <form style="color: white; margin-top:9em" action="/Order?action=search" method="post">
+    <h1 style="margin-top:3em; margin-bottom: 0.8em">List Order</h1>
+    <form style="color: white; " action="/Order?action=search" method="post">
         <input type="useName" name="email" placeholder="Enter User Name">
         <input type="text" name="status" placeholder="Enter Status">
-        <button class="rounded-3 bg-primary" type="submit">Search</button>
+        <button class="rounded-3 bg-primary border-0" style="color: white" type="submit">Search</button>
     </form>
     <table id="tableOrder" style="color: white" class="table table-striped col-lg-11">
         <thead>
@@ -76,7 +123,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h4>Are you sure to delete the customer's invoice with this name: <span style="color:red;" id="nameDelete"></span></h4>
+                <h4 style="font-size:15px">Are you sure to delete the customer's invoice with this name: <span style="color:red;" id="nameDelete"></span></h4>
             </div>
             <div class="modal-footer">
                 <form action="/Order?action=delete" method="post">
@@ -105,6 +152,13 @@
         document.getElementById("nameDelete").innerText = name;
         document.getElementById("idDelete").value = id;
     }
+</script>
+<script>
+    setTimeout(function () {
+        document.getElementById("success").style.display = "none";
+        const main = document.getElementById("success");
+
+    }, 3000);
 </script>
 <%
 } else {%>
