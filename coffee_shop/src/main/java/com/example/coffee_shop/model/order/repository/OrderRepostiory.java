@@ -18,7 +18,7 @@ public class OrderRepostiory implements IOrderRepository {
             " JOIN product as pro on pro.product_id = detail.order_id " +
             " JOIN `status` as sta on sta.id = o.id_status " +
             " JOIN `user` on `user`.user_id = o.user_id " +
-            "group by o.order_id";
+            " group by o.order_id";
     private static final String FIND_BY_ID ="CALL sp_find_order_by_id(?)";
     private static final String UPDATE_STATUS_ORDER = "update `order` " +
             " set id_status = ?+1 " +
@@ -170,7 +170,7 @@ public class OrderRepostiory implements IOrderRepository {
         try {
           Statement statement = connection.createStatement();
            ResultSet resultSet =statement.executeQuery(" SELECT o.*,`user`.user_name,sta.name_status FROM `order` as o " +
-            " JOIN detail_order as detail on detail.order_id = o.order_id " +
+                    " JOIN detail_order as detail on detail.order_id = o.order_id " +
                     " JOIN product as pro on pro.product_id = detail.order_id " +
                     " JOIN `status` as sta on sta.id = o.id_status " +
                     " JOIN `user` on `user`.user_id = o.user_id " +
