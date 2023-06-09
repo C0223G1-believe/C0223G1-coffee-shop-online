@@ -8,38 +8,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<html>--%>
-<%--<head>--%>
-<%--    <title>Title</title>--%>
-<%--</head>--%>
-<%--<center>--%>
-<%--    <h1>Edit Product Type</h1>--%>
-<%--</center>--%>
-<%--<body>--%>
-<%--<form action="/productType?action=edit" method="post">--%>
-<%--    <table>--%>
-<%--        <tr>--%>
-<%--            <td><label for="id">Id Product</label></td>--%>
-<%--            <td><input  readonly name="id" id="id" value="${id}"></td>--%>
-<%--        </tr>--%>
-<%--        <tr>--%>
-<%--            <td><label for="productType">Product Type</label></td>--%>
-<%--            <td><input name="productType" id="productType" type="text" value="${name}"></td>--%>
-<%--        </tr>--%>
-<%--    </table>--%>
-<%--    <input type="submit" value="SUBMIT">--%>
-<%--</form>--%>
-<%--</body>--%>
-<%--</html>--%>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
-<%--<%--%>
-<%--    ProductType productType = (ProductType) session.getAttribute("productType");--%>
-<%--    if (productType != null && productType.getRole().getId() == 1) {--%>
-<%--%>--%>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
     <form style="color: white; margin-top: 10em" action="/productType?action=edit" method="post">
@@ -49,11 +22,11 @@
             <br>
             <tr>
                 <td><label>Product Type Id: </label></td>
-                <td><input style="border-radius: 10px" name="id" value="${id}" readonly></td>
+                <td><input style="border-radius: 10px; border: none" name="id" value="${id}" readonly></td>
             </tr>
             <tr>
                 <td><label>Type Product Name: </label></td>
-                <td><input style="border-radius: 10px" name="name" value="${name}"/></td>
+                <td><input style="border-radius: 10px; border: none" name="name" value="${name}"/></td>
             </tr>
 
             <tr>

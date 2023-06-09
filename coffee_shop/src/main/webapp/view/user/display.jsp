@@ -14,28 +14,27 @@
     <link rel="stylesheet" href="/library/datatables/css/dataTables.bootstrap5.min.css"/>
     <link rel="stylesheet" href="/library/css/css-login/css-toast-delete.css">
     <style>
-        #success{
+            /* Styling for the toast message */
+        #toastMessage {
+            background-color: #c0c031;
+            color: #132c88;
+            padding: 15px;
+            border-radius: 30px;
             position: fixed;
-            left: 2em;
-        }
-        .son{
-            contain: layout ;
-            display: flex;
-            align-items: center;
-            background-color: wheat;
-            border-radius: 12px;
-            padding-bottom: 25px;
-            min-width: 10em;
-            max-width: 17em;
-            max-height: 5rem;
-            box-shadow: 0 5px 8px rgba(36, 245, 10, 0.08);
-            animation: slideInLeft ease 2s, fadeOut linear 1s 3s forwards;
+            top: 100px;
+            right: 0px;
+            font-weight: bold;
+            z-index: 1;
+            display: none;
+            border-left: 0;
+            animation: slideInRight ease 0.5s, fadeOut linear 2s 5s forwards;
             transition: all linear 0.3s;
         }
-        @keyframes slideInLeft {
+
+        @keyframes slideInRight {
             from{
                 opacity: 0;
-                transform: translateX(calc(100% + 1em) );
+                transform: translateX(calc(100%+3em) );
             }
             to{
                 opacity: 1;
@@ -55,17 +54,15 @@
     if (user != null && user.getRole().getId() == 1) {
 %>
 <c:if test="${show != null}">
-    <div id="success">
-        <span class="son" style="margin-top: 2em;float: left; color: black; background-color: #12d53e">${show}</span>
-    </div>
+    <div id="toastMessage" class="toast"></div>
 </c:if>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
 
-    <h2 style="margin-top: 4em">List User </h2>
-    <form style="color: white; float: right" action="/User?action=search" method="post">
-        <input type="text" name="phone" placeholder="Enter Phone">
-        <button class="rounded-3 bg-primary" type="submit">Search</button>
+    <h2 style="margin-top: 4em; text-align: center">List User </h2>
+    <form style="color: white; float: left; margin-left: 20px" action="/User?action=search" method="post">
+        <input type="text" name="phone" placeholder="Enter Phone" style="padding: 6px;border-radius: 20px;border: none">
+        <button  type="submit" style="color: white;padding: 6px;background-color: #c0c031;border-radius: 20px;border: none">Search</button>
     </form>
     <table id="tableUser" style="color: white" class="table table-striped col-lg-11">
         <thead>
@@ -160,30 +157,25 @@
 
 </script>
 <script>
-    setTimeout(function () {
-        document.getElementById("success").style.display = "none";
-        const main = document.getElementById("success");
+    // Function to show the toast message
+    function showToast(message) {
+        var toast = document.getElementById("toastMessage");
+        toast.style.display = "block";
+        toast.innerText = message;
 
-    }, 3000);
+        setTimeout(function () {
+            toast.style.display = "none";
+        }, 1000); // Hide the toast message after 3 seconds
+    }
+
+    // Automatically show the toast message when the page is reloaded
+    window.addEventListener('load', function () {
+        showToast("${show}");
+    });
 </script>
 </body>
 </html>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Title</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-</head>
-<body>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
 <%
 } else {%>
 <h1 style="text-align: center; margin-top: 20%">ERROR 403</h1>
@@ -191,5 +183,4 @@
     }
 %>
 
-</body>
-</html>
+

@@ -43,8 +43,6 @@ public class OrderServlet extends HttpServlet {
     private void showListOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         List<Order> orderList = orderService.displayOrder();
-        String result = "Hello Admin";
-        request.setAttribute("show", result);
         request.setAttribute("listOrder", orderList);
         request.getRequestDispatcher("view/order/display-admin.jsp").forward(request, response);
     }

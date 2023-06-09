@@ -40,11 +40,19 @@
             <div id="toastMessage" class="toast"></div>
         </center>
     </c:if>
-    <form style="color: white; margin-top: 10em; float: right" action="/product?action=search" method="post">
-        <input type="name" name="name" placeholder="Enter Name Product">
-        <button class="rounded-3 bg-primary" type="submit" style="color: white">Search</button>
-    </form>
-    <a class="btn btn-primary" style="margin-top: 10em"  href="/product?action=create" role="button">Add New Product</a>
+    <h1 style="text-align: center; margin-top: 3em">List Product</h1>
+    <div style="display: flex; justify-content: space-between">
+        <form style="color: white;margin-bottom: 0; margin-left: 20px" action="/product?action=search" method="post">
+            <input type="name" name="name" placeholder="Enter Name Product" style="padding: 6px;border-radius: 20px; border: none">
+            <button type="submit" style="color: white;padding: 6px;background-color: #c0c031;border-radius: 20px; border: none">
+                Search
+            </button>
+        </form>
+        <a class="btn"
+           style="margin-right: 20px; margin-bottom: 16px ;padding: 6px;background-color: #c0c031;border-radius: 20px"
+           href="/product?action=create" role="button">Add New Product
+        </a>
+    </div>
     <table id="tableProduct" style="color: white" class="table table-striped col-lg-11">
         <thead>
         <tr>
@@ -59,30 +67,30 @@
         </thead>
         <tbody>
         <c:forEach var="product" items="${productList}" varStatus="loop">
-        <tr>
-            <td style="color: white"><c:out value="${loop.count}"/></td>
-            <td style="color: white"><c:out value="${product.productName}"/></td>
-            <td style="color: white"><c:out value="$${product.productPrice}"/></td>
-            <td style="color: white"><c:out value="${product.productDescription}"/></td>
-            <td style="color: white"><c:out value="${product.typeProduct.name}"/></td>
-            <td>
-                <a class="text-decoration-none"
-                   href="/product?action=update&id=${product.productID}&name=${product.productName}&price=${product.productPrice}&description=${product.productDescription}&type=${product.typeProduct.name}">
-                    <button type="button" class=" btn btn-warning text-white bg-warning rounded-3">
-                        Edit
+            <tr>
+                <td style="color: white"><c:out value="${loop.count}"/></td>
+                <td style="color: white"><c:out value="${product.productName}"/></td>
+                <td style="color: white"><c:out value="$${product.productPrice}"/></td>
+                <td style="color: white"><c:out value="${product.productDescription}"/></td>
+                <td style="color: white"><c:out value="${product.typeProduct.name}"/></td>
+                <td>
+                    <a class="text-decoration-none"
+                       href="/product?action=update&id=${product.productID}&name=${product.productName}&price=${product.productPrice}&description=${product.productDescription}&type=${product.typeProduct.name}">
+                        <button type="button" class=" btn btn-warning text-white bg-warning rounded-3">
+                            Edit
+                        </button>
+                    </a>
+                </td>
+                <td>
+                    <!-- Button trigger modal -->
+                    <input name="toast" value="delete" hidden>
+                    <button type="button" class="btn btn-danger rounded-3" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"
+                            onclick="remove(${product.productID},'${product.productName}')">
+                        Delete
                     </button>
-                </a>
-            </td>
-            <td>
-                <!-- Button trigger modal -->
-                <input name="toast" value="delete" hidden>
-                <button type="button" class="btn btn-danger rounded-3" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
-                        onclick="remove(${product.productID},'${product.productName}')">
-                    Delete
-                </button>
-            </td>
-        </tr>
+                </td>
+            </tr>
 
         </c:forEach>
         </tbody>
@@ -112,28 +120,28 @@
             </div>
         </div>
     </div>
-<script src="/library/jquery/jquery-3.5.1.min.js"></script>
-<script src="/library/datatables/js/jquery.dataTables.min.js"></script>
-<script src="/library/datatables/js/dataTables.bootstrap5.min.js"></script>
-<script src="/library/bootstrap520/js/bootstrap.bundle.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#tableProduct').dataTable({
-            "dom": 'lrtip',
-            "lengthChange": false,
-            "pageLength": 5
+    <script src="/library/jquery/jquery-3.5.1.min.js"></script>
+    <script src="/library/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="/library/datatables/js/dataTables.bootstrap5.min.js"></script>
+    <script src="/library/bootstrap520/js/bootstrap.bundle.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#tableProduct').dataTable({
+                "dom": 'lrtip',
+                "lengthChange": false,
+                "pageLength": 5
+            });
         });
-    });
 
-    function remove(id, name) {
-        document.getElementById("nameDelete").innerText = name;
-        document.getElementById("idDelete").value = id;
-    }
-</script>
-<%
+        function remove(id, name) {
+            document.getElementById("nameDelete").innerText = name;
+            document.getElementById("idDelete").value = id;
+        }
+    </script>
+        <%
 } else {%>
-<h1 style="text-align: center; margin-top: 20%">ERROR 403</h1>
-<%
+    <h1 style="text-align: center; margin-top: 20%">ERROR 403</h1>
+        <%
     }
 %>
 </body>
