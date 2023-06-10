@@ -2,6 +2,7 @@ package com.example.coffee_shop.controler.order.controller;
 
 import com.example.coffee_shop.model.order.model.DetailOrder;
 import com.example.coffee_shop.model.order.model.Order;
+import com.example.coffee_shop.model.order.model.StatusOrder;
 import com.example.coffee_shop.model.order.service.IOrderService;
 import com.example.coffee_shop.model.order.service.OrderService;
 
@@ -9,6 +10,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "OrderServlet", value = "/Order")
@@ -43,7 +45,9 @@ public class OrderServlet extends HttpServlet {
     private void showListOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         List<Order> orderList = orderService.displayOrder();
+        List<StatusOrder> statusList = orderService.displayStatus();
         request.setAttribute("listOrder", orderList);
+        request.setAttribute("listStatus",statusList);
         request.getRequestDispatcher("view/order/display-admin.jsp").forward(request, response);
     }
 
@@ -70,6 +74,8 @@ public class OrderServlet extends HttpServlet {
         String userName = request.getParameter("userName");
         String status = request.getParameter("status");
         List<Order> orderList = orderService.searchOrder(userName, status);
+        List<StatusOrder> statusList = orderService.displayStatus();
+        request.setAttribute("listStatus",statusList);
         request.setAttribute("listOrder", orderList);
         request.getRequestDispatcher("view/order/display-admin.jsp").forward(request, response);
     }

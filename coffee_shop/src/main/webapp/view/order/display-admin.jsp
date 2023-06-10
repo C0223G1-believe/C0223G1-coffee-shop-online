@@ -31,17 +31,18 @@
         }
 
         @keyframes slideInRight {
-            from{
+            from {
                 opacity: 0;
-                transform: translateX(calc(100%+3em) );
+                transform: translateX(calc(100% + 3em));
             }
-            to{
+            to {
                 opacity: 1;
                 transform: translateX(0);
             }
         }
+
         @keyframes fadeOut {
-            to{
+            to {
                 opacity: 0;
             }
         }
@@ -60,10 +61,20 @@
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
     <h1 style="margin-top:3em; margin-bottom: 0.8em; text-align: center">List Order</h1>
-    <form style="color: white; float: left; margin-left: 20px" action="/Order?action=search" method="post">
-        <input type="useName" name="email" placeholder="Enter User Name" style="padding: 6px;border-radius: 20px;border: none">
-        <input type="text" name="status" placeholder="Enter Status" style="padding: 6px;border-radius: 20px;border: none">
-        <button style="color: white;padding: 6px;background-color: #c0c031;border-radius: 20px;border: none" type="submit">Search</button>
+    <form style="color: white; margin-left: 20px" action="/Order?action=search" method="post">
+        <div class="row d-inline-block me-2">
+            <select name="status" style="padding: 6px;border-radius: 20px;border: none">
+                <option value="">Choose Status</option>
+                <c:forEach items="${listStatus}" var="listStatus">
+                    <option value="${listStatus.nameStatus}"><c:out value="${listStatus.nameStatus}"/></option>
+                </c:forEach>
+            </select>
+        </div>
+        <input type="useName" name="email" placeholder="Enter User Name"
+               style="padding: 6px;border-radius: 20px;border: none;display: inline-flex">
+        <button style="color: white;padding: 6px;background-color: #c0c031;border-radius: 20px;border: none"
+                type="submit">Search
+        </button>
     </form>
     <table id="tableOrder" style="color: white" class="table table-striped col-lg-11">
         <thead>
@@ -116,7 +127,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h4 style="font-size:15px">Are you sure to delete the customer's invoice with this name: <span style="color:red;" id="nameDelete"></span></h4>
+                <h4 style="font-size:15px">Are you sure to delete the customer's invoice with this name: <span
+                        style="color:red;" id="nameDelete"></span></h4>
             </div>
             <div class="modal-footer">
                 <form action="/Order?action=delete" method="post">
