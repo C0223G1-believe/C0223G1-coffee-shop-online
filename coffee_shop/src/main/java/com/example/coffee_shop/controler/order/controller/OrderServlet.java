@@ -85,6 +85,8 @@ public class OrderServlet extends HttpServlet {
         orderService.deleteOrder(id);
         String result = "Delete Success";
         List<Order> orderList = orderService.displayOrder();
+        List<StatusOrder> statusList = orderService.displayStatus();
+        request.setAttribute("listStatus",statusList);
         request.setAttribute("listOrder", orderList);
         request.setAttribute("show", result);
         request.getRequestDispatcher("/view/order/display-admin.jsp").forward(request, response);
