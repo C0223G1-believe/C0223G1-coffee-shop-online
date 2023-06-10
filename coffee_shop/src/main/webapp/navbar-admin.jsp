@@ -59,7 +59,7 @@
     <div class="container">
         <div class=" align-items-center justify-content-between d-flex">
             <div id="logo">
-                <a href="home.jsp"><img src="img/logo.png" alt=" nhom 1" title=" " /></a>
+                <a href="/process?action=back"><img src="img/logo.png" alt=" nhom 1" title=" " /></a>
             </div>
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">

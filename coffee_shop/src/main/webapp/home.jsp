@@ -175,9 +175,15 @@
                     <h1 class="mb-10">What kind of Coffee we serve for you</h1>
                     <p>Who are in extremely love with eco friendly system.</p>
                 </div>
+                <select onchange="location = this.value;" style="position: relative; left: -90px">
+                    <option value="/process?action=back">Menu</option>
+                    <c:forEach items="${typeProductList}" var="typeProduct">
+                    <option value="/ShowListByTypeServlet?typeId=${typeProduct.productTypeId}">${typeProduct.productTypeName}</option>
+                    </c:forEach>
+                    <option value="/process?action=back">all</option>
+                </select>
             </div>
         </div>
-
         <div class="row">
             <c:forEach items="${productList}" var="product">
                 <div class="col-3">
@@ -188,7 +194,7 @@
                             <h3 class="card-title">$${product.productPrice}</h3>
                             <p class="card-text">${product.productDescription}</p>
                             <a style="background: #493434"
-                               href="/BuyProdutServlet?id=${product.productID}&num=1&toast=s" class="btn btn-primary">Add
+                               href="/BuyProdutServlet?id=${product.productID}&num=1" class="btn btn-primary">Add
                                 Card</a>
                         </div>
                     </div>
@@ -424,10 +430,3 @@
 </html>
 
 
-<script>
-
-    <%--<button type="button" onclick="addCart(${product.productID})"></button>--%>
-    <%--function addCart(${id}) {--%>
-    <%--<% productService.getProductById(${id})%>--%>
-    }
-</script>

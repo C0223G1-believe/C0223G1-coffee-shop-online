@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.coffee_shop.model.user.model.User" %><%--
   Created by IntelliJ IDEA.
   User: mac
   Date: 07/06/2023
@@ -33,6 +33,10 @@
     </style>
 </head>
 <body>
+<%
+    User user = (User) session.getAttribute("user");
+    if (user != null && user.getRole().getId() == 1) {
+%>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
     <%--    Search--%><h1 STYLE="margin-top:3em;text-align: center" >List Product Type</h1>
@@ -164,6 +168,12 @@ if (success.equals("success")){
     });
     <%}%>
 </script>
+<%
+} else {%>
+<h1 style="text-align: center; margin-top: 20%">ERROR 403</h1>
+<%
+    }
+%>
 </body>
 </html>
 <!doctype html>

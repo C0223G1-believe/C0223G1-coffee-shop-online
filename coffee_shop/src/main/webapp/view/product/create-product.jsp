@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.coffee_shop.model.user.model.User" %><%--
   Created by IntelliJ IDEA.
   User: Admin
   Date: 6/3/2023
@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
    </head>
 <body>
+<%
+    User user = (User) session.getAttribute("user");
+    if (user != null && user.getRole().getId() == 1) {
+%>
 <%
     String message = (String) request.getAttribute("notification");
     if (message == null) {
@@ -122,6 +126,12 @@
         reader.readAsDataURL(file);
     });
 </script>
+<%
+} else {%>
+<h1 style="text-align: center; margin-top: 20%">ERROR 403</h1>
+<%
+    }
+%>
 </body>
 </html>
 <!doctype html>
