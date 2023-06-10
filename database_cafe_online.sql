@@ -42,7 +42,7 @@ INSERT INTO `user`(user_name,user_password,user_email,user_phone_number) VALUES
 ('ThienQuan','123456','thienquan@gmail.com','0483758296'),
 ('NhatKy','123456','nhatky@gmail.com','0739286592'),
 ('SonQuan','123456','sonquan@gmail.com','0193940294'),
-('ThienKhai','123456','thienkhai@gmail.com','0281938492'),
+('ThienKha','123456','thienkha@gmail.com','0281938492'),
 ('LeQuyet','123456','lequyet@gmail.com','0289389102'),
 ('Chanh','123456','chanh@gmail.com','0228018230');
 
