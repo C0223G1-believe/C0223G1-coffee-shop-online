@@ -17,9 +17,9 @@ id_role INT DEFAULT'2',
 FOREIGN KEY ( id_role ) REFERENCES role (id_role) ON DELETE SET NULL
 );
 INSERT INTO `user`(user_name,user_password,user_email,user_phone_number,id_role) VALUES
-('admin','123','thanhson@gmail.com','1',1);
+('admin','123','thanhson@gmail.com','123',1);
 INSERT INTO `user`(user_name,user_password,user_email,user_phone_number) VALUES
-('ThanhSon','123','son@gmail.com','2'),
+('ThanhSon','123456','son@gmail.com','0123456789'),
 ('VietCao','123456','vietcao@gmail.com','0233701720'),
 ('NgocSang','123456','ngocsang@gmail.com','0220193749'),
 ('KimQuang','123456','hai123@gmail.com','0232901233'),
@@ -28,7 +28,22 @@ INSERT INTO `user`(user_name,user_password,user_email,user_phone_number) VALUES
 ('HaQuynh','123456','quynh567m@gmail.com','023296862'),
 ('ThienThuy','123456','thienthuy@gmail.com','0479303819'),
 ('DongCa','123456','dongcaca@gmail.com','0232904681'),
-('Haithang','123456','bonmua@gmail.com','0192837495'),
+('NhatQuang','123456','nhatquan@gmail.com','0937485739'),
+('July','123456','july@gmail.com','0293847196'),
+('ThanhThien','123456','thanthien@gmail.com','0291847592'),
+('Medo','123456','medoly@gmail.com','0193895930'),
+('ThuyNgoc','123456','thuyngoc@gmail.com','0283495020'),
+('DongQuan','123456','dongquan@gmail.com','03740184750'),
+('ThienKhai','123456','thienkhai@gmail.com','0194758693'),
+('DongChing','123456','dongchin@gmail.com','0948372918'),
+('Queyry','123456','queyryido@gmail.com','0594837265'),
+('KimJun','123456','kimjun@gmail.com','0291865940'),
+('Basiro','123456','basiro@gmail.com','0295867439'),
+('ThienQuan','123456','thienquan@gmail.com','0483758296'),
+('NhatKy','123456','nhatky@gmail.com','0739286592'),
+('SonQuan','123456','sonquan@gmail.com','0193940294'),
+('ThienKhai','123456','thienkhai@gmail.com','0281938492'),
+('LeQuyet','123456','lequyet@gmail.com','0289389102'),
 ('Chanh','123456','chanh@gmail.com','0228018230');
 
 CREATE TABLE product_type (
@@ -69,8 +84,8 @@ CREATE TABLE `status` (
     name_status VARCHAR(50)
 );
 INSERT INTO status (name_status) VALUES 
-('Ordered'),
-('Shipped'),
+('Waiting for progressing'),
+('Processed'),
 ('Delivered');
 CREATE TABLE `order` (
     order_id INT PRIMARY KEY AUTO_INCREMENT,
