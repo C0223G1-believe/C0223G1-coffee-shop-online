@@ -56,6 +56,25 @@ public class OrderRepostiory implements IOrderRepository {
         }
         return orders;
     }
+
+    @Override
+    public List<StatusOrder> displayStatus() {
+        Connection connection = baseRepository.getConnection();
+        List<StatusOrder> statusList = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM status ;");
+            while(resultSet.next()){
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name_status");
+                statusList.add(new StatusOrder(id,name));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return statusList;
+    }
+
     @Override
     public List<DetailOrder> findById(int id) {
         Connection connection = baseRepository.getConnection();

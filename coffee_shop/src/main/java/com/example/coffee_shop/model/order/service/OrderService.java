@@ -2,6 +2,7 @@ package com.example.coffee_shop.model.order.service;
 
 import com.example.coffee_shop.model.order.model.DetailOrder;
 import com.example.coffee_shop.model.order.model.Order;
+import com.example.coffee_shop.model.order.model.StatusOrder;
 import com.example.coffee_shop.model.order.repository.IOrderRepository;
 import com.example.coffee_shop.model.order.repository.OrderRepostiory;
 
@@ -12,6 +13,11 @@ public class OrderService implements IOrderService {
     @Override
     public List<Order> displayOrder() {
         return orderRepository.displayOrder() ;
+    }
+
+    @Override
+    public List<StatusOrder> displayStatus() {
+        return orderRepository.displayStatus();
     }
 
     @Override
