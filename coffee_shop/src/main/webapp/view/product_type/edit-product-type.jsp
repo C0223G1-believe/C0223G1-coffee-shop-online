@@ -50,11 +50,11 @@
             <br>
             <tr>
                 <td><label>Product Type Id: </label></td>
-                <td><input style="border-radius: 10px" name="id" value="${id}" readonly></td>
+                <td><input style="border-radius: 10px; border: none" name="id" value="${id}" readonly></td>
             </tr>
             <tr>
                 <td><label>Type Product Name: </label></td>
-                <td><input style="border-radius: 10px" name="name" value="${name}"/></td>
+                <td><input style="border-radius: 10px; border: none" name="name" value="${name}"/></td>
             </tr>
 
             <tr>

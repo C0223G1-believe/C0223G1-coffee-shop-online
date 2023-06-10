@@ -13,28 +13,27 @@
     <link rel="stylesheet" href="/library/bootstrap520/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/library/datatables/css/dataTables.bootstrap5.min.css"/>
     <style>
-        #success{
+        /* Styling for the toast message */
+        #toastMessage {
+            background-color: #c0c031;
+            color: #132c88;
+            padding: 15px;
+            border-radius: 30px;
             position: fixed;
-            right: 1em;
-        }
-        .son{
-            contain: layout ;
-            display: flex;
-            align-items: center;
-            background-color: wheat;
-            border-radius: 12px;
-            padding-bottom: 25px;
-            min-width: 10em;
-            max-width: 17em;
-            max-height: 5rem;
-            box-shadow: 0 5px 8px rgba(36, 245, 10, 0.08);
-            animation: slideInRight ease 2s, fadeOut linear 1s 2s forwards;
+            top: 100px;
+            right: 0px;
+            font-weight: bold;
+            z-index: 1;
+            display: none;
+            border-left: 0;
+            animation: slideInRight ease 0.5s, fadeOut linear 2s 5s forwards;
             transition: all linear 0.3s;
         }
+
         @keyframes slideInRight {
             from{
                 opacity: 0;
-                transform: translateX(calc(100% + 1em) );
+                transform: translateX(calc(100%+3em) );
             }
             to{
                 opacity: 1;
@@ -55,18 +54,16 @@
     if (user != null && user.getRole().getId() == 1) {
 %>
 <c:if test="${show != null}">
-    <div id="success">
-        <span class="son" style="margin-top: 4em;float: right; color: black; background-color: #12d53e">${show}</span>
-    </div>
+    <div id="toastMessage" class="toast"></div>
 </c:if>
 
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
-    <h1 style="margin-top:3em; margin-bottom: 0.8em">List Order</h1>
-    <form style="color: white; " action="/Order?action=search" method="post">
-        <input type="useName" name="email" placeholder="Enter User Name">
-        <input type="text" name="status" placeholder="Enter Status">
-        <button class="rounded-3 bg-primary border-0" style="color: white" type="submit">Search</button>
+    <h1 style="margin-top:3em; margin-bottom: 0.8em; text-align: center">List Order</h1>
+    <form style="color: white; float: left; margin-left: 20px" action="/Order?action=search" method="post">
+        <input type="useName" name="email" placeholder="Enter User Name" style="padding: 6px;border-radius: 20px;border: none">
+        <input type="text" name="status" placeholder="Enter Status" style="padding: 6px;border-radius: 20px;border: none">
+        <button style="color: white;padding: 6px;background-color: #c0c031;border-radius: 20px;border: none" type="submit">Search</button>
     </form>
     <table id="tableOrder" style="color: white" class="table table-striped col-lg-11">
         <thead>
@@ -150,11 +147,21 @@
     }
 </script>
 <script>
-    setTimeout(function () {
-        document.getElementById("success").style.display = "none";
-        const main = document.getElementById("success");
+    // Function to show the toast message
+    function showToast(message) {
+        var toast = document.getElementById("toastMessage");
+        toast.style.display = "block";
+        toast.innerText = message;
 
-    }, 3000);
+        setTimeout(function () {
+            toast.style.display = "none";
+        }, 1000); // Hide the toast message after 3 seconds
+    }
+
+    // Automatically show the toast message when the page is reloaded
+    window.addEventListener('load', function () {
+        showToast("${show}");
+    });
 </script>
 <%
 } else {%>

@@ -15,11 +15,11 @@
     <title>Cao-C0123G1</title>
     <link rel="stylesheet" href="/library/bootstrap520/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/library/datatables/css/dataTables.bootstrap5.min.css"/>
-<%--    toast--%>
+    <%--    toast--%>
     <style>
         /* Styling for the toast message */
         #toastMessage {
-            background-color: #4eef04;
+            background-color: #c0c031;
             color: #132c88;
             padding: 15px;
             border-radius: 30px;
@@ -29,6 +29,25 @@
             font-weight: bold;
             z-index: 1;
             display: none;
+            animation: slideInRight ease 0.5s, fadeOut linear 2s 5s forwards;
+            transition: all linear 0.3s;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(calc(100% + 3em));
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+            }
         }
     </style>
 </head>
@@ -39,17 +58,20 @@
 %>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
-    <%--    Search--%><h1 STYLE="margin-top:3em;text-align: center" >List Product Type</h1>
+    <%--    Search--%><h1 STYLE="margin-top:3em;text-align: center">List Product Type</h1>
 
-        <a style="justify-content:start" class="btn btn-primary" href="productType?action=create" role="button">Create
-            Product Type</a>
-
-        <form style="color: white; margin-top:auto;margin-left:52em;justify-content: end ;display: inline-flex"
+    <div style="display: flex; justify-content: space-between">
+        <form style="color: white;margin-left: 20px"
               action="/productType?action=search" method="post">
-            <input type="name" name="name" placeholder="Enter Name Product">
-            <button style="color: white" class="rounded-3 bg-primary" type="submit">Search</button>
+            <input type="name" name="name" placeholder="Enter Name Product" style="padding: 6px;border-radius: 20px;border: none">
+            <button style="color: white;padding: 6px;background-color: #c0c031;border-radius: 20px; border: none" class="rounded-3"
+                    type="submit">Search
+            </button>
         </form>
-
+        <a style="margin-right: 20px; margin-bottom: 16px ;padding: 6px;background-color: #c0c031;border-radius: 20px" class="btn" href="productType?action=create"
+           role="button">Create Product Type
+        </a>
+    </div>
 
 
     <%--    Crate--%>
@@ -83,29 +105,20 @@
                         Delete
                     </button>
                 </td>
-                    <%--                <td>--%>
-                    <%--                    <a href="/productType?action=edit&id=${productType.productTypeId}&name=${productType.productTypeName}">Edit</a>--%>
-                    <%--                    <a href="/productType?action=delete&id=${productType.productTypeId}">Delete</a>--%>
-                    <%--                </td>--%>
             </tr>
         </c:forEach>
         </tbody>
     </table>
-<%--        hien thi toast--%>
-        <div id="toastMessage" class="toast"></div>
+    <%--        hien thi toast--%>
+    <div id="toastMessage" class="toast"></div>
 </div>
 
-<%--<script>--%>
-<%--    setTimeout(function displaySuccess() {--%>
-<%--        document.getElementById("success").style.display = "none";--%>
-<%--    },1000)--%>
-<%--</script>--%>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Warning:  This action you can't undo</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Warning: This action you can't undo</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -147,8 +160,8 @@
 </script>
 <%--toast--%>
 <%
-String success = String.valueOf(request.getAttribute("success"));
-if (success.equals("success")){
+    String success = String.valueOf(request.getAttribute("success"));
+    if (success.equals("success")) {
 %>
 <script>
     // Function to show the toast message
@@ -176,21 +189,4 @@ if (success.equals("success")){
 %>
 </body>
 </html>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Title</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-</head>
-<body>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-</body>
-</html>
