@@ -64,7 +64,7 @@
     <form style="color: white; margin-left: 20px" action="/Order?action=search" method="post">
         <div class="row d-inline-block me-2">
             <select name="status" style="padding: 6px;border-radius: 20px;border: none">
-                <option>Choose Status</option>
+                <option value="">Choose Status</option>
                 <c:forEach items="${listStatus}" var="listStatus">
                     <option value="${listStatus.nameStatus}"><c:out value="${listStatus.nameStatus}"/></option>
                 </c:forEach>
