@@ -58,7 +58,7 @@
 %>
 <c:import url="/navbar-admin.jsp"></c:import>
 <div class="container">
-    <%--    Search--%><h1 STYLE="margin-top:3em;text-align: center">List Product Type</h1>
+    <%--    Search--%><h1 style="margin-top:3em;text-align: center">List Product Type</h1>
 
     <div style="display: flex; justify-content: space-between">
         <form style="color: white;margin-left: 20px"

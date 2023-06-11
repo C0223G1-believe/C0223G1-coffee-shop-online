@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="/library/datatables/css/dataTables.bootstrap5.min.css"/>
     <style>
         .toast {
-            background-color: #4eef04;
+            background-color: #bbc031;
             color: #132c88;
             padding: 15px;
             border-radius: 30px;
