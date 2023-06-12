@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="datatables/css/dataTables.bootstrap5.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
    </head>
-<body>
+<body class="bg-secondary">
 <%
     User user = (User) session.getAttribute("user");
     if (user != null && user.getRole().getId() == 1) {
@@ -28,7 +28,7 @@
         message = "";
     }
 %>
-<section class="vh-100" style="background-color: #562f2f;">
+<section class="vh-100">
     <div class="container-fluid h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-8 col-xl-9">

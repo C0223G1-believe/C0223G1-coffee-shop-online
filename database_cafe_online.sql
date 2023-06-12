@@ -78,7 +78,15 @@ INSERT INTO product(product_name,product_price,product_description,product_image
 ('Cappuccino',20,'Arabica coffee and fresh milk','images/machine_coffee/cappuccino.jpg',2),
 ('Tomato Juice',17,'Fresh tomato and sugar','images/juice/nuoc-ep-ca-chua.jpg',4),
 ('Orange Juice',17,'Orange and sugar','images/juice/nuoc-ep-cam.jpg',4),
-('Pineapple Juice',17,'Pineapple and sugar','images/juice/nuoc-ep-thom.jpg',4);
+('Pineapple Juice',17,'Pineapple and sugar','images/juice/nuoc-ep-thom.jpg',4),
+('Americano',10,'Coffee and water','https://product.hstatic.net/1000075078/product/1633143905_ameriacano-tet_fefce64d959844169068442bd1ffb10e.jpg',2),
+('Caramel Macchiato',12,'Coffee and caramel','https://globalassets.starbucks.com/assets/58db701349cb48738069e8c912e2b3ac.jpg?impolicy=1by1_wide_topcrop_630',2),
+('Espresso',10,'Coffee','https://www.acouplecooks.com/wp-content/uploads/2021/08/How-to-make-espresso-009s.jpg',2),
+('Dalgona Coffee',7,'Coffee and Milk Form','https://plantbasedfolk.com/wp-content/uploads/2020/04/How-To-Make-Dalgona-Coffee-Whipped-Coffee-Recipe-Plant-Based-Folk.jpg',1),
+('Coconut Coffee',9,'Coconut and coffee','https://product.hstatic.net/1000391513/product/img_3498_aec299d267ba47d68215bfa564ad5c1d_master.jpg',1),
+('London fog tea',15,'Earl grey tea','https://www.pinchmeimeating.com/wp-content/uploads/2021/10/London-fog-05-2.jpg',3),
+('White Coffe',9,'Coffee and milk','https://cdn.tgdd.vn/2021/03/content/Bac-xiu-la-gi-nguon-goc-va-cach-lam-bac-xiu-thom-ngon-don-gian-tai-nha-5-800x529.jpg',1),
+('Black Currant Tea',19,'Black currant and Tea','https://img.tastydalat.com.vn/crop/368x368/2022/06/15/a9703540b54675182c57-0d82.jpg',3);
 CREATE TABLE `status` (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name_status VARCHAR(50)
