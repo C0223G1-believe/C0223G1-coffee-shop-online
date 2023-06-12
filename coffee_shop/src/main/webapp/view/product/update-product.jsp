@@ -16,13 +16,13 @@
     <link rel="stylesheet" href="bootstrap520/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="datatables/css/dataTables.bootstrap5.min.css"/>
 </head>
-<body>
+<body class="bg-secondary">
 <%
     User user = (User) session.getAttribute("user");
     if (user != null && user.getRole().getId() == 1) {
 %>
 
-<section class="vh-100" style="background-color: black;">
+<section class="vh-100" >
     <div class="container-fluid h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-12 col-xl-11">
@@ -78,8 +78,13 @@
                                                 <option value="4">Juice</option>
                                             </select>
                                         </div>
-                                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                            <input name="image" type="file" id="myFile" accept="image/*" required>
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fa-solid fa-image fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input name="image" type="text" id="myImage"
+                                                       class="form-control" value="${image}" required/>
+                                                <label class="form-label" for="myImage">Image</label>
+                                            </div>
                                         </div>
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                             <button type="submit" class="btn btn-primary btn-lg">Submit</button>
@@ -88,11 +93,6 @@
                                             <a class="btn btn-outline-primary" href="/product">Back</a>
                                         </div>
                                     </form>
-                                </div>
-                                <%--                            Chọn ảnh--%>
-                                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                                    <img style="width: 90% ; height: 600px" src="#" class="img-fluid" alt="Preview"
-                                         id="previewImage">
                                 </div>
                             </div>
                         </div>

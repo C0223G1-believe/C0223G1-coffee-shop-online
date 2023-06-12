@@ -91,7 +91,7 @@
                     <li><a href="#coffee">Menu</a></li>
                     <li><a href="#review">Review</a></li>
                     <li><a href="#blog">Blog</a></li>
-                    <li><a href="https://bocongan.gov.vn/">Page</a></li>
+                    <li><a href="https://standartmag.com/">Page</a></li>
                     <li>
                         <div>
                             <%
@@ -100,14 +100,15 @@
                             %>
                             <a href="/view/login-signUp/login.jsp" style="color: #c0c031; font-weight: bold">SIGN IN</a>
                             <%
-                            } else if (user.getRole().getId()==1){%>
-                            <a href="/User"><span style="color: #c0c031; font-weight: bold"><%=user.getUserName()%></span></a>
+                            } else if (user.getRole().getId() == 1) {%>
+                            <a href="/User"><span
+                                    style="color: #c0c031; font-weight: bold"><%=user.getUserName()%></span></a>
                             <a href="/LogOutServlet" style="color: #c0c031">log out</a>
                             <%
-                                }else {%>
+                            } else {%>
                             <span style="color: #c0c031; font-weight: bold"><%=user.getUserName()%></span>
                             <a href="/LogOutServlet" style="color: #c0c031">log out</a>
-                        <% }
+                            <% }
                             %>
                         </div>
                     </li>
@@ -146,10 +147,6 @@
     <div class="container">
         <div class="row justify-content-start align-items-center">
             <div class="col-lg-6 video-right justify-content-center align-items-center d-flex">
-                <div class="overlay overlay-bg"></div>
-                <a class="play-btn" href="https://www.youtube.com/watch?v=ARA0AxrnHdM"><img class="img-fluid"
-                                                                                            src="img/play-icon.png"
-                                                                                            alt=""></a>
             </div>
             <div class="col-lg-6 video-left">
                 <h6>Live Coffee making process.</h6>
@@ -175,9 +172,15 @@
                     <h1 class="mb-10">What kind of Coffee we serve for you</h1>
                     <p>Who are in extremely love with eco friendly system.</p>
                 </div>
+                <select onchange="location = this.value;" style="position: relative; left: -90px">
+                    <option value="/process?action=back">Menu</option>
+                    <c:forEach items="${typeProductList}" var="typeProduct">
+                        <option value="/ShowListByTypeServlet?typeId=${typeProduct.productTypeId}">${typeProduct.productTypeName}</option>
+                    </c:forEach>
+                    <option value="/process?action=back">all</option>
+                </select>
             </div>
         </div>
-
         <div class="row">
             <c:forEach items="${productList}" var="product">
                 <div class="col-3">
@@ -188,7 +191,7 @@
                             <h3 class="card-title">$${product.productPrice}</h3>
                             <p class="card-text">${product.productDescription}</p>
                             <a style="background: #493434"
-                               href="/BuyProdutServlet?id=${product.productID}&num=1&toast=s" class="btn btn-primary">Add
+                               href="/BuyProdutServlet?id=${product.productID}&num=1" class="btn btn-primary">Add
                                 Card</a>
                         </div>
                     </div>
@@ -256,37 +259,38 @@
             <div class="col-lg-6 col-md-6 single-review">
                 <img src="img/r1.png" alt="">
                 <div class="title d-flex flex-row">
-                    <h4>lorem ipusm</h4>
+                    <h4>Lina</h4>
                     <div class="star">
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
                     </div>
                 </div>
                 <p>
-                    Accessories Here you can find the best computer accessory for your laptop, monitor, printer,
-                    scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer,
-                    scanner, speaker.
+                    This coffee is simply superb! Its exquisite taste and aroma are truly outstanding. Each sip is a
+                    delightful experience, leaving me craving for more. The smoothness and richness make it a true
+                    pleasure to indulge in. Hats off to the makers for creating such a remarkable coffee!
                 </p>
             </div>
             <div class="col-lg-6 col-md-6 single-review">
                 <img src="img/r2.png" alt="">
                 <div class="title d-flex flex-row">
-                    <h4>lorem ipusm</h4>
+                    <h4>David</h4>
                     <div class="star">
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star "></span>
+
                     </div>
                 </div>
                 <p>
-                    Accessories Here you can find the best computer accessory for your laptop, monitor, printer,
-                    scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer,
-                    scanner, speaker.
+                    The coffee is outstanding, with a delightful flavor and aroma that captivates. Each sip is a
+                    blissful experience, with a smooth and velvety texture. It's a true masterpiece, crafted with
+                    passion. I'm in awe of this exceptional coffee. Kudos to the creators for their remarkable creation!
                 </p>
             </div>
         </div>
@@ -312,10 +316,13 @@
                     <li><a href="#">Travel</a></li>
                     <li><a href="#">Life Style</a></li>
                 </ul>
-                <a href="#"><h4>Portable latest Fashion for young women</h4></a>
+                <a href="#"><h4>Exploring the World of Coffee: A Journey into Flavor and Culture</h4></a>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore.
+                    Coffee, a beloved beverage enjoyed by millions around the globe, holds a special place in our daily
+                    routines and social gatherings. From the moment we wake up to the late afternoon pick-me-up, coffee
+                    accompanies us through our busy lives. In this blog, we embark on a journey to uncover the
+                    fascinating world of coffee, exploring its diverse flavors, origins, brewing methods, and the rich
+                    cultural traditions that surround it.
                 </p>
                 <p class="post-date">
                     31st January, 2018
@@ -327,10 +334,13 @@
                     <li><a href="#">Travel</a></li>
                     <li><a href="#">Life Style</a></li>
                 </ul>
-                <a href="#"><h4>Portable latest Fashion for young women</h4></a>
+                <a href="#"><h4>Exploring the World of Coffee: A Journey into Flavor and Culture</h4></a>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore.
+                    Coffee, a beloved beverage enjoyed by millions around the globe, holds a special place in our daily
+                    routines and social gatherings. From the moment we wake up to the late afternoon pick-me-up, coffee
+                    accompanies us through our busy lives. In this blog, we embark on a journey to uncover the
+                    fascinating world of coffee, exploring its diverse flavors, origins, brewing methods, and the rich
+                    cultural traditions that surround it.
                 </p>
                 <p class="post-date">
                     31st January, 2018
@@ -424,10 +434,3 @@
 </html>
 
 
-<script>
-
-    <%--<button type="button" onclick="addCart(${product.productID})"></button>--%>
-    <%--function addCart(${id}) {--%>
-    <%--<% productService.getProductById(${id})%>--%>
-    }
-</script>

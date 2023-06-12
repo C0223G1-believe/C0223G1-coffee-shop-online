@@ -59,7 +59,7 @@
     <div class="container">
         <div class=" align-items-center justify-content-between d-flex">
             <div id="logo">
-                <a href="https://media-cdn.tripadvisor.com/media/photo-s/0c/5c/d1/ae/cafe-vu-ng-c-hinh-nh.jpg"><img src="img/logo.png" alt=" nhom 1" title=" " /></a>
+                <a href="/process?action=back"><img src="img/logo.png" alt=" nhom 1" title=" " /></a>
             </div>
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">

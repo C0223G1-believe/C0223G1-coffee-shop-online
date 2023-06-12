@@ -5,6 +5,8 @@ import com.example.coffee_shop.model.cart.model.Item;
 import com.example.coffee_shop.model.cart.service.OderService;
 import com.example.coffee_shop.model.product.model.Product;
 import com.example.coffee_shop.model.product.service.ProductService;
+import com.example.coffee_shop.model.product_type.model.ProductType;
+import com.example.coffee_shop.model.product_type.service.ProductTypeService;
 import com.example.coffee_shop.model.user.model.User;
 
 import javax.servlet.*;
@@ -17,6 +19,7 @@ import java.util.List;
 public class ProcessServlet extends HttpServlet {
     OderService oderService = new OderService();
     ProductService productService = new ProductService();
+    ProductTypeService productTypeService = new ProductTypeService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -49,6 +52,8 @@ public class ProcessServlet extends HttpServlet {
     private void backHome(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Product> productList = productService.productList();
         request.setAttribute("productList", productList);
+        List<ProductType> typeProductList = productTypeService.displayListProductType();
+        request.setAttribute("typeProductList",typeProductList);
         request.getRequestDispatcher("/home.jsp").forward(request, response);
     }
 

@@ -3,6 +3,8 @@ package com.example.coffee_shop.controler.user.controler;
 import com.example.coffee_shop.model.product.model.Product;
 import com.example.coffee_shop.model.product.service.IProductService;
 import com.example.coffee_shop.model.product.service.ProductService;
+import com.example.coffee_shop.model.product_type.model.ProductType;
+import com.example.coffee_shop.model.product_type.service.ProductTypeService;
 import com.example.coffee_shop.model.user.model.User;
 import com.example.coffee_shop.model.user.service.user_service.IUserService;
 import com.example.coffee_shop.model.user.service.user_service.UserServiceImpl;
@@ -17,6 +19,8 @@ import java.util.List;
 public class SignInServlet extends HttpServlet {
     private IUserService userService = new UserServiceImpl();
     private IProductService productService = new ProductService();
+    ProductTypeService productTypeService = new ProductTypeService();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -37,6 +41,8 @@ public class SignInServlet extends HttpServlet {
                 //cus
                 List<Product> productList = productService.productList();
                 request.setAttribute("productList" , productList);
+                List<ProductType> typeProductList = productTypeService.displayListProductType();
+                request.setAttribute("typeProductList",typeProductList);
                 request.getRequestDispatcher("/home.jsp").forward(request,response);
 
             }

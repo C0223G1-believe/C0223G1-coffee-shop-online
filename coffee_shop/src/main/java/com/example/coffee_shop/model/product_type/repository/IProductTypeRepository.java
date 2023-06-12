@@ -14,6 +14,9 @@ public interface IProductTypeRepository {
     void deleteProductType(int id);
 
     ProductType getProductTypeByName(String name);
+
     List<ProductType>SearchProductTypeByName(String name);
+
+
 
 }

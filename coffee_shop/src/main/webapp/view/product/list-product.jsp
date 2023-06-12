@@ -75,7 +75,7 @@
                 <td style="color: white"><c:out value="${product.typeProduct.name}"/></td>
                 <td>
                     <a class="text-decoration-none"
-                       href="/product?action=update&id=${product.productID}&name=${product.productName}&price=${product.productPrice}&description=${product.productDescription}&type=${product.typeProduct.name}">
+                       href="/product?action=update&id=${product.productID}&name=${product.productName}&price=${product.productPrice}&description=${product.productDescription}&type=${product.typeProduct.name}&image=${product.productImage}">
                         <button type="button" class=" btn btn-warning text-white bg-warning rounded-3">
                             Edit
                         </button>
